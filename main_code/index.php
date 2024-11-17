@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffey</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="/fontawesome/css/font-awesome.min.css">
-    <script src="/js/bootstrap.bundle.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-dark sticky-top">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="col-5 img-fluid mt-3 pt-5">
-                <img class="g-kopi" src="/Source/1.png" alt="Gambar Kopi">
+                <img class="g-kopi" src="../Source/1.png" alt="Gambar Kopi">
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
         <div class="front-contain">
             <div class="d-flex flex-row justify-content-evenly align-items-center pt-5 frontmenu">
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="/Source/5.png" alt="Kopi-4" class="img-fluid">
+                    <img src="../Source/5.png" alt="Kopi-4" class="img-fluid">
                     <h6 class="mt-3 text-center">Kopi-4</h6>
                     <h5 class="text-center">Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="/Source/3.png" alt="">
+                    <img src="../Source/3.png" alt="">
                     <h6 class="mt-3">Kopi-2</h6>
                     <h5>Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="/Source/5.png" alt="">
+                    <img src="../Source/5.png" alt="">
                     <h6 class="mt-3">Kopi-3</h6>
                     <h5>Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="/Source/5.png" alt="">
+                    <img src="../Source/5.png" alt="">
                     <h6 class="mt-3">Kopi-4</h6>
                     <h5>Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
@@ -129,7 +129,7 @@
                     </div>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="/Source/5.png" alt="">
+                    <img src="../Source/5.png" alt="">
                     <h6 class="mt-3">Kopi-5</h6>
                     <h5>Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
@@ -143,7 +143,7 @@
                     </div>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="/Source/5.png" alt="">
+                    <img src="../Source/5.png" alt="">
                     <h6 class="mt-3">Kopi-6</h6>
                     <h5>Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">

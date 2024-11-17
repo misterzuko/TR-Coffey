@@ -1,0 +1,58 @@
+body{
+    background-color: black;
+}
+.Brand{
+    font-family:cursive; 
+    color:tan;
+}
+.cari{
+    color: white;
+}
+.front{
+    margin-top: 100px;
+}
+.front-contain{
+    background-color: #FFC107; 
+    height: 350px;
+    border-radius: 15px;
+}
+.frontmenu div{
+    width: 170px; 
+    height: 260px;
+    border-radius: 17px;
+}
+.frontmenu div img{
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%;
+}
+.g-kopi{
+    width: 500px; 
+    padding-right: 60px; 
+    height: 270px;
+}
+.profile{
+    border-radius: 25px;
+}
+.b-beli{
+    background-color: tomato; 
+    width: 8rem; 
+    height: 3rem;
+}
+.frontlook h1, h2, p{
+    font-family: 'Montserrat', sans-serif;
+}
+.frontlook h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+}
+.btn-icon{
+    all: unset; 
+    cursor: pointer; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.tambah-barang{
+    border: 1px rgb(204, 194, 194) solid;
+}
