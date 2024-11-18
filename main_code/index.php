@@ -10,7 +10,7 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
         <div class="container-fluid w-75 mt-3">
             <a class="navbar-brand fs-6 fw-bold Brand" href="#">
                 <i class="fa fa-coffee fa-2x" aria-hidden="true"></i>
@@ -31,12 +31,6 @@
                         <a class="nav-link text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Location
                         </a>
-                        <!-- <ul class="dropdown-menu text-light">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul> -->
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -159,5 +153,19 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.remove('navbar-transparent');
+                    navbar.classList.add('navbar-solid');
+                } else {
+                    navbar.classList.remove('navbar-solid');
+                    navbar.classList.add('navbar-transparent');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
