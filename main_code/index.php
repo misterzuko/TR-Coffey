@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="col-5 img-fluid mt-3 pt-5">
-                <img class="g-kopi" src="../Source/1.png" alt="Gambar Kopi">
+                <img class="g-kopi" src="../src/1.png" alt="Gambar Kopi">
             </div>
         </div>
     </div>
@@ -67,7 +67,7 @@
         <div class="front-contain">
             <div class="d-flex flex-row justify-content-evenly align-items-center pt-5 frontmenu">
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../Source/5.png" alt="Kopi-4" class="img-fluid">
+                    <img src="../src/5.png" alt="Kopi-4" class="img-fluid">
                     <h6 class="mt-3 text-center">Kopi-4</h6>
                     <h5 class="text-center">Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../Source/3.png" alt="">
+                    <img src="../src/3.png" alt="">
                     <h6 class="mt-3">Kopi-2</h6>
                     <h5>Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../Source/5.png" alt="">
+                    <img src="../src/5.png" alt="">
                     <h6 class="mt-3">Kopi-3</h6>
                     <h5>Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../Source/5.png" alt="">
+                    <img src="../src/5.png" alt="">
                     <h6 class="mt-3">Kopi-4</h6>
                     <h5>Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
@@ -123,7 +123,7 @@
                     </div>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../Source/5.png" alt="">
+                    <img src="../src/5.png" alt="">
                     <h6 class="mt-3">Kopi-5</h6>
                     <h5>Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../Source/5.png" alt="">
+                    <img src="../src/5.png" alt="">
                     <h6 class="mt-3">Kopi-6</h6>
                     <h5>Rp 5M</h5>
                     <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
