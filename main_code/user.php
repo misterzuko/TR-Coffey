@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffey</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
         <div class="container-fluid w-75 mt-3">
-            <a class="navbar-brand fs-6 fw-bold Brand" href="#">
-                <i class="fa fa-coffee fa-2x" aria-hidden="true"></i>
-                CoffeinAja
+            <a class="navbar-brand fs-6 fw-bold Brand row" href="#">
+                <i class="fa fa-coffee fa-2x col-3" aria-hidden="true"></i>
+                <p class="col-9 pt-2">CoffeinAja</p>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,7 +52,7 @@
         <div class="row">
             <div class="col-7 mt-5 pt-5 frontlook">
                 <h2 class="mx-5 px-5">Salatiga</h2>
-                <h1 class="mx-5 px-5">Coffe Nomerouno</h1>
+                <h1 class="mx-5 px-5">Coffe Numerouno</h1>
                 <p class="mx-5 px-5 pt-2">Coffe no kafein ril no vake cuy. Harus Beli, Wajib!</p>
                 <div class="mx-5 px-1">
                     <button class="btn fw-bold rounded-pill mx-5 b-beli">Rp 5.000.000</button>
@@ -153,19 +153,6 @@
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 50) {
-                    navbar.classList.remove('navbar-transparent');
-                    navbar.classList.add('navbar-solid');
-                } else {
-                    navbar.classList.remove('navbar-solid');
-                    navbar.classList.add('navbar-transparent');
-                }
-            });
-        });
-    </script>
+    <script src="../js/user.js"></script>
 </body>
 </html>

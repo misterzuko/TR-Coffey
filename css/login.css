@@ -1,8 +1,8 @@
 body {
-    background-color: whitesmoke;
+    background-color: black;
 }
 .Brand{
-    font-family:cursive; 
+    font-family: 'Courier New'; 
     color:tan;
 }
 .containt{
@@ -10,8 +10,12 @@ body {
     height: 50vh;
     margin-top: 25vh;
     border-radius: 18px;
+    color: white;
 }
 .form-container {
     max-width: 350px;
     width: 100%;
+}
+.descript{
+    font-family: 'Optima';
 }
