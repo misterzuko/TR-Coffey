@@ -1,6 +1,5 @@
 <?php
     session_start();
-    // echo $_SESSION['credential']['username']." ".$_SESSION['credential']['email'];
     $username = $_SESSION['credential']['username'];
 ?>
 <!DOCTYPE html>
@@ -8,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffey</title>
+    <title>CoffeinAja</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
@@ -59,7 +58,7 @@
             <div class="col-7 mt-5 pt-5 frontlook">
                 <h2 class="mx-5 px-5">Salatiga</h2>
                 <h1 class="mx-5 px-5">Coffe Numerouno</h1>
-                <p class="mx-5 px-5 pt-2">Coffe no kafein ril no vake cuy. Harus Beli, Wajib!</p>
+                <p class="mx-5 px-5 pt-2">Kopi no kafein ril no vake cuy. Ngerusak lambung, Harus Beli, Wajib!</p>
                 <div class="mx-5 px-1">
                     <button class="btn fw-bold rounded-pill mx-5 b-beli">Rp 5.000.000</button>
                 </div>

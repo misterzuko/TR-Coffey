@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <script>
-        <?php   
-        if(isset($_GET['errorlog'])){
-        ?>  
-        alert("Password atau akun yang anda masukan salah, tolong coba lagi!");
         <?php
+        session_start();
+        if(isset($_SESSION['dahada'])){
+        ?>  
+        alert("Akun yang anda masukan sudah terdaftar, mohon masukan email yang berbeda!");
+        <?php
+        session_destroy();
         }
         ?>
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login User</title>
+    <title>CoffeinAja: masuk atau daftar</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/signup.css">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
-
 <body>
     <div class="container">
         <div class="d-flex flex-column justify-content-center align-items-center brandlog">
@@ -30,10 +30,10 @@
                 </a>
             </div>
         </div>
-        <div class="container border border-4 d-flex justify-content-center align-items-center containt">
+        <div class="container d-flex justify-content-center align-items-center containt">
             <form class="form-container" action="process.php" method="POST">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
                     <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com">
                 </div>
                 <div class="mb-3">
@@ -43,36 +43,22 @@
                 <div class="mb-3">
                     <label for="inputPassword6" class="form-label">Password</label>
                     <div class="input-group">
-                        <input type="password" id="inputPassword6" class="form-control border-secondary" name="pw" aria-describedby="passwordHelpInline">
-                        <button type="button" class="btn border border-light bg-secondary" id="togglePassword">
+                        <input type="password" id="inputPassword6" class="form-control border-light" name="pw" aria-describedby="passwordHelpInline">
+                        <button type="button" class="btn border border-light b-eye" id="togglePassword">
                             <i class="fa fa-eye-slash" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
                 <div class="mt-4 text-center">
-                    <button type="submit" class="btn btn-success w-100 fw-bold fs-5">Create</button>
+                    <button type="submit" class="btn btn-primary text-light w-50 fw-bold fs-5" name="register">Daftar</button>
                 </div>
                 <h5 class="text-center mt-3">atau</h5>
                 <div class="text-center">
-                    <a href="login.php" class="link-opacity-75-hover link-underline link-underline-opacity-0">Sudah punya akun cuy? pencet saya</a>
+                    <a href="login.php" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover fs-5">Punya akun?</a>
                 </div>
             </form>
         </div>
     </div>
-    <script>
-        document.getElementById('togglePassword').addEventListener('click', function() {
-            const passwordInput = document.getElementById('inputPassword6');
-            const icon = this.querySelector('i');
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            } else {
-                passwordInput.type = 'password';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            }
-        });
-    </script>
+    <script src="../js/signup.js"></script>
 </body>
 </html>

@@ -1,21 +1,53 @@
 body {
-    background-color: black;
+    background-color: #202223;
 }
 .Brand{
     font-family: 'Courier New'; 
-    color:tan;
+    color:#C6A56D;
 }
 .containt{
     width: 40%;
     height: 50vh;
     margin-top: 25vh;
-    border-radius: 18px;
+    border-radius: 12px;
     color: white;
+    border: 1px solid #C6A56D;
+    background-color: #181a1b;
 }
 .form-container {
     max-width: 350px;
     width: 100%;
 }
 .descript{
-    font-family: 'Optima';
+    color: #F5DEB3;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.brandlog{
+    margin-left: 2rem;
+    margin-top: 27vh;
+    height: 50vh;
+}
+.garis{
+    height: 1px;
+    background-color: gray;
+}
+.b-eye{
+    background-color: white;
+}
+.b-eye:hover, .b-eye i:hover{
+    background-color: gray;
+}
+#exampleFormControlInput1, #username, #inputPassword6{
+    background-color: #181a1b;
+}
+#exampleFormControlInput1::placeholder, #inputPassword6::placeholder{
+    color: gray;
+    opacity: 1;
+}
+#exampleFormControlInput1:focus, #inputPassword6:focus{
+    background-color: #333333;
+    color: #FFFFFF;
+}
+#exampleFormControlInput1:not(:placeholder-shown), #inputPassword6:not(:placeholder-shown){
+    color: #FFFFFF;
 }
