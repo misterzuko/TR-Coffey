@@ -8,6 +8,10 @@
         ?>  
         alert("Password atau akun yang anda masukan salah, tolong coba lagi!");
         <?php
+        } elseif(isset($_GET['regdon'])){
+        ?>
+        alert("Akun berhasil dibuat!");
+        <?php
         }
         ?>
     </script>
