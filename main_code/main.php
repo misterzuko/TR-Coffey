@@ -25,7 +25,7 @@
                         <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item px-5">
-                        <a class="nav-link text-light" href="#">Menu</a>
+                        <a href ="index.php" class="nav-link text-light"  href="menuf.php">Menu</a>   
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
