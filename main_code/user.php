@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    // echo $_SESSION['credential']['username']." ".$_SESSION['credential']['email'];
+    $username = $_SESSION['credential']['username'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +48,7 @@
                         <button class="profile">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </button>
+                        <?php echo $username; ?>
                     </a>
                 </div>
             </div>
