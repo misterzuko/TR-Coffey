@@ -1,0 +1,17 @@
+body {
+    background-color: whitesmoke;
+}
+.Brand{
+    font-family:cursive; 
+    color:tan;
+}
+.containt{
+    width: 40%;
+    height: 50vh;
+    margin-top: 25vh;
+    border-radius: 18px;
+}
+.form-container {
+    max-width: 350px;
+    width: 100%;
+}
