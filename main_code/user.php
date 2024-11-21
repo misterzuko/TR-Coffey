@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffey</title>
-    <link href="../css/style.css" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
         <div class="container-fluid w-75 mt-3">
-            <a class="navbar-brand fs-6 fw-bold Brand row" href="#">
+            <a class="navbar-brand fs-6 fw-bold Brand row" href="user.php">
                 <i class="fa fa-coffee fa-2x col-3" aria-hidden="true"></i>
                 <p class="col-9 pt-2">CoffeinAja</p>
             </a>

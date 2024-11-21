@@ -65,15 +65,3 @@ body{
     background-color: #000;
     transition: background-color 0.3s ease;
 }
-.navbar-brand:hover {
-    color: #ffffff;
-    text-decoration: none;
-}
-.Brand:hover .fa-coffee {
-    color: #ffcc00;
-}
-.b-beli:hover {
-    background-color: #ffcc00;
-    color: #000000;
-    border: 2px solid #ffcc00; 
-}
