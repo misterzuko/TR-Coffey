@@ -31,7 +31,7 @@
             $email = $_POST['email'];
             $username = $_POST['username'];
             $password = $_POST['pw'];
-            $query = "INSERT INTO tb_akun(email,username,password) VALUES ('$email','$username','$password')";
+            $query = "INSERT INTO `tb_akun` (`email`, `username`, `password`) VALUES ('$email', '$username', '$password');";
             echo "Register berhasil bjir";
             } catch(Exception $e){
                 echo "error".$e;
