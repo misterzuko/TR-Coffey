@@ -4,9 +4,9 @@
 <head>
     <script>
         <?php   
-        if(isset($_GET['errorlog'])){
+        if(isset($_GET['regfail'])){
         ?>  
-        alert("Password atau akun yang anda masukan salah, tolong coba lagi!");
+        alert("Akun yang anda masukan sudah terdaftar, mohon masukan email yang berbeda!");
         <?php
         }
         ?>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="mt-4 text-center">
-                    <button type="submit" class="btn btn-success w-100 fw-bold fs-5">Create</button>
+                    <button type="submit" class="btn btn-success w-100 fw-bold fs-5" name="register">Create</button>
                 </div>
                 <h5 class="text-center mt-3">atau</h5>
                 <div class="text-center">
