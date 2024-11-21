@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    echo $_SESSION['credential']['username']." ".$_SESSION['credential']['email'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
