@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <script>
-        <?php   
-        if(isset($_GET['regfail'])){
+        <?php
+        session_start();
+        if(isset($_SESSION['dahada'])){
         ?>  
         alert("Akun yang anda masukan sudah terdaftar, mohon masukan email yang berbeda!");
         <?php
+        session_destroy();
         }
         ?>
     </script>
@@ -74,5 +75,6 @@
             }
         });
     </script>
+    
 </body>
 </html>

@@ -2,19 +2,25 @@
 <html lang="en">
 
 <head>
-    <script>
-        <?php   
-        if(isset($_GET['errorlog'])){
-        ?>  
-        alert("Password atau akun yang anda masukan salah, tolong coba lagi!");
-        <?php
-        } elseif(isset($_GET['regdon'])){
+    <?php
+    session_start();
+    if(isset($_SESSION['gagal'])){
         ?>
-        alert("Akun berhasil dibuat!");
+        <script>
+            alert("EMAIL ATAU PASSWORD YANG ANDA MASUKAN SALAH!");
+        </script>
         <?php
+        session_destroy();
+        }
+    if(isset($_SESSION['berhasil'])){
+        ?>
+        <script>
+            alert("Akun berhasil dibuat!");
+        </script>
+        <?php
+        session_destroy();
         }
         ?>
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login User</title>

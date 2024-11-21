@@ -1,6 +1,7 @@
 <?php
     include 'connect.php';
-        if(isset($_POST['login'])){
+    session_start();
+        if(isset($_POST['login'])){   
             try{
             $email = $_POST['email'];
             $password = $_POST['pw'];
@@ -13,14 +14,13 @@
                 } else {
                 $query = "SELECT email,username FROM tb_akun WHERE email='$email' AND password='$password'";
                 $sql = mysqli_query($conn,$query);
-                session_start();
                 $result = mysqli_fetch_assoc($sql);
                 $_SESSION['credential']=$result;
                 header('location: user.php');
-                session_destroy();
                 }
             } else {
-                header('location: login.php?errorlog');
+                $_SESSION['gagal']="ADA";
+                header('location: login.php');
             }
             }
             catch(Exception $e){
@@ -35,10 +35,12 @@
             $query = "INSERT INTO `tb_akun` (`email`, `username`, `password`) VALUES ('$email', '$username', '$password');";
             $sql = mysqli_query($conn,$query);
             if($sql){
-                header('location: login.php?regdon');
+                $_SESSION['berhasil']="ADA";
+                header('location: login.php');
             }
             } catch(mysqli_sql_exception $e){
-                header('location: signup.php?regfail');
+                $_SESSION['dahada']="ADA";
+                header('location: signup.php');
             }
         }
 ?>
