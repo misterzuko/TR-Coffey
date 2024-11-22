@@ -59,37 +59,37 @@
         <div class="front-contain">
             <div class="d-flex flex-row justify-content-evenly align-items-center pt-5 frontmenu">
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/1.png" alt="Kopi-4" class="img-fluid">
+                    <img src="../src/1.png" alt="Kopi-1">
                     <h6 class="mt-3 text-center">Coffea Arabica</h6>
                     <p class="text-center">Start From harga-x</p>
                     <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/2.png" alt="">
+                    <img src="../src/2.png" alt="Kopi-2">
                     <h6 class="mt-3">Robusta</h6>
                     <p class="text-center">Start From harga-x</p>
                     <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/3.png" alt="">
+                    <img src="../src/3.png" alt="Kopi-3">
                     <h6 class="mt-3">Liberika</h6>
                     <p class="text-center">Start From harga-x</p>
                     <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/4.png" alt="">
+                    <img src="../src/4.png" alt="Kopi-4">
                     <h6 class="mt-3">Kopi Luwak</h6>
                     <p class="text-center">Start From harga-x</p>
                     <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/5.png" alt="">
+                    <img src="../src/5.png" alt="Kopi-5">
                     <h6 class="mt-3">Kopi Tubruk</h6>
                     <p class="text-center">Start From harga-x</p>
                     <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
                 </div>
                 <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/6.png" alt="">
+                    <img src="../src/6.png" alt="Kopi-6">
                     <h6 class="mt-3">Macchiato</h6>
                     <p class="text-center">Start From harga-x</p>
                     <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>

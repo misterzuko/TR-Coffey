@@ -85,37 +85,20 @@ $username = $_SESSION['credential']['username'];
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 row g-3">
-                                <div class="col-md-3 d-flex align-items-center justify-content-end">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            <p class="fw-bold">Hot</p>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 d-flex align-items-center justify-content-center">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            <p class="fw-bold">Ice</p>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 d-flex align-items-center justify-content-center">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            <p class="fw-bold">Ice</p>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 d-flex align-items-center justify-content-center">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            <p class="fw-bold">Ice</p>
-                                        </label>
+                            <div class="col-md-12 row g-3 d-flex align-items-center justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="col-md-6">
+                                        <label for="validationCustom04" class="form-label fw-bold">Topping</label>
+                                        <select class="form-select" id="validationCustom04" required>
+                                            <option selected disabled value=""></option>
+                                            <option>topping-1</option>
+                                            <option>topping-2</option>
+                                            <option>topping-3</option>
+                                            <option>topping-4</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select a valid state.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -126,17 +109,7 @@ $username = $_SESSION['credential']['username'];
                                     Please provide a valid city.
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <label for="validationCustom04" class="form-label">State</label>
-                                <select class="form-select" id="validationCustom04" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option>...</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid state.
-                                </div>
-                            </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <label for="validationCustom05" class="form-label">Zip</label>
                                 <input type="text" class="form-control" id="validationCustom05" required>
                                 <div class="invalid-feedback">
