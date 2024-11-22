@@ -63,10 +63,9 @@ body{
 }
 .navbar-transparent {
     background-color: rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s ease;
+    transition: 0.3s ease;
 }
-
 .navbar-solid {
     background-color: #000;
-    transition: background-color 0.3s ease;
+    transition: 0.3s ease;
 }
