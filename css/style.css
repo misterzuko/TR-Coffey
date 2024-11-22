@@ -39,6 +39,11 @@ body{
     width: 9rem; 
     height: 3rem;
 }
+.Brand:hover{
+    transition: ease-in-out;
+    transition-delay: 200ms;
+    color: rgb(255, 194, 7);
+}
 .frontlook h1, h2, p{
     font-family: 'Montserrat', sans-serif;
 }

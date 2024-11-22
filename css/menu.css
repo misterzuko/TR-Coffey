@@ -13,3 +13,8 @@ body{
     font-family: Courier; 
     color:tan;
 }
+.Brand:hover{
+    transition: ease-in-out;
+    transition-delay: 200ms;
+    color: rgb(255, 194, 7);
+}
