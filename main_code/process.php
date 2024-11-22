@@ -16,8 +16,17 @@
                 $sql = mysqli_query($conn,$query);
                 $result = mysqli_fetch_assoc($sql);
                 $_SESSION['credential']=$result;
-                header('location: user.php');
+                for($i=1;$i<7;$i++){
+                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i'";
+                    $sql = mysqli_query($conn,$query);
+                    $result = mysqli_fetch_assoc($sql);
+                    $_SESSION['data-kopi'][$i]=$result;
                 }
+                // for ($i=1; $i < 7; $i++) { 
+                //     echo $_SESSION['data-kopi'][$i]['nama_barang']."<br>";
+                // }
+                header('location: user.php');
+                } 
             } else {
                 $_SESSION['gagal']="ADA";
                 header('location: login.php');
