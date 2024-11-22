@@ -12,13 +12,13 @@ body{
     margin-top: 100px;
 }
 .front-contain{
-    background-color: #FFC107; 
-    height: 350px;
+    background-color: rgb(255, 193, 7); 
+    height: 48vh;
     border-radius: 15px;
 }
 .frontmenu div{
-    width: 170px; 
-    height: 260px;
+    width: 190px; 
+    height: 290px;
     border-radius: 17px;
 }
 .frontmenu div img{
@@ -36,11 +36,16 @@ body{
 }
 .b-beli{
     background-color: tomato; 
-    width: 8rem; 
+    width: 9rem; 
     height: 3rem;
 }
 .frontlook h1, h2, p{
     font-family: 'Montserrat', sans-serif;
+}
+.Brand:hover{
+    transition: ease-in-out;
+    transition-delay: 200ms;
+    color: rgb(255, 194, 7);
 }
 .frontlook h1{
     font-family: 'Montserrat', sans-serif;
