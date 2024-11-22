@@ -7,10 +7,9 @@
 <body>
 <div class="container">
     <?php
-    include "koneksi.php"; // Menghubungkan ke database
+    include "koneksi.php"; 
 
-    function input($data) {
-        $data = trim($data);
+    function input($data) {        $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
@@ -21,7 +20,6 @@
         $harga_barang = input($_POST["harga_barang"]);
         $stok_barang = input($_POST["stok_barang"]);
 
-        // Query untuk menambahkan data ke database
         $sql = "INSERT INTO tb_barang (nama_barang, harga_barang, stok_barang) VALUES ('$nama_barang', '$harga_barang', '$stok_barang')";
         $hasil = mysqli_query($kon, $sql);
 
@@ -36,17 +34,19 @@
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
             <label>Nama Menu</label>
-            <input type="text" name="nama_barang" class="form-control" placeholder="Masukkan nama menu" required>
+            <input type="text" name="nama_barang" class="form-control" placeholder="Masukkan menu" required>
         </div>
         <div class="form-group">
             <label>Harga</label>
-            <input type="number" name="harga_barang" class="form-control" placeholder="Masukkan harga" required>
+            <input type="number" name="harga_barang" class="form-control" placeholder="Contoh: 10.000" required>
         </div>
         <div class="form-group">
             <label>Jumlah Stok</label>
             <input type="number" name="stok_barang" class="form-control" placeholder="Masukkan stok" required>
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
+        <a href="index.php" class="btn btn-danger">Kembali</button>
+
     </form>
 </div>
 </body>

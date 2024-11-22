@@ -2,9 +2,9 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <title>Daftar Menu Coffe</title>
-<link rel="stylesheet" href="pesanan.css">
 <a class="navbar-brand fs-6 fw-bold Brand" href="#">
                 <i class="fa fa-coffee" aria-hidden="true"></i></i>
                 CoffeinAja
@@ -12,7 +12,7 @@
 <body> 
 <div class="container">
     <br>
-    <h4 class="text-center">Daftar Menu</h4>
+    <h4 class="text-center">DAFTAR MENU</h4>
     <?php
     include "koneksi.php";
 
@@ -29,8 +29,7 @@
         }
     }
     ?>
-    <table class="table table-bordered">
-        
+    <table class="table table-bordered">  
         <thead>
         <tr>
             <th>No</th>
@@ -60,9 +59,9 @@
         ?>
         </tbody>
     </table><div class="container">
-    <a href="pemesanan.php" class="btn btn-success my-2">Menu Pemesanan</a>
-    <a href="daftar_transaksi.php" class="btn btn-info my-2">Daftar Transaksi</a>
-    <a href="create.php" class="btn btn-primary">Tambah Menu</a>
+    <a href="pemesanan.php" class="btn btn-success my-2">Pesanan</a>
+    <a href="daftar_transaksi.php" class="btn btn-primary">Riwayat transaksi</a>
+    <a href="create.php" class="btn btn-success my-2">Tambah Menu</a>
 </div>
 </div>
 </body>

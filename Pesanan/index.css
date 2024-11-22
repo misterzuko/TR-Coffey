@@ -21,7 +21,6 @@ body {
     transition: background-color 0.3s ease;
 }
 
-
 .container {
     background-color: #1d1d1d; 
     border-radius: 10px;
@@ -36,15 +35,15 @@ h2, h4 {
 .table {
     background-color: #333;
     border-radius: 8px;
-    border-color: #FFC107
+    border-color: #FFff
 }
 
 .table th, .table td {
-    color: #fff; 
-    border-color: #FFC107;
+    color: #f9c74f; 
+    border-color: #ffff;
 }
 
-.btn-primary, .btn-info, .btn-success, .btn-danger, .btn-warning {
+ .btn-info, .btn-success, .btn-danger, .btn-warning {
     background-color: #FFC107; 
     border: none;
     font-weight: bold;
@@ -54,7 +53,7 @@ h2, h4 {
     background-color: #f94144; 
 }
 
-.btn-primary:active, .btn-info:active, .btn-success:active, .btn-danger:active, .btn-warning:active {
+ .btn-info:active, .btn-success:active, .btn-danger:active, .btn-warning:active {
     background-color: #90be6d; 
 }
 
