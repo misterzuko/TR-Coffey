@@ -1,6 +1,6 @@
 <?php
-session_start();
-$username = $_SESSION['credential']['username'];
+    session_start();
+    $username = $_SESSION['credential']['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,49 +86,55 @@ $username = $_SESSION['credential']['username'];
                                 </div>
                             </div>
                             <div class="col-md-12 row g-3 d-flex align-items-center justify-content-center">
-                                <div class="col-md-6">
-                                    <div class="col-md-6">
-                                        <label for="validationCustom04" class="form-label fw-bold">Topping</label>
-                                        <select class="form-select" id="validationCustom04" required>
-                                            <option selected disabled value=""></option>
-                                            <option>topping-1</option>
-                                            <option>topping-2</option>
-                                            <option>topping-3</option>
-                                            <option>topping-4</option>
+                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                    <div class="container">
+                                        <label for="validationCustom04" class="form-label fw-bold">Pilih Topping</label>
+                                        <select class="form-select w-50" id="validationCustom04" required>
+                                            <option selected value="">Topping-1</option>
+                                            <option>Topping-2</option>
+                                            <option>Topping-3</option>
+                                            <option>Topping-4</option>
                                         </select>
-                                        <div class="invalid-feedback">
-                                            Please select a valid state.
-                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex align-items-center justify-content-start">
+                                    <div class="container">
+                                        <label for="validationCustom03" class="form-label fw-bold">Jumlah Topping</label>
+                                        <input type="number" class="form-control w-50" id="validationCustom03" required>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="validationCustom03" class="form-label">City</label>
-                                <input type="text" class="form-control" id="validationCustom03" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid city.
+                            <div class="col-md-12 row g-3">
+                                <div class="col-md-4 d-flex align-items-center justify-content-end">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            <p class="fw-bold">Reguler</p>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="validationCustom05" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="validationCustom05" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid zip.
+                                <div class="col-md-4 d-flex align-items-center justify-content-center">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            <p class="fw-bold">Medium</p>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                    <label class="form-check-label" for="invalidCheck">
-                                        Agree to terms and conditions
-                                    </label>
-                                    <div class="invalid-feedback">
-                                        You must agree before submitting.
+                                <div class="col-md-4 d-flex align-items-center justify-content-start">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            <p class="fw-bold">Large</p>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
+                                <p id="harga" class="fw-bold">Harga: Rp </p>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-success fw-bold fs-5 w-25" type="submit">Beli</button>
                             </div>
                         </form>
                     </td>
