@@ -57,14 +57,14 @@
     </div>
     <div class="container mb-5 front" id="menu">
         <div class="front-contain">
-            <div class="d-flex flex-row justify-content-evenly align-items-center pt-5 frontmenu">
+            <div class="d-flex flex-row flex-wrap justify-content-evenly align-items-center pt-5 frontmenu">
                 <?php
-                    for($i=1;$i<count($_SESSION['data-kopi'])-3;$i++){
+                    for($i=1;$i<count($_SESSION['data-kopi'])+1;$i++){
                 ?>
-                <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/<?php echo $i?>.png" alt="Kopi" class="img-fluid">
-                    <h6 class="mt-3 text-center">Coffee <?php echo $_SESSION['data-kopi'][$i]['nama_barang'];?></h6>
-                    <p class="text-center">Start From harga-<?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
+                <div class="bg-light d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm">
+                    <img src="../src/<?php echo $i+1?>.png" alt="Kopi" class="img-fluid">
+                    <h6 class="mt-3 text-center"><?php echo $_SESSION['data-kopi'][$i]['nama_barang'];?></h6>
+                    <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
                     <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5" value="<?php $_SESSION['data-kopi'][$i]['nama_barang'];?>">Pesan</button></a>
                 </div>
                 <?php
