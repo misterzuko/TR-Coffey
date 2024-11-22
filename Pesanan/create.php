@@ -45,7 +45,8 @@
             <input type="number" name="stok_barang" class="form-control" placeholder="Masukkan stok" required>
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
-        <a href="index.php" class="btn btn-danger">Kembali</button>
+        <a href="index.php" class="btn btn-danger">
+                Kembali</a>
 
     </form>
 </div>

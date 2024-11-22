@@ -66,7 +66,7 @@
             <input type="number" name="jumlah_pesanan" class="form-control" placeholder="Masukkan jumlah pesanan" required>
         </div>
         <button type="submit" class="btn btn-primary">Pesan</button>
-        <a href="index.php"button type="submit" class="btn btn-danger">Back</abutton>
+        <a href="index.php"button type="submit" class="btn btn-danger">Back</a>
     </form>
 </div>
 </body>
