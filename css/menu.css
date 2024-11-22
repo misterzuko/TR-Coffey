@@ -1,0 +1,15 @@
+body{
+    background-color: black;
+}
+.img-menu{
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%;
+}
+.card-menu{
+    background-color: rgb(226, 227, 229);
+}
+.Brand{
+    font-family: Courier; 
+    color:tan;
+}

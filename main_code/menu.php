@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/menu.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
@@ -41,7 +41,7 @@
         </div>
     </nav>
     <div class="container mt-5 d-flex justify-content-center align-items-center">
-        <table class="table table-secondary w-50">
+        <table class="table table-secondary w-75">
         <thead>
             <tr>
                 <th scope="col">Menu</th>
@@ -52,11 +52,10 @@
         <tbody>
             <tr>
                 <td>
-                    <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
+                    <div class="d-flex flex-column align-items-center justify-content-center p-4 card-menu">
                         <img src="../src/5.png" alt="Kopi-4" class="img-fluid img-menu">
                         <h6 class="mt-3 text-center">Coffea Arabica</h6>
                         <p class="text-center">Start From harga-x</p>
-                        <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
                     </div>
                 </td>
                 <td>Otto</td>
