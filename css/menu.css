@@ -9,3 +9,12 @@ body{
 .card-menu{
     background-color: rgb(226, 227, 229);
 }
+.Brand{
+    font-family: Courier; 
+    color:tan;
+}
+.Brand:hover{
+    transition: ease-in-out;
+    transition-delay: 200ms;
+    color: rgb(255, 194, 7);
+}
