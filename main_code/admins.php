@@ -71,7 +71,7 @@ include "connect.php";
         </table>
 
         <div class="d-flex justify-content-end">
-            <a href="create.php" class="btn btn-primary mt-3">Tambah Menu</a>
+            <a href="createadmin.php" class="btn btn-primary mt-3">Tambah Menu</a>
         </div>
     </div>
 </body>
