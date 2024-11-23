@@ -18,11 +18,11 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
         <div class="container-fluid w-75 mt-3">
             <a class="navbar-brand fs-6 fw-bold Brand row" href="user.php">
                 <i class="fa fa-coffee fa-2x col-3" aria-hidden="true"></i>
-                <p class="col-9 pt-2">CoffeinAja</p>
+                <p class="col-9 pt-2"><span>kopi</span>inaja</p>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,21 +44,13 @@
             </div>
         </div>
     </nav>
-    <div class="container text-light mt-3">
-        <div class="row">
-            <div class="col-7 mt-5 pt-5 frontlook">
-                <h2 class="mx-5 px-5">Salatiga</h2>
-                <h1 class="mx-5 px-5">Coffe Numerouno</h1>
-                <p class="mx-5 px-5 pt-2">Kopi no kafein ril no vake cuy. Ngerusak lambung, Harus Beli, Wajib!</p>
-                <div class="mx-5 px-1">
-                    <a href="#menu"><button class="btn fw-bold rounded-pill mx-5 b-beli">Pesan Sekarang</button></a>
-                </div>
-            </div>
-            <div class="col-5 img-fluid mt-3 pt-5">
-                <img class="g-kopi" src="../src/background.png" alt="Gambar Kopi">
-            </div>
-        </div>
-    </div>
+    <section class="hero">
+        <main class="content">
+            <h1 class="">Mulai Harimu dengan Secangkir <span>Kopi</span></h1>
+            <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <a href="#menu" class="cta">Pesan Sekarang</a>
+        </main>
+    </section>
     <div class="container mb-5 front" id="menu">
         <div class="front-contain">
             <div class="d-flex flex-row flex-wrap justify-content-evenly align-items-center pt-5 frontmenu">
