@@ -1,112 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoffeinAja</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
+<title>Daftar Menu Coffe</title>
+<body> 
+    <h3 class="mt-2">Dashboard Admin</h3>
+    <a class="btn btn-logout" href="">Logout</a>  
+    <a class="navbar-brand fs-6 fw-bold Brand" href="#">
+        <i class="fa fa-coffee coffee-icon" aria-hidden="true"></i>
+        CoffeinAja
+    </a>  
+<div class="container">
+    <br>
+    <h4 class="text-center">DAFTAR MENU</h4>
+    <?php
+    include "connect.php";
+    if (isset($_GET['id_barang'])) {
+        $id_barang = htmlspecialchars($_GET["id_barang"]);
 
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <h3 class="mt-2">Dashboard Admin</h3>
-            <a class="btn btn-logout" href="">Logout</a>
-        </div>
-    </nav>
-    <!--Tambah Data-->
-    <?php ?>
-    <div class="tambah">
-        <div class="container-lg d-flex flex-column align-items-center my-3 main">
-            <h3>Tambah Menu</h3>
-            <div class="upload-container container">
-                <form action="admins.php" method="post" class="container d-flex flex-column mt-3">
-                    <div class="d-flex flex-column input">
-                        <label class="mb-2" for="title">Nama Produk :</label>
-                        <input type="text" name="title" id="title" placeholder="Masukan Nama Produk">
-                    </div>
-                    <div class="d-flex flex-column mt-3 input">
-                        <label class="mb-2" for="title">Insert Gambar :</label>
-                        <input type="file" name="file" id="file">
-                    </div>
-                    <div class="d-flex flex-column mt-3 input">
-                        <label class="mb-2" for="harga">Harga :</label>
-                        <input type="number" name="harga" id="harga" placeholder="Masukan Harga">
-                    </div>
-                    <div class="upload mt-3">
-                        <input type="submit" value="Upload">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <?php ?>
-    <!--Edit Data-->
-    <?php ?>
-    <div class="edit">
-        <div class="container-lg d-flex flex-column align-items-center my-3 main">
-            <h3>Edit Menu</h3>
-            <div class="upload-container container">
-                <form action="admins.php" method="post" class="container d-flex flex-column mt-3">
-                    <div class="d-flex flex-column input">
-                        <label class="mb-2" for="title">Nama Produk :</label>
-                        <input type="text" name="title" id="title" placeholder="Masukan Nama Produk">
-                    </div>
-                    <div class="d-flex flex-column mt-3 input">
-                        <label class="mb-2" for="title">Insert Gambar :</label>
-                        <input type="file" name="file" id="file">
-                    </div>
-                    <div class="d-flex flex-column mt-3 input">
-                        <label class="mb-2" for="harga">Harga :</label>
-                        <input type="number" name="harga" id="harga" placeholder="Masukan Harga">
-                    </div>
-                    <div class="upload mt-3">
-                        <input type="submit" value="Upload">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <?php ?>
-
-    <div class="d-flex my-4 data">
-        <div class="container">
-            <h3>Data</h3>
-            <hr>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="">ID</th>
-                        <th class="">Nama Produk</th>
-                        <th class="">Gambar</th>
-                        <th class="">Harga</th>
-                        <th class="">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><?= $row['id'] ?></td>
-                        <td><?= $row['nama'] ?></td>
-                        <td><?= $row['gambar'] ?></td>
-                        <td><?= $row['harga'] ?></td>
-                        <td><a href="admins?edit=1"><img src=""></a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>3fs</td>
-                        <td>fesfe</td>
-                        <td>fes</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
+        $sql = "DELETE FROM tb_barang WHERE id_barang = '$id_barang'";
+        $hasil = mysqli_query($kon, $sql);
+        if ($hasil) {
+            header("Location:index.php");
+        } else {
+            echo "<div class='alert alert-danger'>Data gagal dihapus.</div>";
+        }
+    }
+    ?>
+    <table class="table table-bordered">  
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama Menu</th>
+            <th>Harga</th>
+            <th>Stok</th>
+            <th>Aksi</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        $sql = "SELECT * FROM tb_barang ORDER BY id_barang DESC";
+        $hasil = mysqli_query($kon, $sql);
+        $no = 1;
+        while ($data = mysqli_fetch_assoc($hasil)) {
+            echo "<tr>";
+            echo "<td>" . $no++ . "</td>";
+            echo "<td>" . $data['nama_barang'] . "</td>";
+            echo "<td>" . $data['harga_barang'] . "</td>";
+            echo "<td>" . $data['stok_barang'] . "</td>";
+            echo "<td><a href='index.php?id_barang=".$data[id_barang]."'Hapus</a></td>";
+            echo "<td><a href='index.php?id_barang=".$data[id_barang]."'Edit</a></td>";
+            echo "</tr>";
+        }
+        ?>
+        </tbody>
+    </table><div class="container">
+</div>
+</div>
 </body>
-
 </html>
