@@ -1,5 +1,9 @@
+:root{
+    --primary: #b6895b;
+    --bg: #010101;
+}
 body {
-    background-color: #202223;
+    background-color: var(--bg);
 }
 .Brand{
     font-family: 'Courier New'; 
