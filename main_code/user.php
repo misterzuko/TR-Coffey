@@ -8,6 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoffeinAja</title>
+    <link rel="stylesheet" href="styles.css?v=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
@@ -25,7 +29,7 @@
             </button>
             <div class="collapse navbar-collapse mx-5 px-3" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
-                    <li class="nav-item">
+                    <li class="nav-item pb-2">
                         <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
                     </li>
                 </ul>
@@ -51,61 +55,28 @@
                 </div>
             </div>
             <div class="col-5 img-fluid mt-3 pt-5">
-                <img class="g-kopi" src="../src/1.png" alt="Gambar Kopi">
+                <img class="g-kopi" src="../src/background.png" alt="Gambar Kopi">
             </div>
         </div>
     </div>
     <div class="container mb-5 front" id="menu">
         <div class="front-contain">
-            <div class="d-flex flex-row justify-content-evenly align-items-center pt-5 frontmenu">
-                <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/5.png" alt="Kopi-4" class="img-fluid">
-                    <h6 class="mt-3 text-center">Coffea Arabica</h6>
-                    <p class="text-center">Start From harga-x</p>
-                    <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
+            <div class="d-flex flex-row flex-wrap justify-content-evenly align-items-center pt-5 frontmenu">
+                <?php
+                    for($i=1;$i<count($_SESSION['data-kopi'])+1;$i++){
+                ?>
+                <div class="bg-light d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm">
+                    <img src="../src/<?php echo $i?>.png" alt="Kopi" class="img-fluid">
+                    <h6 class="mt-3 text-center"><?php echo $_SESSION['data-kopi'][$i]['nama_barang'];?></h6>
+                    <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
+                    <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5" value="<?php $_SESSION['data-kopi'][$i]['nama_barang'];?>">Pesan</button></a>
                 </div>
-                <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/3.png" alt="">
-                    <h6 class="mt-3">Robusta</h6>
-                    <p class="text-center">Start From harga-x</p>
-                    <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
-                </div>
-                <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/5.png" alt="">
-                    <h6 class="mt-3">Liberika</h6>
-                    <p class="text-center">Start From harga-x</p>
-                    <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
-                </div>
-                <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/5.png" alt="">
-                    <h6 class="mt-3">Kopi Luwak</h6>
-                    <p class="text-center">Start From harga-x</p>
-                    <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
-                </div>
-                <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/5.png" alt="">
-                    <h6 class="mt-3">Kopi Tubruk</h6>
-                    <p class="text-center">Start From harga-x</p>
-                    <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
-                </div>
-                <div class="bg-light d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/5.png" alt="">
-                    <h6 class="mt-3">Macchiato</h6>
-                    <p class="text-center">Start From harga-x</p>
-                    <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5">Pesan</button></a>
-                </div>
+                <?php
+                    }
+                ?>
             </div>
         </div>
     </div>
     <script src="../js/user.js"></script>
 </body>
 </html>
-<!-- <div class="d-flex align-items-center justify-content-center mt-2 w-75 tambah-barang">
-<button class="btn-icon">
-<i class="fa fa-minus-circle fs-4 me-3 cursor-pointer" aria-hidden="true"></i>
-</button>
-<p class="mb-0">0</p>
-<button class="btn-icon">
-<i class="fa fa-plus-circle text-primary fs-4 ms-3 cursor-pointer" aria-hidden="true"></i>
-</button>
-</div> -->

@@ -1,8 +1,12 @@
+:root{
+    --primary: #b6895b;
+    --bg: #010101;
+}
 body {
-    background-color: #202223;
+    background-color: var(--bg);
 }
 .Brand{
-    font-family: 'Courier New'; 
+    font-family: 'Poppins', sans-serif; 
     color:#C6A56D;
 }
 .containt{

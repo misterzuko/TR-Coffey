@@ -16,14 +16,30 @@
                 $sql = mysqli_query($conn,$query);
                 $result = mysqli_fetch_assoc($sql);
                 $_SESSION['credential']=$result;
-                header('location: user.php');
+                for($i=1;$i<7;$i++){
+                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i'";
+                    $sql = mysqli_query($conn,$query);
+                    $result = mysqli_fetch_assoc($sql);
+                    $_SESSION['data-kopi'][$i]=$result;
                 }
+                header('location: user.php');
+                } 
             } else {
                 $_SESSION['gagal']="ADA";
                 header('location: login.php');
             }
             }
             catch(Exception $e){
+                echo "error".$e;
+            }
+        } elseif (isset($_POST['register'])) {
+            try{
+            $email = $_POST['email'];
+            $username = $_POST['username'];
+            $password = $_POST['pw'];
+            $query = "INSERT INTO `tb_akun` (`email`, `username`, `password`) VALUES ('$email', '$username', '$password');";
+            echo "Register berhasil bjir";
+            } catch(Exception $e){
                 echo "error".$e;
             }
         }
