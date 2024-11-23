@@ -52,7 +52,7 @@
         </main>
     </section>
     <div class="container mb-5 front" id="menu">
-        <div class="front-contain">
+        <div class="front-contain text-dark">
             <div class="d-flex flex-row flex-wrap justify-content-evenly align-items-center pt-5 frontmenu">
                 <?php
                     for($i=1;$i<count($_SESSION['data-kopi'])+1;$i++){

@@ -22,6 +22,9 @@
                     $result = mysqli_fetch_assoc($sql);
                     $_SESSION['data-kopi'][$i]=$result;
                 }
+                // for ($i=1; $i < 7; $i++) { 
+                //     echo $_SESSION['data-kopi'][$i]['nama_barang']."<br>";
+                // }
                 header('location: user.php');
                 } 
             } else {
