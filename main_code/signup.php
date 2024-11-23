@@ -15,6 +15,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoffeinAja: masuk atau daftar</title>
+    <link rel="stylesheet" href="styles.css?v=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/signup.css">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
@@ -22,11 +26,11 @@
 </head>
 <body>
     <div class="container">
-        <div class="d-flex flex-column justify-content-center align-items-center brandlog">
+        <div class="d-flex flex-column justify-content-center align-items-center mb-3 brandlog">
             <div class="brand text-center">
                 <a class="navbar-brand Brand" href="#">
                     <i class="fa fa-coffee fa-5x mb-2" aria-hidden="true"></i>
-                    <p class="fs-1 fw-bold m-0">CoffeinAja</p>
+                    <p class="fs-1 fw-bold m-0"><span>kopi</span>inaja</p>
                 </a>
             </div>
         </div>

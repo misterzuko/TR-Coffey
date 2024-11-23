@@ -20,17 +20,14 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
         <div class="container-fluid w-75 mt-3">
-            <a class="navbar-brand fs-6 fw-bold Brand row" href="user.php">
+            <a class="navbar-brand fw-bold Brand row" href="user.php">
                 <i class="fa fa-coffee fa-2x col-3" aria-hidden="true"></i>
                 <p class="col-9 pt-2"><span>kopi</span>inaja</p>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse mx-5 px-3" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
-                    <li class="nav-item pb-2">
-                        <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a aria-current="page" href="#">Home</a>
                     </li>
                 </ul>
                 <div class="ms-5">
@@ -51,19 +48,21 @@
             <a href="#menu" class="cta">Pesan Sekarang</a>
         </main>
     </section>
-    <div class="container mb-5 text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu">
-        <?php
-            for ($i = 1; $i < count($_SESSION['data-kopi']); $i++) {
-        ?>
-        <div class="d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
-            <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
-            <h6 class="mt-3 text-center"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
-            <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
-            <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5" value="<?php $_SESSION['data-kopi'][$i]['nama_barang']; ?>">Pesan</button></a>
+    <div class="container bungkus d-flex justify-content-center align-items-center">
+        <div class="container mb-5 text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu" id="menu">
+            <?php
+                for ($i = 1; $i < count($_SESSION['data-kopi'])-1; $i++) {
+            ?>
+            <div class="d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
+                <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
+                <h6 class="mt-3 text-center"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
+                <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
+                <a href="menu.php" class=""><button class="btn fw-bold rounded-pill mx-5" value="<?php $_SESSION['data-kopi'][$i]['nama_barang']; ?>">Pesan</button></a>
+            </div>
+            <?php
+                }
+            ?>
         </div>
-        <?php
-            }
-        ?>
     </div>
     <script src="../js/user.js"></script>
 </body>

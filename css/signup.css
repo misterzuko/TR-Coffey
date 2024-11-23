@@ -1,9 +1,27 @@
+:root{
+    --primary: #b6895b;
+    --bg: #010101;
+}
 body {
-    background-color: #202223;
+    background-color: var(--bg);
+    font-family: 'Poppins', sans-serif; 
 }
 .Brand{
-    font-family: 'Courier New'; 
-    color:tan;
+    transition: all 400ms ease-in-out;
+}
+.Brand i{
+    color: var(--primary);
+}
+.Brand p{
+    color: #ffd;
+}
+.Brand p span{
+    color: var(--primary);
+}
+.Brand:hover {
+    transition: ease-in-out;
+    filter: brightness(1.2);
+    transform: scale(1.1);
 }
 .containt{
     width: 40%;
@@ -17,17 +35,14 @@ body {
     max-width: 350px;
     width: 100%;
 }
-.descript{
-    font-family: 'Optima';
-}
 .brandlog{
     margin-top: 10vh;
 }
 .b-eye{
-    background-color: white;
+    color: #fff;
 }
-.b-eye:hover, .b-eye i:hover{
-    background-color: gray;
+.b-eye:hover{
+    color: var(--primary);
 }
 #exampleFormControlInput1, #username, #inputPassword6{
     background-color: #181a1b;

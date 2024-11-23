@@ -7,11 +7,21 @@ body {
     font-family: 'Poppins', sans-serif; 
 }
 .Brand{
-    color: #906b47;
+    transition: all 400ms ease-in-out;
 }
-.Brand:hover{
-    color:#C6A56D;
-    transition: 300ms;
+.Brand i{
+    color: var(--primary);
+}
+.Brand p{
+    color: #ffd;
+}
+.Brand p span{
+    color: var(--primary);
+}
+.Brand:hover {
+    transition: ease-in-out;
+    filter: brightness(1.2);
+    transform: scale(1.1);
 }
 .containt{
     width: 40%;
@@ -39,10 +49,10 @@ body {
     background-color: gray;
 }
 .b-eye{
-    background-color: white;
+    color: #fff;
 }
-.b-eye:hover, .b-eye i:hover{
-    background-color: gray;
+.b-eye:hover{
+    color: var(--primary);
 }
 #exampleFormControlInput1, #username, #inputPassword6{
     background-color: #181a1b;

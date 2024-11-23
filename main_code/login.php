@@ -38,7 +38,7 @@
             <div class="brand text-center">
                 <a class="navbar-brand Brand" href="#">
                     <i class="fa fa-coffee fa-5x mb-0" aria-hidden="true"></i>
-                    <p class="fs-1 fw-bold m-0"><span>Coffe</span>inAja</p>
+                    <p class="fs-1 fw-bold m-0"><span>kopi</span>inaja</p>
                 </a>
             </div>
             <div class="descript mt-3">
@@ -57,21 +57,19 @@
                     <label for="inputPassword6" class="form-label">Password</label>
                     <div class="input-group">
                         <input type="password" id="inputPassword6" class="form-control border-light" name="pw" aria-describedby="passwordHelpInline">
-                        <button type="button" class="btn b-eye" id="togglePassword">
+                        <button type="button" class="btn border border-light b-eye" id="togglePassword">
                             <i class="fa fa-eye-slash" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
-                <div class="text-center">
+                <div class="mt-4 text-center">
                     <button type="submit" name="login" class="btn btn-primary w-100 fw-bold fs-5">Masuk</button>
                 </div>
                 <div class="container d-flex justify-content-center align-items-center garis w-100 mt-4 mb-4">
                     <p></p>
                 </div>
                 <div class="text-center">
-                    <a href="signup.php">
-                        <button type="button" class="btn btn-success w-50 fw-bold fs-5">Buat akun</button>
-                    </a>
+                    <a href="signup.php" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover fs-5">Buat akun</a>
                 </div>
             </form>
         </div>
