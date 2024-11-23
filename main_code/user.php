@@ -14,7 +14,7 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-transparent">
         <div class="container-fluid w-75 mt-3">
             <a class="navbar-brand fs-6 fw-bold Brand row" href="user.php">
                 <i class="fa fa-coffee fa-2x col-3" aria-hidden="true"></i>
@@ -46,8 +46,8 @@
                 <h2 class="mx-5 px-5">Salatiga</h2>
                 <h1 class="mx-5 px-5">Coffe Numerouno</h1>
                 <p class="mx-5 px-5 pt-2">Kopi no kafein ril no vake cuy. Ngerusak lambung, Harus Beli, Wajib!</p>
-                <div class="mx-5 px-1">
-                    <a href="#menu"><button class="btn fw-bold rounded-pill mx-5 b-beli">Pesan Sekarang</button></a>
+                <div class="mx-5 px-5">
+                    <a href="#menu" class="btn btn-pesan">Pesan Sekarang</a>
                 </div>
             </div>
             <div class="col-5 img-fluid mt-3 pt-5">

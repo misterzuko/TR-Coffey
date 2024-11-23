@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(235, 235, 235);
+}
+
+nav {
+    background-color: #181a1b;
+    height: 75px;
+    box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+nav h3 {
+    color: white;
+}
+
+
+a {
+    text-decoration: none;
+}
+.main h3 {
+    font-weight: 700;
+}
+
+.btn-logout {
+    color: #181a1b;
+    background-color: white;
+}
+
+.upload-container {
+    margin-top: 25px;
+    width: 100%;
+    height: 400px;
+    background-color: white;
+    box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+.upload-container .input input {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    width: 100%;
+    height: 40px;
+    border: 2px rgb(221, 221, 221) solid;
+}
+label {
+    font-weight: 600;
+}
+
+.upload-container .input input::-webkit-file-upload-button {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #333;
+    background-color: #e2e2e2;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.upload input{
+    width: 80px;
+    height: 40px;
+    background-color: #181a1b;;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.data table {
+    text-align: center;
+    width: 100%;
+}
+.data table thead {
+    background-color: #181a1b;
+    color: white;
+    height: 60px;
+}
+table tbody tr {
+    background-color: rgba(0, 0, 0, 0);
+}
