@@ -4,7 +4,8 @@
 }
 
 body {
-    background-color: rgb(235, 235, 235);
+    background-color: #181a1b;
+    color: #C6A56D;;
 }
 
 nav {
@@ -14,9 +15,8 @@ nav {
 }
 
 nav h3 {
-    color: white;
+    color: #C6A56D;
 }
-
 
 a {
     text-decoration: none;
@@ -26,24 +26,31 @@ a {
 }
 
 .btn-logout {
-    color: #181a1b;
-    background-color: white;
+    color: black;
+    background-color: #C6A56D;
+}
+.btn-logout:hover {
+    background-color: #181a1b;
+    border: #c6a56d93 2px solid;
 }
 
 .upload-container {
     margin-top: 25px;
     width: 100%;
-    height: 400px;
-    background-color: white;
-    box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.1);
+    padding-bottom: 25px;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 2px 12px 4px #c6a56d17;
+    border: #c6a56d60 solid 1px;
 }
 
 .upload-container .input input {
+    color: #C6A56D;
     display: flex;
     align-items: center;
     padding-left: 10px;
     width: 100%;
     height: 40px;
+    background-color: #181a1b00;
     border: 2px rgb(221, 221, 221) solid;
 }
 label {
@@ -59,14 +66,6 @@ label {
     border-radius: 2px;
     cursor: pointer;
 }
-.upload input{
-    width: 80px;
-    height: 40px;
-    background-color: #181a1b;;
-    color: white;
-    border-radius: 5px;
-    font-weight: 600;
-}
 .data table {
     text-align: center;
     width: 100%;
@@ -78,4 +77,24 @@ label {
 }
 table tbody tr {
     background-color: rgba(0, 0, 0, 0);
+}
+.submit input{
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 40px;
+    background-color: #C6A56D;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    font-weight: 600;
+    border-color: #C6A56D;
+}
+tr a img {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+tr,td {
+    border: #c6a56dad 2px solid;
 }
