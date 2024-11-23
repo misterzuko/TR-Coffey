@@ -1,81 +1,67 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<title>Daftar Menu Coffe</title>
+<body> 
+    <h3 class="mt-2">Dashboard Admin</h3>
+    <a class="btn btn-logout" href="">Logout</a>  
+    <a class="navbar-brand fs-6 fw-bold Brand" href="#">
+        <i class="fa fa-coffee coffee-icon" aria-hidden="true"></i>
+        CoffeinAja
+    </a>  
+<div class="container">
+    <br>
+    <h4 class="text-center">DAFTAR MENU</h4>
+    <?php
+    include "connect.php";
+    if (isset($_GET['id_barang'])) {
+        $id_barang = htmlspecialchars($_GET["id_barang"]);
 
-body {
-    background-color: rgb(235, 235, 235);
-}
+        $sql = "DELETE FROM tb_barang WHERE id_barang = '$id_barang'";
+        $hasil = mysqli_query($kon, $sql);
+        if ($hasil) {
+            header("Location:index.php");
+        } else {
+            echo "<div class='alert alert-danger'>Data gagal dihapus.</div>";
+        }
+    }
+    ?>
+    <table class="table table-bordered">  
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama Menu</th>
+            <th>Harga</th>
+            <th>Stok</th>
+            <th>Aksi</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        $sql = "SELECT * FROM tb_barang ORDER BY id_barang DESC";
+        $hasil = mysqli_query($kon, $sql);
+        $no = 1;
+        while ($data = mysqli_fetch_assoc($hasil)) {
+            echo "<tr>";
+            echo "<td>" . $no++ . "</td>";
+            echo "<td>" . $data['nama_barang'] . "</td>";
+            echo "<td>" . $data['harga_barang'] . "</td>";
+            echo "<td>" . $data['stok_barang'] . "</td>";
+            echo "<td><a href='index.php?id_barang=".$data[id_barang]."'Hapus</a></td>";
+            echo "<td><a href='index.php?id_barang=".$data[id_barang]."'Edit</a></td>";
 
-nav {
-    background-color: #181a1b;
-    height: 75px;
-    box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.1);
-}
-
-nav h3 {
-    color: white;
-}
 
 
-a {
-    text-decoration: none;
-}
-.main h3 {
-    font-weight: 700;
-}
-
-.btn-logout {
-    color: #181a1b;
-    background-color: white;
-}
-
-.upload-container {
-    margin-top: 25px;
-    width: 100%;
-    height: 400px;
-    background-color: white;
-    box-shadow: 0 3px 5px 3px rgba(0, 0, 0, 0.1);
-}
-
-.upload-container .input input {
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    width: 100%;
-    height: 40px;
-    border: 2px rgb(221, 221, 221) solid;
-}
-label {
-    font-weight: 600;
-}
-
-.upload-container .input input::-webkit-file-upload-button {
-    margin-top: 6px;
-    font-size: 14px;
-    color: #333;
-    background-color: #e2e2e2;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    cursor: pointer;
-}
-.upload input{
-    width: 80px;
-    height: 40px;
-    background-color: #181a1b;;
-    color: white;
-    border-radius: 5px;
-    font-weight: 600;
-}
-.data table {
-    text-align: center;
-    width: 100%;
-}
-.data table thead {
-    background-color: #181a1b;
-    color: white;
-    height: 60px;
-}
-table tbody tr {
-    background-color: rgba(0, 0, 0, 0);
-}
+            echo "</tr>";
+        }
+        ?>
+        </tbody>
+    </table><div class="container">
+</div>
+</div>
+</body>
+</html>
