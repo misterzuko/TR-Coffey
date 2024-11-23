@@ -16,7 +16,7 @@
                 $sql = mysqli_query($conn,$query);
                 $result = mysqli_fetch_assoc($sql);
                 $_SESSION['credential']=$result;
-                for($i=1;$i<7;$i++){
+                for($i=1;$result!=NULL;$i++){
                     $query = "SELECT * FROM tb_barang WHERE id_barang='$i'";
                     $sql = mysqli_query($conn,$query);
                     $result = mysqli_fetch_assoc($sql);

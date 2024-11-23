@@ -55,7 +55,7 @@
         <div class="front-contain text-dark">
             <div class="d-flex flex-row flex-wrap justify-content-evenly align-items-center pt-5 frontmenu">
                 <?php
-                    for($i=1;$i<count($_SESSION['data-kopi'])+1;$i++){
+                    for($i=1;$i<count($_SESSION['data-kopi'])-3;$i++){
                 ?>
                 <div class="bg-light d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm">
                     <img src="../src/<?php echo $i?>.png" alt="Kopi" class="img-fluid">
@@ -64,7 +64,8 @@
                     <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5" value="<?php $_SESSION['data-kopi'][$i]['nama_barang'];?>">Pesan</button></a>
                 </div>
                 <?php
-                    }
+                        }
+                    
                 ?>
             </div>
         </div>
