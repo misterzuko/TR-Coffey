@@ -1,12 +1,14 @@
+:root{
+    --primary: #b6895b;
+    --bg: #010101;
+}
 body{
-    background-color: black;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: #fff;
 }
 .Brand{
-    font-family: Courier; 
     color:tan;
-}
-.cari{
-    color: white;
 }
 .front{
     margin-top: 100px;
@@ -44,11 +46,7 @@ body{
     transition-delay: 200ms;
     color: rgb(255, 194, 7);
 }
-.frontlook h1, h2, p{
-    font-family: 'Montserrat', sans-serif;
-}
 .frontlook h1{
-    font-family: 'Montserrat', sans-serif;
     font-size: 60px;
 }
 .btn-icon{

@@ -27,7 +27,7 @@
             </button>
             <div class="collapse navbar-collapse mx-5 px-3" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
-                    <li class="nav-item">
+                    <li class="nav-item pb-2">
                         <a class="nav-link active text-light" aria-current="page" href="user.php">Home</a>
                     </li>
                 </ul>
@@ -42,8 +42,8 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-5 d-flex justify-content-center align-items-center">
-        <table class="table table-secondary w-50 text-center">
+    <div class="container mt-2 d-flex justify-content-center align-items-center">
+        <table class="table table-secondary w-50 text-center mb-5">
             <thead>
                 <tr class="text-center">
                     <th scope="col">Menu</th>
@@ -133,7 +133,7 @@
                             <div class="col-12">
                                 <p id="harga" class="fw-bold">Harga: Rp </p>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <button class="btn btn-success fw-bold fs-5 w-25" type="submit">Beli</button>
                             </div>
                         </form>
