@@ -51,24 +51,19 @@
             <a href="#menu" class="cta">Pesan Sekarang</a>
         </main>
     </section>
-    <div class="container mb-5 front" id="menu">
-        <div class="front-contain text-dark">
-            <div class="d-flex flex-row flex-wrap justify-content-evenly align-items-center pt-5 frontmenu">
-                <?php
-                    for($i=1;$i<count($_SESSION['data-kopi'])-3;$i++){
-                ?>
-                <div class="bg-light d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm">
-                    <img src="../src/<?php echo $i?>.png" alt="Kopi" class="img-fluid">
-                    <h6 class="mt-3 text-center"><?php echo $_SESSION['data-kopi'][$i]['nama_barang'];?></h6>
-                    <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
-                    <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5" value="<?php $_SESSION['data-kopi'][$i]['nama_barang'];?>">Pesan</button></a>
-                </div>
-                <?php
-                        }
-                    
-                ?>
-            </div>
+    <div class="container mb-5 text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu">
+        <?php
+            for ($i = 1; $i < count($_SESSION['data-kopi']); $i++) {
+        ?>
+        <div class="d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
+            <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
+            <h6 class="mt-3 text-center"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
+            <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
+            <a href="menu.php"><button class="btn-primary btn fw-bold rounded-pill mx-5" value="<?php $_SESSION['data-kopi'][$i]['nama_barang']; ?>">Pesan</button></a>
         </div>
+        <?php
+            }
+        ?>
     </div>
     <script src="../js/user.js"></script>
 </body>
