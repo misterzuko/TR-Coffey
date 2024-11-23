@@ -1,9 +1,17 @@
+:root{
+    --primary: #b6895b;
+    --bg: #010101;
+}
 body {
-    background-color: #202223;
+    background-color: var(--bg);
+    font-family: 'Poppins', sans-serif; 
 }
 .Brand{
-    font-family: 'Courier New'; 
+    color: #906b47;
+}
+.Brand:hover{
     color:#C6A56D;
+    transition: 300ms;
 }
 .containt{
     width: 40%;
@@ -19,8 +27,7 @@ body {
     width: 100%;
 }
 .descript{
-    color: #F5DEB3;
-    font-family:Arial, Helvetica, sans-serif;
+    color: #fff;
 }
 .brandlog{
     margin-left: 2rem;

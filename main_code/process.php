@@ -10,13 +10,13 @@
             $result = mysqli_fetch_assoc($sql);
             if($result!=null){
                 if($result['username']=="ADMIN" and $result['password']=="ADMIN#1234"){
-                    header('location: admin.php');
+                    header('location: admins.php');
                 } else {
                 $query = "SELECT email,username FROM tb_akun WHERE email='$email' AND password='$password'";
                 $sql = mysqli_query($conn,$query);
                 $result = mysqli_fetch_assoc($sql);
                 $_SESSION['credential']=$result;
-                for($i=1;$i<7;$i++){
+                for($i=1;$result!=NULL;$i++){
                     $query = "SELECT * FROM tb_barang WHERE id_barang='$i'";
                     $sql = mysqli_query($conn,$query);
                     $result = mysqli_fetch_assoc($sql);
