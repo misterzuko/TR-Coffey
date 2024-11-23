@@ -38,7 +38,7 @@
             <div class="brand text-center">
                 <a class="navbar-brand Brand" href="#">
                     <i class="fa fa-coffee fa-5x mb-0" aria-hidden="true"></i>
-                    <p class="fs-1 fw-bold m-0">CoffeinAja</p>
+                    <p class="fs-1 fw-bold m-0"><span>Coffe</span>inAja</p>
                 </a>
             </div>
             <div class="descript mt-3">
