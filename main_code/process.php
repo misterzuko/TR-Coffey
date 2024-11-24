@@ -10,7 +10,7 @@
             $result = mysqli_fetch_assoc($sql);
             if($result!=null){
                 if($result['email']=="admin@local.com" and $result['password']=="ADMIN#1234"){
-                    header('location: admins.php');
+                    header('location: admins.php?edit');
                 } else {
                 $query = "SELECT email,username FROM tb_akun WHERE email='$email' AND password='$password'";
                 $sql = mysqli_query($conn,$query);

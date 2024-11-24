@@ -84,22 +84,20 @@
                                         <i class="fa fa-plus-circle text-primary fs-4 ms-3 cursor-pointer" aria-hidden="true"></i></input>
                                 </div>
                             </div>
-                            <div class="col-md-6 row g-3">
+                            <div class="col-md-7 row g-3">
                                 <div class="col-md-12 row g-3">
                                     <div class="col-md-4 d-flex align-items-center justify-content-end">
-                                        <div class="form-check">
-                                            <p>Jenis Penyajian: </p>
+                                        <div class="form-check fw-bold ps-2">
+                                            <p>Jenis Penyajian:</p>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 d-flex align-items-center justify-content-end">
+                                    <div class="col-md-8 d-flex align-items-center justify-content-evenly">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="dinginpanas" id="panas" checked>
                                             <label class="form-check-label" for="panas">
                                                 <p class="fw-bold">Hot</p>
                                             </label>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 d-flex align-items-center justify-content-start">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="dinginpanas" id="dingin">
                                             <label class="form-check-label" for="dingin">
@@ -109,26 +107,22 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 row g-3">
-                                    <div class="col-md-3 d-flex align-items-center justify-content-end">
+                                    <div class="col-md-3 d-flex align-items-center justify-content-start ps-5 fw-bold">
                                         <p>Size Cup: </p>
                                     </div>
-                                    <div class="col-md-3 d-flex align-items-center justify-content-end">
+                                    <div class="col-md-9 d-flex align-items-center justify-content-between">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="ukuran" id="small" checked>
                                             <label class="form-check-label" for="small">
                                                 <p class="fw-bold">Small</p>
                                             </label>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3 d-flex align-items-center justify-content-center">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="ukuran" id="Regular" >
                                             <label class="form-check-label" for="Regular">
                                                 <p class="fw-bold">Regular</p>
                                             </label>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3 d-flex align-items-center justify-content-start">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="ukuran" id="Large" >
                                             <label class="form-check-label" for="Large">
@@ -139,9 +133,9 @@
                                 </div>
                                 <div class="col-md-12 row g-3 d-flex align-items-center justify-content-center">
                                     <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                        <div class="container">
+                                        <div class="container text-center">
                                             <label for="validationCustom04" class="form-label fw-bold">Pilih Topping</label>
-                                            <select class="form-select w-50" id="validationCustom04" required>
+                                            <select class="form-select w-75 mx-auto" id="validationCustom04" required>
                                                 <option selected value="">Topping-1</option>
                                                 <option>Topping-2</option>
                                                 <option>Topping-3</option>
@@ -149,10 +143,10 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 d-flex align-items-center justify-content-start">
-                                        <div class="container">
+                                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                        <div class="container text-center">
                                             <label for="validationCustom03" class="form-label fw-bold">Jumlah Topping</label>
-                                            <input type="number" class="form-control w-50" id="validationCustom03" value="0" min="0" max="10" required>
+                                            <input type="number" class="form-control w-50 mx-auto" id="validationCustom03" required>
                                         </div>
                                     </div>
                                 </div>
