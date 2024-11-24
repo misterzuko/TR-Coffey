@@ -28,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['tambah'])) {
     }
 }
 //Update Data 
-if (isset($_GET['edit'])) {
-    $id_barang = $_GET['edit'];
+if (isset($_GET['edit-produk'])) {
+    $id_barang = $_GET['edit-produk'];
 
     $sql = "SELECT * FROM tb_barang WHERE id_barang = ?";
     $stmt = $conn->prepare($sql);
@@ -89,126 +89,260 @@ $result = $conn->query($sql);
 <body>
     <nav class="navbar sticky-top">
         <div class="container">
+            <button id="toggleBtn" class="toggle-btn">☰ Menu</button>
             <h3 class="mt-2">Dashboard Admin</h3>
-            <a class="btn btn-logout" href="login.php">Logout</a>
+            <a class="btn btn-logout" href="../main_code/logout.php">Logout</a>
         </div>
     </nav>
-    <!--Tambah Data-->
-    <?php if (isset($_GET['tambah'])) { ?>
-        <div class="tambah">
-            <div class="container-lg d-flex flex-column align-items-center my-3 main">
-                <h3>Tambah Menu</h3>
-                <div class="upload-container container">
-                    <form action="admins.php?tambah=1" method="post" enctype="multipart/form-data"
-                        class="container d-flex flex-column mt-3">
-                        <div class="d-flex flex-column input">
-                            <label class="mb-2" for="title">Nama Produk :</label>
-                            <input type="text" name="title" id="title" placeholder="Masukan Nama Produk">
+    <div class="main-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <ul class="list-unstyled">
+                <li><a href="../main_code/admins.php">Dashboard</a></li>
+                <li>
+                    <a id="pengguna">
+                        <div class="d-flex justify-content-between">
+                            Pengguna
+                            <span>›</span>
                         </div>
-                        <div class="d-flex flex-column mt-3 input">
-                            <label class="mb-2" for="title">Insert Gambar :</label>
-                            <input type="file" accept=".jpg,.jpeg,.png,.svg" name="file" id="file">
+                    </a>
+                </li>
+                <li>
+                    <a id="produk">
+                        <div class="d-flex justify-content-between">
+                            Produk
+                            <span class="">›</span>
                         </div>
-                        <div class="d-flex flex-column input mt-3">
-                            <label class="mb-2" for="stok">Stok :</label>
-                            <input type="number" name="stok" id="stok" placeholder="Masukan Jumlah Stok">
+                    </a>
+                    <ul class="list-unstyled ml-3 produk">
+                        <li><a href="../main_code/admins.php?data-produk">Data</a></li>
+                        <li><a href="../main_code/admins.php?tambah-produk">Tambah</a></li>
+                        <li><a href="../main_code/admins.php?hapus-produk">Hapus</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="pesanan">
+                        <div class="d-flex justify-content-between">
+                            Pesanan
+                            <span>›</span>
                         </div>
-                        <div class="d-flex flex-column mt-3 input">
-                            <label class="mb-2" for="harga">Harga :</label>
-                            <input type="number" name="harga" id="harga" placeholder="Masukan Harga">
-                        </div>
-                        <div class="submit mt-3">
-                            <input type="submit" value="Upload">
-                        </div>
-                    </form>
-                </div>
-            </div>
+                    </a>
+                </li>
+                <li><a href="#">Laporan</a></li>
+                <li><a href="#">Pengaturan</a></li>
+            </ul>
         </div>
 
-    <?php } ?>
-    <!--Edit Data-->
-    <?php if (isset($_GET['edit'])) { ?>
-        <div class="edit">
-            <div class="container-lg d-flex flex-column align-items-center my-3 main">
-                <h3>Edit Menu</h3>
-                <div class="upload-container container">
-                    <form action="admins.php?edit=<?php echo $id_barang; ?>" method="post" enctype="multipart/form-data"
-                        class="container d-flex flex-column mt-3">
-                        <div class="d-flex flex-column input">
-                            <label class="mb-2" for="title">Nama Produk :</label>
-                            <input type="text" name="title" id="title" placeholder="Masukan Nama Produk"
-                                value="<?php echo $nama_barang; ?>">
+        <div class="sub-main">
+            <!--Tambah Data-->
+            <?php if (isset($_GET['tambah-produk'])) { ?>
+                <div class="tambah-produk">
+                    <div class="container-lg d-flex flex-column align-items-center my-3 main">
+                        <h3>Tambah Menu</h3>
+                        <div class="upload-container container">
+                            <form action="admins.php?tambah-produk" method="post" enctype="multipart/form-data"
+                                class="container d-flex flex-column mt-3">
+                                <div class="d-flex flex-column input">
+                                    <label class="mb-2" for="title">Nama Produk :</label>
+                                    <input type="text" name="title" id="title" placeholder="Masukan Nama Produk">
+                                </div>
+                                <div class="d-flex flex-column mt-3 input">
+                                    <label class="mb-2" for="title">Insert Gambar :</label>
+                                    <input type="file" accept=".jpg,.jpeg,.png,.svg" name="file" id="file">
+                                </div>
+                                <div class="d-flex flex-column input mt-3">
+                                    <label class="mb-2" for="stok">Stok :</label>
+                                    <input type="number" name="stok" id="stok" placeholder="Masukan Jumlah Stok">
+                                </div>
+                                <div class="d-flex flex-column mt-3 input">
+                                    <label class="mb-2" for="harga">Harga :</label>
+                                    <input type="number" name="harga" id="harga" placeholder="Masukan Harga">
+                                </div>
+                                <div class="submit mt-4">
+                                    <input type="submit" value="Upload">
+
+                                </div>
+                            </form>
                         </div>
-                        <div class="d-flex flex-column mt-3 input">
-                            <label class="mb-2" for="title">Insert Gambar :</label>
-                            <input type="file" accept=".jpg,.jpeg,.png,.pdf" name="file" id="file">
-                        </div>
-                        <div class="d-flex flex-column input mt-3">
-                            <label class="mb-2" for="stok">Stok :</label>
-                            <input type="number" name="stok" id="stok" placeholder="Masukan Jumlah Stok"
-                                value="<?php echo $stok_barang; ?>">
-                        </div>
-                        <div class="d-flex flex-column mt-3 input">
-                            <label class="mb-2" for="harga">Harga :</label>
-                            <input type="number" name="harga" id="harga" placeholder="Masukan Harga"
-                                value="<?php echo $harga_barang; ?>">
-                        </div>
-                        <div class="submit mt-3">
-                            <input type="submit" value="Terapkan Perubahan">
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-    <?php } ?>
-    <?php if(isset($_GET['data'])){ 
-        
-        ?>
-    <div class="d-flex my-4 data">
-        <div class="container">
-            <h3>Data</h3>
-            <hr>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="">ID</th>
-                        <th class="">Nama Produk</th>
-                        <th class="">Gambar</th>
-                        <th class="">Stok</th>
-                        <th class="">Harga</th>
-                        <th class="">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $data_exist = false;
-                    while ($row = $result->fetch_assoc()) {
-                        $data_exist = true;
-                        $id_barang = $row['id_barang'];
-                        ?>
-                        <tr>
-                            <td><?= $row['id_barang'] ?></td>
-                            <td><?= $row['nama_barang'] ?></td>
-                            <td><?= $row['path_gambar'] ?></td>
-                            <td><?= $row['stok_barang'] ?></td>
-                            <td><?= $row['harga_barang'] ?></td>
-                            <td><a href="admins.php?edit=<?php echo $id_barang; ?>"><img src="../src/edit.png"></a></td>
-                        </tr>
-                        <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
-            <?php if (!$data_exist) {
+
+            <?php } ?>
+            <!--Edit Data-->
+            <?php if (isset($_GET['edit-produk'])) { ?>
+                <div class="edit-produk">
+                    <div class="container-lg d-flex flex-column align-items-center my-3 main">
+                        <h3>Edit Menu</h3>
+                        <div class="upload-container container">
+                            <form action="admins.php?edit-produk=<?php echo $id_barang; ?>" method="post"
+                                enctype="multipart/form-data" class="container d-flex flex-column mt-3">
+                                <div class="d-flex flex-column input">
+                                    <label class="mb-2" for="title">Nama Produk :</label>
+                                    <input type="text" name="title" id="title" placeholder="Masukan Nama Produk"
+                                        value="<?php echo $nama_barang; ?>">
+                                </div>
+                                <div class="d-flex flex-column mt-3 input">
+                                    <label class="mb-2" for="title">Insert Gambar :</label>
+                                    <input type="file" accept=".jpg,.jpeg,.png,.pdf" name="file" id="file">
+                                </div>
+                                <div class="d-flex flex-column input mt-3">
+                                    <label class="mb-2" for="stok">Stok :</label>
+                                    <input type="number" name="stok" id="stok" placeholder="Masukan Jumlah Stok"
+                                        value="<?php echo $stok_barang; ?>">
+                                </div>
+                                <div class="d-flex flex-column mt-3 input">
+                                    <label class="mb-2" for="harga">Harga :</label>
+                                    <input type="number" name="harga" id="harga" placeholder="Masukan Harga"
+                                        value="<?php echo $harga_barang; ?>">
+                                </div>
+                                <div class="submit mt-4">
+                                    <input type="submit" value="Terapkan Perubahan">
+                                    <a href="../main_code/admins.php?data-produk" class="btn-kembali">Kembali</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+            <?php if (isset($_GET['data-produk'])) {
                 ?>
-                <h3 class="text-center mt-4">Tidak Ada Data!</h3>
-                <?php
-            }
-            ?>
+                <div class="d-flex my-4 data">
+                    <div class="container">
+                        <h3>Data</h3>
+                        <hr>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="">ID</th>
+                                    <th class="">Nama Produk</th>
+                                    <th class="">Gambar</th>
+                                    <th class="">Stok</th>
+                                    <th class="">Harga</th>
+                                    <th class="">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $data_exist = false;
+                                while ($row = $result->fetch_assoc()) {
+                                    $data_exist = true;
+                                    $id_barang = $row['id_barang'];
+                                    ?>
+                                    <tr>
+                                        <td><?= $row['id_barang'] ?></td>
+                                        <td><?= $row['nama_barang'] ?></td>
+                                        <td><?= $row['path_gambar'] ?></td>
+                                        <td><?= $row['stok_barang'] ?></td>
+                                        <td><?= $row['harga_barang'] ?></td>
+                                        <td><a href="admins.php?edit-produk=<?php echo $id_barang; ?>"><img
+                                                    src="../src/edit.png"></a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                        <?php if (!$data_exist) {
+                            ?>
+                            <h3 class="text-center mt-4">Tidak Ada Data!</h3>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                <?php } ?>
+                <?php if (isset($_GET['hapus-produk'])) {
+                    ?>
+                    <div class="d-flex my-4 data">
+                        <div class="container">
+                            <h3>Hapus Selection Data</h3>
+                            <hr>
+                            <form action="hapusdata.php" method="POST">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="">ID</th>
+                                            <th class="">Nama Produk</th>
+                                            <th class="">Gambar</th>
+                                            <th class="">Stok</th>
+                                            <th class="">Harga</th>
+                                            <th class="">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $data_exist = false;
+                                        while ($row = $result->fetch_assoc()) {
+                                            $data_exist = true;
+                                            $id_barang = $row['id_barang'];
+                                            ?>
+                                            <tr>
+                                                <td><?= $row['id_barang'] ?></td>
+                                                <td><?= $row['nama_barang'] ?></td>
+                                                <td><?= $row['path_gambar'] ?></td>
+                                                <td><?= $row['stok_barang'] ?></td>
+                                                <td><?= $row['harga_barang'] ?></td>
+                                                <td><input class="form-check-input" type="checkbox" name="data[]" value="<?php echo $id_barang; ?>">
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                                <div class="submit mt-4">
+                                    <input type="submit" value="Hapus Data">
+                                </div>
+                            </form>
+                            <?php if (!$data_exist) {
+                                ?>
+                                <h3 class="text-center mt-4">Tidak Ada Data!</h3>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
         </div>
-        <?php }?>
-    </div>
+        <script>
+            //SIDE BAR SCRIPT//
+            const toggleBtn = document.getElementById('toggleBtn');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.querySelector(".sub-main");
 
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                if (sidebar.classList.contains('active')) {
+                    mainContent.style.marginLeft = '250px';
+                } else {
+                    mainContent.style.marginLeft = '0';
+                }
+            });
+            //MENU PRODUK//
+            const toggleProduk = document.getElementById('produk');
+            const produkSubmenu = document.querySelector(".produk");
+            const rotateIconProduk = document.querySelector("#produk div span");
+
+            toggleProduk.addEventListener("click", function () {
+                rotateIconProduk.classList.toggle('active');
+                produkSubmenu.classList.toggle('active');
+            });
+            //MENU PENGGUNA//
+            const togglePengguna = document.getElementById('pengguna');
+            const penggunaSubmenu = document.querySelector(".pengguna");
+
+            togglePengguna.addEventListener("click", function () {
+
+                if (penggunaSubmenu.style.display === "none" || penggunaSubmenu.style.display === "") {
+                    penggunaSubmenu.style.display = "block";
+                } else {
+                    penggunaSubmenu.style.display = "none";
+                }
+            });
+
+
+        </script>
 </body>
 
 </html>

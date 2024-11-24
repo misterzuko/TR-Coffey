@@ -68,12 +68,12 @@
                 for ($i = 1; isset($_SESSION['data-kopi'][$i]['id_barang']); $i++) {
             ?>
             <form action="menu.php" method="post">
-            <div class="d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
-                <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
-                <h6 class="mt-3 text-center fw-bold"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
-                <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
-                <input type="submit" name="<?php echo $i;?>" value="Pesan" class="btn fw-bold rounded-pill mx-5"></input>
-            </div>
+                <div class="d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
+                    <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
+                    <h6 class="mt-3 text-center fw-bold"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
+                    <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
+                    <input type="submit" name="<?php echo $i;?>" value="Pesan" class="btn fw-bold rounded-pill mx-5"></input>
+                </div>
             </form>
             <?php
                 }
