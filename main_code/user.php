@@ -44,7 +44,7 @@
     <section class="hero">
         <main class="content">
             <h1 class="">Mulai Harimu dengan Secangkir <span>Kopi</span></h1>
-            <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <p class="">Biji kopi pilihan, diambil langsung dari sumbernya.</p>
             <a href="#menu" class="cta">Pesan Sekarang</a>
         </main>
     </section>
@@ -56,7 +56,7 @@
             <form action="menu.php" method="post">
             <div class="d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
                 <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
-                <h6 class="mt-3 text-center"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
+                <h6 class="mt-3 text-center fw-bold"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
                 <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
                 <input type="submit" name="<?php echo $i;?>" value="Pesan" class="btn fw-bold rounded-pill mx-5"></input>
             </div>
