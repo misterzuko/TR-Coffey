@@ -138,10 +138,14 @@
                                         <div class="container text-center">
                                             <label for="validationCustom04" class="form-label fw-bold">Pilih Topping</label>
                                             <select class="form-select w-75 mx-auto" id="validationCustom04" required>
-                                                <option selected value="">Topping-1</option>
-                                                <option>Topping-2</option>
-                                                <option>Topping-3</option>
-                                                <option>Topping-4</option>
+                                                <option selected><?php echo $_SESSION['data-Topping'][1]['nama_barang'];?></option>
+                                                <?php
+                                                for($i=2;isset($_SESSION['data-Topping'][$i]['id_barang']);$i++){
+                                                ?>
+                                                <option><?php echo $_SESSION['data-Topping'][$i]['nama_barang'];?></option>
+                                                <?php
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>

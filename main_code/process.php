@@ -16,12 +16,18 @@
                 $sql = mysqli_query($conn,$query);
                 $result = mysqli_fetch_assoc($sql);
                 $_SESSION['credential']=$result;
-                for($i=1;$result!=NULL;$i++){
+                $banyakkopi=0;
+                $banyaktopping=0;
+                $query = "SELECT COUNT(*) AS banyakdata FROM tb_barang;";
+                $sql = mysqli_query($conn,$query);
+                $banyakData = mysqli_fetch_assoc($sql)['banyakdata'];
+                for($i=1;$i<$banyakData;$i++){
                     $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Kopi%'";
                     $sql = mysqli_query($conn,$query);
                     $result = mysqli_fetch_assoc($sql);
                     if($result!=NULL){
-                        $_SESSION['data-Kopi'][$i]=$result;
+                        $banyakkopi++;
+                        $_SESSION['data-Kopi'][$banyakkopi]=$result;
                         continue;
                     }
                     $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Es%'";
@@ -36,6 +42,14 @@
                     $result = mysqli_fetch_assoc($sql);
                     if($result!=NULL){
                         $_SESSION['data-Cup'][$i]=$result;
+                        continue;
+                    }
+                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Topping%'";
+                    $sql = mysqli_query($conn,$query);
+                    $result = mysqli_fetch_assoc($sql);
+                    if($result!=NULL){
+                        $banyaktopping++;
+                        $_SESSION['data-Topping'][$banyaktopping]=$result;
                         continue;
                     }
                 }
