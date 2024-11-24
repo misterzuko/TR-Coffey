@@ -90,7 +90,7 @@ $result = $conn->query($sql);
     <nav class="navbar sticky-top">
         <div class="container">
             <h3 class="mt-2">Dashboard Admin</h3>
-            <a class="btn btn-logout" href="">Logout</a>
+            <a class="btn btn-logout" href="login.php">Logout</a>
         </div>
     </nav>
     <!--Tambah Data-->

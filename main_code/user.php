@@ -51,7 +51,7 @@
     <div class="container bungkus d-flex justify-content-center align-items-center">
         <div class="container mb-5 text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu" id="menu">
             <?php
-                for ($i = 1; $i < count($_SESSION['data-kopi'])-1; $i++) {
+                for ($i = 1; $i < count($_SESSION['data-kopi']); $i++) {
             ?>
             <div class="d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
                 <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">

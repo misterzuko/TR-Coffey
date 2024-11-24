@@ -68,22 +68,20 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-md-6 row g-3">
+                            <div class="col-md-7 row g-3">
                                 <div class="col-md-12 row g-3">
                                     <div class="col-md-4 d-flex align-items-center justify-content-end">
-                                        <div class="form-check">
-                                            <p>Jenis Penyajian: </p>
+                                        <div class="form-check fw-bold ps-2">
+                                            <p>Jenis Penyajian:</p>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 d-flex align-items-center justify-content-end">
+                                    <div class="col-md-8 d-flex align-items-center justify-content-evenly">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 <p class="fw-bold">Hot</p>
                                             </label>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 d-flex align-items-center justify-content-start">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                                             <label class="form-check-label" for="flexRadioDefault2">
@@ -93,26 +91,22 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 row g-3">
-                                    <div class="col-md-3 d-flex align-items-center justify-content-end">
+                                    <div class="col-md-3 d-flex align-items-center justify-content-start ps-5 fw-bold">
                                         <p>Size Cup: </p>
                                     </div>
-                                    <div class="col-md-3 d-flex align-items-center justify-content-end">
+                                    <div class="col-md-9 d-flex align-items-center justify-content-between">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 <p class="fw-bold">Reguler</p>
                                             </label>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3 d-flex align-items-center justify-content-center">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                                             <label class="form-check-label" for="flexRadioDefault2">
                                                 <p class="fw-bold">Medium</p>
                                             </label>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3 d-flex align-items-center justify-content-start">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                                             <label class="form-check-label" for="flexRadioDefault2">
@@ -123,9 +117,9 @@
                                 </div>
                                 <div class="col-md-12 row g-3 d-flex align-items-center justify-content-center">
                                     <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                        <div class="container">
+                                        <div class="container text-center">
                                             <label for="validationCustom04" class="form-label fw-bold">Pilih Topping</label>
-                                            <select class="form-select w-50" id="validationCustom04" required>
+                                            <select class="form-select w-75 mx-auto" id="validationCustom04" required>
                                                 <option selected value="">Topping-1</option>
                                                 <option>Topping-2</option>
                                                 <option>Topping-3</option>
@@ -133,10 +127,10 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 d-flex align-items-center justify-content-start">
-                                        <div class="container">
+                                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                        <div class="container text-center">
                                             <label for="validationCustom03" class="form-label fw-bold">Jumlah Topping</label>
-                                            <input type="number" class="form-control w-50" id="validationCustom03" required>
+                                            <input type="number" class="form-control w-50 mx-auto" id="validationCustom03" required>
                                         </div>
                                     </div>
                                 </div>
