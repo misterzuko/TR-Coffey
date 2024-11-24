@@ -1,6 +1,15 @@
 <?php
+    include 'connect.php';
     session_start();
     $username = $_SESSION['credential']['username'];
+    for($i=1;isset($_SESSION['data-kopi'][$i]['id_barang']);$i++){
+        if (isset($_POST[$i])){
+            $kopi=$i;
+        }
+    }
+    $query = "SELECT * FROM tb_barang WHERE id_barang='$kopi'";
+    $sql = mysqli_query($conn,$query);
+    $result = mysqli_fetch_assoc($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +23,18 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/menu.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
+    <script>
+        function redirectOnReload() {
+            if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+                window.location.href = "user.php";
+            }
+        }
+        window.onload = redirectOnReload;
+    </script>
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+    <p id="test">Helo world</p>
     <nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
         <div class="container-fluid w-75 mt-3">
             <a class="navbar-brand fw-bold Brand row" href="user.php">
@@ -55,17 +73,15 @@
                     <td>
                         <form class="row needs-validation" novalidate>
                             <div class="col-md-5 mt-5 d-flex flex-column align-items-center justify-content-center card-menu">
-                                <img src="../src/5.png" alt="Kopi-4" class="img-fluid img-menu">
-                                <h6 class="mt-3 text-center">Coffea Arabica</h6>
-                                <p class="text-center">harga-x</p>
+                                <img src="../src/<?php echo $kopi;?>.png" alt="Kopi-4" class="img-fluid img-menu">
+                                <h6 class="mt-3 text-center"><?php echo $result['nama_barang'];?></h6>
+                                <p class="text-center">Rp. <?php echo $result['harga_barang'];?></p>
                                 <div class="d-flex align-items-center justify-content-center mt-2 tambah-barang">
-                                    <button class="btn-icon">
-                                        <i class="fa fa-minus-circle fs-4 me-3 cursor-pointer" aria-hidden="true"></i>
-                                    </button>
-                                    <p class="mb-0">0</p>
-                                    <button class="btn-icon">
-                                        <i class="fa fa-plus-circle text-primary fs-4 ms-3 cursor-pointer" aria-hidden="true"></i>
-                                    </button>
+                                    <input type="button" class="btn-icon" onclick="kurangkopi()">
+                                        <i class="fa fa-minus-circle fs-4 me-3 cursor-pointer" aria-hidden="true"></i></input>
+                                    <p class="mb-0" id="banyak-kopi">0</p>
+                                    <input type="button" class="btn-icon" onclick="tambahkopi()">
+                                        <i class="fa fa-plus-circle text-primary fs-4 ms-3 cursor-pointer" aria-hidden="true"></i></input>
                                 </div>
                             </div>
                             <div class="col-md-6 row g-3">
@@ -77,16 +93,16 @@
                                     </div>
                                     <div class="col-md-4 d-flex align-items-center justify-content-end">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
+                                            <input class="form-check-input" type="radio" name="dinginpanas" id="panas" checked>
+                                            <label class="form-check-label" for="panas">
                                                 <p class="fw-bold">Hot</p>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-md-4 d-flex align-items-center justify-content-start">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                            <label class="form-check-label" for="flexRadioDefault2">
+                                            <input class="form-check-input" type="radio" name="dinginpanas" id="dingin">
+                                            <label class="form-check-label" for="dingin">
                                                 <p class="fw-bold">Ice</p>
                                             </label>
                                         </div>
@@ -98,24 +114,24 @@
                                     </div>
                                     <div class="col-md-3 d-flex align-items-center justify-content-end">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                <p class="fw-bold">Reguler</p>
+                                            <input class="form-check-input" type="radio" name="ukuran" id="small" checked>
+                                            <label class="form-check-label" for="small">
+                                                <p class="fw-bold">Small</p>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-md-3 d-flex align-items-center justify-content-center">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                                <p class="fw-bold">Medium</p>
+                                            <input class="form-check-input" type="radio" name="ukuran" id="Regular" >
+                                            <label class="form-check-label" for="Regular">
+                                                <p class="fw-bold">Regular</p>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-md-3 d-flex align-items-center justify-content-start">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                            <label class="form-check-label" for="flexRadioDefault2">
+                                            <input class="form-check-input" type="radio" name="ukuran" id="Large" >
+                                            <label class="form-check-label" for="Large">
                                                 <p class="fw-bold">Large</p>
                                             </label>
                                         </div>
@@ -136,7 +152,7 @@
                                     <div class="col-md-6 d-flex align-items-center justify-content-start">
                                         <div class="container">
                                             <label for="validationCustom03" class="form-label fw-bold">Jumlah Topping</label>
-                                            <input type="number" class="form-control w-50" id="validationCustom03" required>
+                                            <input type="number" class="form-control w-50" id="validationCustom03" value="0" min="0" max="10" required>
                                         </div>
                                     </div>
                                 </div>
@@ -148,7 +164,7 @@
                                     <p id="harga" class="fw-bold">Total Harga: Rp </p>
                                 </div>
                                 <div class="col-6 mb-3">
-                                    <button class="btn btn-success fw-bold fs-5 w-25" type="submit">Beli</button>
+                                    <input type="submit" class="btn btn-success fw-bold fs-5 w-25" value="Beli">
                                 </div>
                             </div>
                         </form>
