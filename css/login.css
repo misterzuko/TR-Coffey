@@ -5,6 +5,22 @@
 body {
     background-color: var(--bg);
     font-family: 'Poppins', sans-serif; 
+    position: relative;
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../src/bg-logsign.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
 }
 .Brand{
     transition: all 400ms ease-in-out;

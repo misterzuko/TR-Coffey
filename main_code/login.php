@@ -33,7 +33,7 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="container row">
+    <div class="container row logsign">
         <div class="col-6 d-flex flex-column justify-content-center align-items-center brandlog">
             <div class="brand text-center">
                 <a class="navbar-brand Brand" href="#">
