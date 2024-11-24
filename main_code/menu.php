@@ -146,7 +146,7 @@
                                     <div class="col-md-6 d-flex align-items-center justify-content-center">
                                         <div class="container text-center">
                                             <label for="validationCustom03" class="form-label fw-bold">Jumlah Topping</label>
-                                            <input type="number" class="form-control w-50 mx-auto" id="validationCustom03" required>
+                                            <input type="number" class="form-control w-50 mx-auto" id="validationCustom03" min="0" max="10" value="0" required>
                                         </div>
                                     </div>
                                 </div>
