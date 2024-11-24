@@ -10,6 +10,9 @@
     $query = "SELECT * FROM tb_barang WHERE id_barang='$kopi'";
     $sql = mysqli_query($conn,$query);
     $result = mysqli_fetch_assoc($sql);
+    if($_SESSION['data-Kopi'][1]['id_barang']==NULL){
+        header('location: login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,6 +1,9 @@
 <?php
     session_start();
     $username = $_SESSION['credential']['username'];
+    if($_SESSION['data-Kopi'][1]['id_barang']==NULL){
+        header('location: login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
