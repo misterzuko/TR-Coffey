@@ -118,8 +118,9 @@ body{
     color: #fff;
 }
 .bungkus{
+    margin-top: 15rem;
     width: 100%;
-    height: 90vh;
+    height: 75vh;
 }
 .Brand{
     transition: all 400ms ease-in-out;
@@ -139,10 +140,11 @@ body{
     filter: brightness(1.2);
     transform: scale(1.1);
 }
-.frontmenu div img{
-    width: 100px; 
-    height: 100px; 
+.card-item img{
+    width: 8rem; 
+    height: 8rem; 
     border-radius: 50%;
+    border: 3px solid var(--primary);
 }
 .profile{
     border-radius: 25px;
@@ -172,4 +174,53 @@ body{
 .navbar-solid {
     background-color: #000;
     transition: 0.3s ease;
+}
+.card-sosmed{
+    flex: 0 0 auto;
+    max-width: 13rem;
+    height: 17rem;
+    border: 2px solid var(--primary);
+    border-radius: 17px;
+}
+.card-sosmed img{
+    width: 7rem; 
+    height: 5.8rem; 
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+.us-sosmed{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    background: #fff;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.1);
+}
+.c-us{
+    padding-top: 2rem;
+    color: var(--primary);
+}
+.b-footer{
+    border-top: 1px solid #513c28;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    height: 10rem;
+}
+.kemas{
+    width: 100%;
+    height: 90vh;
+}
+.c-is{
+    padding-top: 2rem;
+    color: var(--primary);
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.t-foot{
+    font-size: 1rem;
+    font-weight: 200;
+}
+a.t-foot{
+    text-decoration: none;
 }

@@ -10,6 +10,9 @@
     $query = "SELECT * FROM tb_barang WHERE id_barang='$kopi'";
     $sql = mysqli_query($conn,$query);
     $result = mysqli_fetch_assoc($sql);
+    if($_SESSION['data-kopi'][1]['id_barang']==NULL){
+        header('location: login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +78,7 @@
                             <div class="col-md-5 mt-5 d-flex flex-column align-items-center justify-content-center card-menu">
                                 <img src="../src/<?php echo $kopi;?>.png" alt="Kopi-4" class="img-fluid img-menu">
                                 <h6 class="mt-3 text-center"><?php echo $result['nama_barang'];?></h6>
-                                <p class="text-center">Rp. <?php echo $result['harga_barang'];?></p>
+                                <p class="text-center">Rp <?php echo $result['harga_barang'];?></p>
                                 <div class="d-flex align-items-center justify-content-center mt-2 tambah-barang">
                                     <button type="button" class="btn-icon" onclick="kurangkopi()">
                                         <i class="fa fa-minus-circle fs-4 me-3 cursor-pointer" aria-hidden="true"></i>
@@ -158,7 +161,8 @@
                                 </div>
                             </div>
                             <div class="col-md-12 row g-3">
-                                <div class="col-12 garis w-100">
+                                <div class="col-12 d-flex justify-content-center align-items-center">
+                                    <p class="garis container-expand-lg"></p>
                                 </div>
                                 <div class="col-6 d-flex align-items-center justify-content-start ps-5">
                                     <p id="harga" class="fw-bold">Total Harga: Rp </p>

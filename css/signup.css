@@ -38,10 +38,21 @@ body {
 .brandlog{
     margin-top: 10vh;
 }
+#inputPassword6{
+    border-right: 0;
+}
 .b-eye{
+    padding-right: 1rem;
+    border-radius: 6px;
+    background-color: transparent;
+    border: 1px solid #fff;
     color: #fff;
 }
+.b-eye{
+    border-left: 0;
+}
 .b-eye:hover{
+    border: 1px 1px 1px 0 solid;
     color: var(--primary);
 }
 #exampleFormControlInput1, #username, #inputPassword6{

@@ -27,7 +27,7 @@
                     $result = mysqli_fetch_assoc($sql);
                     if($result!=NULL){
                         $banyakkopi++;
-                        $_SESSION['data-Kopi'][$banyakkopi]=$result;
+                        $_SESSION['data-kopi'][$banyakkopi]=$result;
                         continue;
                     }
                     $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Es%'";
@@ -57,7 +57,6 @@
                 //     echo $_SESSION['data-kopi'][$i]['nama_barang']."<br>";
                 // }
                 header('location: user.php');
-                exit();
                 } 
             } else {
                 $_SESSION['gagal']="ADA";

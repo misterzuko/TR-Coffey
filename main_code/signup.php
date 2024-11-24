@@ -48,7 +48,7 @@
                     <label for="inputPassword6" class="form-label">Password</label>
                     <div class="input-group">
                         <input type="password" id="inputPassword6" class="form-control border-light" name="pw" aria-describedby="passwordHelpInline">
-                        <button type="button" class="btn border border-light b-eye" id="togglePassword">
+                        <button type="button" class="b-eye" id="togglePassword">
                             <i class="fa fa-eye-slash" aria-hidden="true"></i>
                         </button>
                     </div>

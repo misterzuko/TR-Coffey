@@ -1,6 +1,9 @@
 <?php
     session_start();
     $username = $_SESSION['credential']['username'];
+    if($_SESSION['data-kopi'][1]['id_barang']==NULL){
+        header('location: login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoffeinAja</title>
-    <link rel="stylesheet" href="styles.css?v=1.0">
+    <link rel="stylesheet" href="styles.css?v=1.1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap">
@@ -18,6 +21,7 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+    <!-- NAVBAR START -->
     <nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
         <div class="container-fluid w-75 mt-3">
             <a class="navbar-brand fw-bold Brand row" href="user.php">
@@ -25,9 +29,14 @@
                 <p class="col-9 pt-2"><span>kopi</span>inaja</p>
             </a>
             <div class="collapse navbar-collapse mx-5 px-3" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-5 me-auto">
+                    <li class="nav-item">
+                        <a aria-current="page" href="user.php">Home</a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a aria-current="page" href="#">Home</a>
+                        <a aria-current="page" href="#sosmed">Contact Us</a>
                     </li>
                 </ul>
                 <div class="ms-5">
@@ -41,20 +50,25 @@
             </div>
         </div>
     </nav>
+    <!-- NAVBAR END -->
+    <!-- SECTION HERO START -->
     <section class="hero">
         <main class="content">
             <h1 class="">Mulai Harimu dengan Secangkir <span>Kopi</span></h1>
             <p class="">Biji kopi pilihan, diambil langsung dari sumbernya.</p>
-            <a href="#menu" class="cta">Pesan Sekarang</a>
+            <a aria-current="page" href="#menu" class="cta">Pesan Sekarang</a>
         </main>
     </section>
-    <div class="container bungkus d-flex justify-content-center align-items-center">
-        <div class="container mb-5 text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu" id="menu">
+    <!-- SECTION HERO END -->
+     <!-- MENU START -->
+    <div class="container bungkus mb-5" id="menu">
+        <p class="text-center fw-bold fs-4 c-is">PILIH MENU</p>
+        <div class="container text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu">
             <?php
                 for ($i = 1; isset($_SESSION['data-kopi'][$i]['id_barang']); $i++) {
             ?>
             <form action="menu.php" method="post">
-            <div class="d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
+            <div class="d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
                 <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
                 <h6 class="mt-3 text-center fw-bold"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
                 <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
@@ -66,6 +80,39 @@
             ?>
         </div>
     </div>
+    <!-- MENU END -->
+     <!-- SOSMED START -->
+    <div class="container kemas d-flex justify-content-center align-items-center" id="sosmed">
+        <div class="container row g-3 mb-5 text-dark d-flex justify-content-evenly align-items-center">
+            <p class="col-12 text-center fw-bold fs-4 pb-5 c-us">CONTACT US</p>
+            <div class="col-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
+                <img src="../src/pic-ig.png" alt="ig" class="img-fluid">
+                <a href="https://www.instagram.com/anr091?igsh=eGljNDM5aHpuZXhv" class="mt-3 fw-bold us-sosmed">@Andreoni</a>
+            </div>
+            <div class="col-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
+                <img src="../src/pic-ig.png" alt="ig" class="img-fluid">
+                <a href="https://www.instagram.com/andreas_s_45?igsh=OW51ZHpjOG1wYnBu" class="mt-3 fw-bold us-sosmed">@Andreas</a>
+            </div>
+            <div class="col-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
+                <img src="../src/pic-ig.png" alt="ig" class="img-fluid">
+                <a href="https://www.instagram.com/mrzzuko_/profilecard/?igsh=MWhwdzF3MTlua2tqbw==" class="mt-3 fw-bold us-sosmed">@Daniro</a>
+            </div>
+            <div class="col-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
+                <img src="../src/pic-ig.png" alt="ig" class="img-fluid">
+                <a href="https://www.instagram.com/rexcyant_/profilecard/?igsh=MWhiY2NramJueGQwaQ==" class="mt-3 fw-bold us-sosmed">@Rexcy</a>
+            </div>
+        </div>
+    </div>
+    <!-- SOSMED END -->
+     <!-- FOOTER START -->
+     <div class="container-expand-lg d-flex justify-content-center align-items-center b-footer">
+        <div class="text-center row g-3">
+            <a href="#sosmed" class="col-6 text-center t-foot text-light">Contact Us</a>
+            <a class="col-6 text-center t-foot text-light">About kopiinaja</a>
+            <p class="col-12 t-foot">© 2024 kopiinaja</p>
+        </div>
+    </div>
+      <!-- FOOTER END -->
     <script src="../js/user.js"></script>
 </body>
 </html>
