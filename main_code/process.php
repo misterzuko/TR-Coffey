@@ -57,6 +57,7 @@
                 //     echo $_SESSION['data-kopi'][$i]['nama_barang']."<br>";
                 // }
                 header('location: user.php');
+                exit();
                 } 
             } else {
                 $_SESSION['gagal']="ADA";

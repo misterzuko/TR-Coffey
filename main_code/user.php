@@ -51,7 +51,7 @@
     <div class="container bungkus d-flex justify-content-center align-items-center">
         <div class="container mb-5 text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu" id="menu">
             <?php
-                for ($i = 1;isset($_SESSION['data-kopi'][$i]['id_barang']); $i++) {
+                for ($i = 1; isset($_SESSION['data-kopi'][$i]['id_barang']); $i++) {
             ?>
             <form action="menu.php" method="post">
             <div class="d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
