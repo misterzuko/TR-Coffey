@@ -32,9 +32,9 @@
         window.onload = redirectOnReload;
     </script>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/menu.js"></script>
 </head>
 <body>
-    <p id="test">Helo world</p>
     <nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
         <div class="container-fluid w-75 mt-3">
             <a class="navbar-brand fw-bold Brand row" href="user.php">
@@ -77,11 +77,13 @@
                                 <h6 class="mt-3 text-center"><?php echo $result['nama_barang'];?></h6>
                                 <p class="text-center">Rp. <?php echo $result['harga_barang'];?></p>
                                 <div class="d-flex align-items-center justify-content-center mt-2 tambah-barang">
-                                    <input type="button" class="btn-icon" onclick="kurangkopi()">
-                                        <i class="fa fa-minus-circle fs-4 me-3 cursor-pointer" aria-hidden="true"></i></input>
+                                    <button type="button" class="btn-icon" onclick="kurangkopi()">
+                                        <i class="fa fa-minus-circle fs-4 me-3 cursor-pointer" aria-hidden="true"></i>
+                                    </button>
                                     <p class="mb-0" id="banyak-kopi">0</p>
-                                    <input type="button" class="btn-icon" onclick="tambahkopi()">
-                                        <i class="fa fa-plus-circle text-primary fs-4 ms-3 cursor-pointer" aria-hidden="true"></i></input>
+                                    <button type="button" class="btn-icon" onclick="tambahkopi()">
+                                        <i class="fa fa-plus-circle text-primary fs-4 ms-3 cursor-pointer" aria-hidden="true"></i>
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-md-7 row g-3">
