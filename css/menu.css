@@ -59,14 +59,16 @@ table {
     overflow: hidden;
 }
 .img-menu {
-    width: 130px;
-    height: 130px;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
     border: 3px solid var(--primary);
 }
 .card-menu{
     margin: 0;
     padding: 0;
+    border-right: 1px solid var(--primary);
+    height: auto;
 }
 .navbar-transparent {
     background-color: rgba(0, 0, 0, 0.9);

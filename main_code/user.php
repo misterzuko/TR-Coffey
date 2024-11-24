@@ -1,6 +1,9 @@
 <?php
     session_start();
     $username = $_SESSION['credential']['username'];
+    if($_SESSION['data-Kopi'][1]['id_barang']==NULL){
+        header('location: login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,21 +47,23 @@
     <section class="hero">
         <main class="content">
             <h1 class="">Mulai Harimu dengan Secangkir <span>Kopi</span></h1>
-            <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <p class="">Biji kopi pilihan, diambil langsung dari sumbernya.</p>
             <a href="#menu" class="cta">Pesan Sekarang</a>
         </main>
     </section>
     <div class="container bungkus d-flex justify-content-center align-items-center">
         <div class="container mb-5 text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu" id="menu">
             <?php
-                for ($i = 1; $i < count($_SESSION['data-kopi'])-1; $i++) {
+                for ($i = 1;isset($_SESSION['data-kopi'][$i]['id_barang']); $i++) {
             ?>
+            <form action="menu.php" method="post">
             <div class="d-flex flex-shrink-1 flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
                 <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
-                <h6 class="mt-3 text-center"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
+                <h6 class="mt-3 text-center fw-bold"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
                 <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
-                <a href="menu.php" class=""><button class="btn fw-bold rounded-pill mx-5" value="<?php $_SESSION['data-kopi'][$i]['nama_barang']; ?>">Pesan</button></a>
+                <input type="submit" name="<?php echo $i;?>" value="Pesan" class="btn fw-bold rounded-pill mx-5"></input>
             </div>
+            </form>
             <?php
                 }
             ?>

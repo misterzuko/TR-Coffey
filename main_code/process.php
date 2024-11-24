@@ -9,18 +9,49 @@
             $sql = mysqli_query($conn,$query);
             $result = mysqli_fetch_assoc($sql);
             if($result!=null){
-                if($result['username']=="ADMIN" and $result['password']=="ADMIN#1234"){
-                    header('location: admins.php');
+                if($result['email']=="admin@local.com" and $result['password']=="ADMIN#1234"){
+                    header('location: admins.php?edit');
                 } else {
                 $query = "SELECT email,username FROM tb_akun WHERE email='$email' AND password='$password'";
                 $sql = mysqli_query($conn,$query);
                 $result = mysqli_fetch_assoc($sql);
                 $_SESSION['credential']=$result;
-                for($i=1;$result!=NULL;$i++){
-                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i'";
+                $banyakkopi=0;
+                $banyaktopping=0;
+                $query = "SELECT COUNT(*) AS banyakdata FROM tb_barang;";
+                $sql = mysqli_query($conn,$query);
+                $banyakData = mysqli_fetch_assoc($sql)['banyakdata'];
+                for($i=1;$i<$banyakData;$i++){
+                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Kopi%'";
                     $sql = mysqli_query($conn,$query);
                     $result = mysqli_fetch_assoc($sql);
-                    $_SESSION['data-kopi'][$i]=$result;
+                    if($result!=NULL){
+                        $banyakkopi++;
+                        $_SESSION['data-Kopi'][$banyakkopi]=$result;
+                        continue;
+                    }
+                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Es%'";
+                    $sql = mysqli_query($conn,$query);
+                    $result = mysqli_fetch_assoc($sql);
+                    if($result!=NULL){
+                        $_SESSION['data-Es'][$i]=$result;
+                        continue;
+                    }
+                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Cup%'";
+                    $sql = mysqli_query($conn,$query);
+                    $result = mysqli_fetch_assoc($sql);
+                    if($result!=NULL){
+                        $_SESSION['data-Cup'][$i]=$result;
+                        continue;
+                    }
+                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Topping%'";
+                    $sql = mysqli_query($conn,$query);
+                    $result = mysqli_fetch_assoc($sql);
+                    if($result!=NULL){
+                        $banyaktopping++;
+                        $_SESSION['data-Topping'][$banyaktopping]=$result;
+                        continue;
+                    }
                 }
                 // for ($i=1; $i < 7; $i++) { 
                 //     echo $_SESSION['data-kopi'][$i]['nama_barang']."<br>";
@@ -56,12 +87,14 @@
             if($sql){
                 $_SESSION['berhasil']="ADA";
                 header('location: login.php');
+            } else {
+                $_SESSION['dahada']="ADA";
+                header('location: signup.php');
             }
             } catch(mysqli_sql_exception $e){
                 $_SESSION['dahada']="ADA";
                 header('location: signup.php');
             }
-            $_SESSION['dahada']="ADA";
-            header('location: signup.php');
+            
         }
 ?>
