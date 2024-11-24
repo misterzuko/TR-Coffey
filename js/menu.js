@@ -1,4 +1,4 @@
-var jumlahKopi = 0;
+var jumlahKopi = 1;
 
 function tambahkopi() {
     jumlahKopi++;
@@ -6,12 +6,11 @@ function tambahkopi() {
 }
 
 function kurangkopi() {
-    if (jumlahKopi > 0) {
+    if (jumlahKopi > 1) {
         jumlahKopi--;
     }
     updateTampilanKopi();
 }
-
 function updateTampilanKopi() {
     document.getElementById("banyak-kopi").innerText = jumlahKopi;
 }
