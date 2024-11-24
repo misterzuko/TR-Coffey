@@ -18,30 +18,32 @@
                 $_SESSION['credential']=$result;
                 $banyakkopi=0;
                 $banyaktopping=0;
+                $banyakCup=0;
                 $query = "SELECT COUNT(*) AS banyakdata FROM tb_barang;";
                 $sql = mysqli_query($conn,$query);
                 $banyakData = mysqli_fetch_assoc($sql)['banyakdata'];
-                for($i=1;$i<$banyakData;$i++){
+                for($i=1;$i<=$banyakData;$i++){
                     $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Kopi%'";
                     $sql = mysqli_query($conn,$query);
                     $result = mysqli_fetch_assoc($sql);
                     if($result!=NULL){
                         $banyakkopi++;
-                        $_SESSION['data-Kopi'][$banyakkopi]=$result;
+                        $_SESSION['data-kopi'][$banyakkopi]=$result;
                         continue;
                     }
                     $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Es%'";
                     $sql = mysqli_query($conn,$query);
                     $result = mysqli_fetch_assoc($sql);
                     if($result!=NULL){
-                        $_SESSION['data-Es'][$i]=$result;
+                        $_SESSION['data-es'][0]=$result;
                         continue;
                     }
                     $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Cup%'";
                     $sql = mysqli_query($conn,$query);
                     $result = mysqli_fetch_assoc($sql);
                     if($result!=NULL){
-                        $_SESSION['data-Cup'][$i]=$result;
+                        $banyakCup++;
+                        $_SESSION['data-cup'][$banyakCup]=$result;
                         continue;
                     }
                     $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Topping%'";
@@ -49,13 +51,10 @@
                     $result = mysqli_fetch_assoc($sql);
                     if($result!=NULL){
                         $banyaktopping++;
-                        $_SESSION['data-Topping'][$banyaktopping]=$result;
+                        $_SESSION['data-topping'][$banyaktopping]=$result;
                         continue;
                     }
                 }
-                // for ($i=1; $i < 7; $i++) { 
-                //     echo $_SESSION['data-kopi'][$i]['nama_barang']."<br>";
-                // }
                 header('location: user.php');
                 } 
             } else {
@@ -67,17 +66,6 @@
                 echo "error".$e;
             }
         } elseif (isset($_POST['register'])) {
-            try{
-            $email = $_POST['email'];
-            $username = $_POST['username'];
-            $password = $_POST['pw'];
-            $query = "INSERT INTO `tb_akun` (`email`, `username`, `password`) VALUES ('$email', '$username', '$password');";
-            echo "Register berhasil bjir";
-            } catch(Exception $e){
-                echo "error".$e;
-            }
-        }
-        if (isset($_POST['register'])) {
             try{
             $email = $_POST['email'];
             $username = $_POST['username'];
