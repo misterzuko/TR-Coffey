@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="utama">
+        <div class="container">
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <h2>Admin Dashboard</h2>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Pengguna</a></li>
+                    <li><a href="#">Produk</a></li>
+                    <li><a href="#">Pesanan</a></li>
+                    <li><a href="#">Laporan</a></li>
+                    <li><a href="#">Pengaturan</a></li>
+                </ul>
+            </div>
+
+            <!-- Button Toggle Sidebar -->
+            <button id="toggleBtn" class="toggle-btn">☰ Menu</button>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <h1>Selamat datang di Dashboard Admin</h1>
+                <p>Ini adalah halaman utama dashboard admin.</p>
+                <p>Konten di sini bisa panjang sehingga membutuhkan scroll agar sidebar tetap berada di tempat meskipun
+                    halaman digulir.</p>
+                <!-- Menambahkan banyak konten agar scroll bisa terlihat -->
+                <div style="height: 1500px;">
+                    <p>Scroll untuk melihat efek sticky pada sidebar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mengambil elemen yang dibutuhkan
+        const toggleBtn = document.getElementById('toggleBtn');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.querySelector(".main-content");
+
+        // Menambahkan event listener untuk tombol toggle
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active'); // Menambahkan/menghapus kelas 'active' pada sidebar
+
+            // Menambah atau mengurangi margin kiri pada main content sesuai dengan status sidebar
+            if (sidebar.classList.contains('active')) {
+                mainContent.style.marginLeft = '250px'; // Geser konten ke kanan saat sidebar muncul
+            } else {
+                mainContent.style.marginLeft = '0'; // Kembalikan konten ke posisi semula saat sidebar ditutup
+            }
+        });
+
+    </script>
+</body>
+
+</html>
