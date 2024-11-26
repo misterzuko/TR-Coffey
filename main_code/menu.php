@@ -13,6 +13,9 @@
     if($_SESSION['data-kopi'][1]['id_barang']==NULL){
         header('location: login.php');
     }
+    for($i=1;isset($_SESSION['data-cup'][$i]['nama_barang']);$i++){
+        echo $_SESSION['data-cup'][$i]['nama_barang'];
+    }
 ?>
 
 <!--
@@ -32,22 +35,27 @@
     <link href="../css/menu.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script>
-        function redirectOnReload() {
+function redirectOnReload() {
     if (performance.navigation.type === 1) {
         window.location.href = "user.php";
     }
-    }
-    window.addEventListener('load', redirectOnReload);
+}
+window.addEventListener('load', redirectOnReload);
+window.addEventListener('click', hargaUpdater);
+var selectedValue;
+var hargaCup = <?php echo $_SESSION['data-cup'][1]['harga_barang']?>;
+var hargaTopping = <?php echo $_SESSION['data-topping'][1]['harga_barang']?>;
 
-    var selectedValue;
-    var hargaCup = <?php echo $_SESSION['data-cup'][1]['harga_barang']?>;
-    window.addEventListener("click", hargaUpdater);
-    var total = 0;
-    function hargaUpdater(){
-        total = (jumlahKopi*document.getElementById("harga-kopi").innerText)+(selectedstock*document.getElementById("jmlhtopping").value)+(hargaCup*1);
-        document.getElementById("harga").innerHTML = "Total Harga: Rp."+total;
-    }
-    function updatevalcup(idx) {
+function hargaUpdater() {
+    let total = (document.getElementById("harga-kopi").innerText * 1) + (1 * hargaTopping) + (1 * hargaCup);
+    document.getElementById("harga").innerHTML = "Total Harga: Rp." + total;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    hargaUpdater();
+});
+
+function updatevalcup(idx) {
     var cekcup = <?php 
         $stokArray = array();
         for($i=1;isset($_SESSION['data-cup'][$i]['id_barang']);$i++){
@@ -55,31 +63,30 @@
         }
         echo json_encode($stokArray);
     ?>;
+    hargaCup = cekcup[idx-1];
     hargaUpdater();
 }
-   function updatemax() {
+
+function updatemax() {
     selectedValue = document.getElementById("topping").value;
-    
     var stok = <?php 
-        $stokArray = array();
+        $stokArray2 = array();
         for($i=1;isset($_SESSION['data-topping'][$i]['id_barang']);$i++){
-            $stokArray[] = $_SESSION['data-topping'][$i]['stok_barang'];
+            $stokArray2[] = $_SESSION['data-topping'][$i]['stok_barang'];
         }
-        echo json_encode($stokArray);
+        echo json_encode($stokArray2);
     ?>;
     var hrgstok = <?php 
-        $stokArray = array();
+        $stokArray2 = array();
         for($i=1;isset($_SESSION['data-topping'][$i]['id_barang']);$i++){
-            $stokArray[] = $_SESSION['data-topping'][$i]['harga_barang'];
+            $stokArray2[] = $_SESSION['data-topping'][$i]['harga_barang'];
         }
-        echo json_encode($stokArray);
+        echo json_encode($stokArray2);
     ?>;
-    document.getElementById("jmlhtopping").value = 0;
-    document.getElementById("jmlhtopping").max = stok[selectedValue-1];
-    selectedstock=hrgstok[selectedValue-1];
+    hargaTopping = hrgstok[selectedValue-1];
     hargaUpdater();
 }
-    </script>
+</script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/menu.js"></script>
 </head>
@@ -135,13 +142,13 @@
                                     </div>
                                     <div class="col-md-8 d-flex align-items-center justify-content-evenly">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="dinginpanas" id="dinginpanas" onclick="pakedingin(0)" checked>
+                                            <input class="form-check-input" type="radio" name="saji" id="dinginpanas" onchange="hargaUpdater()" checked>
                                             <label class="form-check-label" for="panas">
                                                 <p class="fw-bold">Hot</p>
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="dinginpanas" id="dinginpanas" onclick="pakedingin(1)">
+                                            <input class="form-check-input" type="radio" name="saji" id="dinginpanas" onchange="hargaUpdater()">
                                             <label class="form-check-label" for="dingin">
                                                 <p class="fw-bold">Cold</p>
                                             </label>
@@ -193,13 +200,13 @@
                                         <div class="container text-center">
                                             <label for="jmlhtopping" class="form-label fw-bold">Metode Pembayaran</label>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="medpem" id="medpem" onchange="updatevalcup(2)">
+                                                <input class="form-check-input" type="radio" name="medpem" id="medpem">
                                                 <label class="form-check-label" for="tunai">
                                                     <p class="fw-bold">Tunai</p>
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="medpem" id="medpem" onchange="updatevalcup(3)" >
+                                                <input class="form-check-input" type="radio" name="medpem" id="medpem">
                                                 <label class="form-check-label" for="nontunai">
                                                     <p class="fw-bold">Non Tunai</p>
                                                 </label>
@@ -213,7 +220,7 @@
                                     <p class="garis container-expand-lg"></p>
                                 </div>
                                 <div class="col-md-6 d-flex align-items-center justify-content-start ps-5">
-                                    <p id="harga" class="fw-bold">Total Harga: Rp 0</p>
+                                    <p id="harga" class="fw-bold">Total Harga: Rp </p>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <input type="submit" class="btn btn-success fw-bold fs-5 w-25" value="Proses">
