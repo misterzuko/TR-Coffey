@@ -19,7 +19,7 @@
                 $banyakkopi=0;
                 $banyaktopping=0;
                 $banyakCup=0;
-                $query = "SELECT COUNT(*) AS banyakdata FROM tb_barang;";
+                $query = "SELECT MAX(id_barang) AS banyakdata FROM tb_barang;";
                 $sql = mysqli_query($conn,$query);
                 $banyakData = mysqli_fetch_assoc($sql)['banyakdata'];
                 for($i=1;$i<=$banyakData;$i++){
@@ -29,13 +29,6 @@
                     if($result!=NULL){
                         $banyakkopi++;
                         $_SESSION['data-kopi'][$banyakkopi]=$result;
-                        continue;
-                    }
-                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Es%'";
-                    $sql = mysqli_query($conn,$query);
-                    $result = mysqli_fetch_assoc($sql);
-                    if($result!=NULL){
-                        $_SESSION['data-es'][0]=$result;
                         continue;
                     }
                     $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Cup%'";

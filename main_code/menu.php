@@ -39,20 +39,12 @@
     }
     window.addEventListener('load', redirectOnReload);
 
-    var selectedstock = <?php echo $_SESSION['data-es'][0]['harga_barang'];?>;
     var selectedValue;
-    var stokEs = <?php echo $_SESSION['data-es'][0]['stok_barang'];?>;
-    var hargaEs = <?php echo $_SESSION['data-es'][0]['harga_barang'];?>;
     var hargaCup = <?php echo $_SESSION['data-cup'][1]['harga_barang']?>;
-    var pakeEs = 0;
-    function pakedingin(bool){
-        pakeEs=bool;
-        hargaUpdater();
-    }
     window.addEventListener("click", hargaUpdater);
     var total = 0;
     function hargaUpdater(){
-        total = (jumlahKopi*document.getElementById("harga-kopi").innerText)+(selectedstock*document.getElementById("jmlhtopping").value)+(pakeEs*hargaEs)+(hargaCup*1);
+        total = (jumlahKopi*document.getElementById("harga-kopi").innerText)+(selectedstock*document.getElementById("jmlhtopping").value)+(hargaCup*1);
         document.getElementById("harga").innerHTML = "Total Harga: Rp."+total;
     }
     function updatevalcup(idx) {
@@ -87,7 +79,6 @@
     selectedstock=hrgstok[selectedValue-1];
     hargaUpdater();
 }
-    
     </script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/menu.js"></script>
@@ -109,7 +100,7 @@
                     </li>
                 </ul>
                 <div class="ms-5">
-                    <a href="" class="text-decoration-none text-light d-flex flex-column align-items-center justify-content-center">
+                    <a href="profile.php" class="text-decoration-none text-light d-flex flex-column align-items-center justify-content-center">
                         <button class="profile">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </button>
@@ -134,15 +125,6 @@
                                 <img src="../src/<?php echo $kopi;?>.png" alt="Kopi-4" class="img-fluid img-menu">
                                 <h6 class="mt-3 text-center"><?php echo $result['nama_barang'];?></h6>
                                 <p class="text-center">Rp.<text id="harga-kopi"><?php echo $result['harga_barang'];?></text></p>
-                                <div class="d-flex align-items-center justify-content-center mt-2 tambah-barang">
-                                    <button type="button" class="btn-icon" onclick="kurangkopi()">
-                                        <i class="fa fa-minus-circle fs-4 me-3 cursor-pointer" aria-hidden="true"></i>
-                                    </button>
-                                    <p class="mb-0" id="banyak-kopi">1</p>
-                                    <button type="button" class="btn-icon" onclick="tambahkopi()">
-                                        <i class="fa fa-plus-circle text-primary fs-4 ms-3 cursor-pointer" aria-hidden="true"></i>
-                                    </button>
-                                </div>
                             </div>
                             <div class="col-md-7 row g-3">
                                 <div class="col-md-12 row g-3">
@@ -161,7 +143,7 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="dinginpanas" id="dinginpanas" onclick="pakedingin(1)">
                                             <label class="form-check-label" for="dingin">
-                                                <p class="fw-bold">Ice</p>
+                                                <p class="fw-bold">Cold</p>
                                             </label>
                                         </div>
                                     </div>
@@ -209,8 +191,19 @@
                                     </div>
                                     <div class="col-md-6 d-flex align-items-center justify-content-center">
                                         <div class="container text-center">
-                                            <label for="jmlhtopping" class="form-label fw-bold">Jumlah Topping</label>
-                                            <input type="number" class="form-control w-50 mx-auto" id="jmlhtopping" min="0" max="<?php echo $_SESSION['data-topping'][1]['stok_barang'];?>" value="0" required>
+                                            <label for="jmlhtopping" class="form-label fw-bold">Metode Pembayaran</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="medpem" id="medpem" onchange="updatevalcup(2)">
+                                                <label class="form-check-label" for="tunai">
+                                                    <p class="fw-bold">Tunai</p>
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="medpem" id="medpem" onchange="updatevalcup(3)" >
+                                                <label class="form-check-label" for="nontunai">
+                                                    <p class="fw-bold">Non Tunai</p>
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -219,11 +212,11 @@
                                 <div class="col-12 d-flex justify-content-center align-items-center">
                                     <p class="garis container-expand-lg"></p>
                                 </div>
-                                <div class="col-6 d-flex align-items-center justify-content-start ps-5">
+                                <div class="col-md-6 d-flex align-items-center justify-content-start ps-5">
                                     <p id="harga" class="fw-bold">Total Harga: Rp 0</p>
                                 </div>
-                                <div class="col-6 mb-3">
-                                    <input type="submit" class="btn btn-success fw-bold fs-5 w-25" value="Beli">
+                                <div class="col-md-6 mb-3">
+                                    <input type="submit" class="btn btn-success fw-bold fs-5 w-25" value="Proses">
                                 </div>
                             </div>
                         </form>

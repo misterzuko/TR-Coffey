@@ -40,7 +40,7 @@
                     </li>
                 </ul>
                 <div class="ms-5">
-                    <a href="" class="text-decoration-none text-light d-flex flex-column align-items-center justify-content-center">
+                    <a href="profile.php" class="text-decoration-none text-light d-flex flex-column align-items-center justify-content-center">
                         <button class="profile">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </button>
@@ -84,20 +84,20 @@
      <!-- SOSMED START -->
     <div class="container kemas d-flex justify-content-center align-items-center" id="sosmed">
         <div class="container row g-3 mb-5 text-dark d-flex justify-content-evenly align-items-center">
-            <p class="col-12 text-center fw-bold fs-4 pb-5 c-us">CONTACT US</p>
-            <div class="col-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
+            <p class="col-md-12 text-center fw-bold fs-4 pb-5 c-us">CONTACT US</p>
+            <div class="col-md-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
                 <img src="../src/pic-ig.png" alt="ig" class="img-fluid">
                 <a href="https://www.instagram.com/anr091?igsh=eGljNDM5aHpuZXhv" class="mt-3 fw-bold us-sosmed">@Andreoni</a>
             </div>
-            <div class="col-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
+            <div class="col-md-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
                 <img src="../src/pic-ig.png" alt="ig" class="img-fluid">
                 <a href="https://www.instagram.com/andreas_s_45?igsh=OW51ZHpjOG1wYnBu" class="mt-3 fw-bold us-sosmed">@Andreas</a>
             </div>
-            <div class="col-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
+            <div class="col-md-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
                 <img src="../src/pic-ig.png" alt="ig" class="img-fluid">
                 <a href="https://www.instagram.com/mrzzuko_/profilecard/?igsh=MWhwdzF3MTlua2tqbw==" class="mt-3 fw-bold us-sosmed">@Daniro</a>
             </div>
-            <div class="col-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
+            <div class="col-md-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
                 <img src="../src/pic-ig.png" alt="ig" class="img-fluid">
                 <a href="https://www.instagram.com/rexcyant_/profilecard/?igsh=MWhiY2NramJueGQwaQ==" class="mt-3 fw-bold us-sosmed">@Rexcy</a>
             </div>
@@ -107,9 +107,9 @@
      <!-- FOOTER START -->
      <div class="container-expand-lg d-flex justify-content-center align-items-center b-footer">
         <div class="text-center row g-3">
-            <a href="#sosmed" class="col-6 text-center t-foot text-light">Contact Us</a>
-            <a class="col-6 text-center t-foot text-light">About kopiinaja</a>
-            <p class="col-12 t-foot">© 2024 kopiinaja</p>
+            <a href="#sosmed" class="col-md-6 text-center t-foot text-light">Contact Us</a>
+            <a class="col-md-6 text-center t-foot text-light">About kopiinaja</a>
+            <p class="col-md-12 t-foot">© 2024 kopiinaja</p>
         </div>
     </div>
       <!-- FOOTER END -->
