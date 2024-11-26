@@ -19,6 +19,16 @@
     <link href="../css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        <?php
+            if(isset($_SESSION['berhasil'])){
+                ?>
+                alert("Berhasil diproses");
+                <?php
+            }
+            unset($_SESSION['berhasil']);
+        ?>
+    </script>
 </head>
 <body>
     <!-- NAVBAR START -->

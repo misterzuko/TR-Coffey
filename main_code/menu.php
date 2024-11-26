@@ -10,18 +10,12 @@
     $query = "SELECT * FROM tb_barang WHERE id_barang='$kopi'";
     $sql = mysqli_query($conn,$query);
     $result = mysqli_fetch_assoc($sql);
+    $_SESSION['saved-menu']=$result;
     if($_SESSION['data-kopi'][1]['id_barang']==NULL){
         header('location: login.php');
     }
-    for($i=1;isset($_SESSION['data-cup'][$i]['nama_barang']);$i++){
-        echo $_SESSION['data-cup'][$i]['nama_barang'];
-    }
 ?>
 
-<!--
-    proteksi overflow stok: value max cuma bisa mengikuti banyaknya stok,
-    pengambilan data dari menu.php back ke js lalu eksekusi perhitungan total
- -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +42,8 @@ var hargaTopping = <?php echo $_SESSION['data-topping'][1]['harga_barang']?>;
 
 function hargaUpdater() {
     let total = (document.getElementById("harga-kopi").innerText * 1) + (1 * hargaTopping) + (1 * hargaCup);
-    document.getElementById("harga").innerHTML = "Total Harga: Rp." + total;
+    document.getElementById("harga").innerHTML = total;
+    document.getElementById("harga").value = total;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -127,7 +122,7 @@ function updatemax() {
             <tbody>
                 <tr>
                     <td>
-                        <form class="row needs-validation" novalidate>
+                        <form class="row needs-validation" method="POST" action="process.php" novalidate>
                             <div class="col-md-5 mt-5 d-flex flex-column align-items-center justify-content-center card-menu">
                                 <img src="../src/<?php echo $kopi;?>.png" alt="Kopi-4" class="img-fluid img-menu">
                                 <h6 class="mt-3 text-center"><?php echo $result['nama_barang'];?></h6>
@@ -142,13 +137,13 @@ function updatemax() {
                                     </div>
                                     <div class="col-md-8 d-flex align-items-center justify-content-evenly">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="saji" id="dinginpanas" onchange="hargaUpdater()" checked>
+                                            <input class="form-check-input" type="radio" name="saji" id="dinginpanas" value="Panas" onchange="hargaUpdater()" checked>
                                             <label class="form-check-label" for="panas">
                                                 <p class="fw-bold">Hot</p>
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="saji" id="dinginpanas" onchange="hargaUpdater()">
+                                            <input class="form-check-input" type="radio" name="saji" id="dinginpanas" value="Dingin" onchange="hargaUpdater()">
                                             <label class="form-check-label" for="dingin">
                                                 <p class="fw-bold">Cold</p>
                                             </label>
@@ -161,19 +156,19 @@ function updatemax() {
                                     </div>
                                     <div class="col-md-9 d-flex align-items-center justify-content-between">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ukuran" id="ukuran" onchange="updatevalcup(1)" checked>
+                                            <input class="form-check-input" type="radio" name="ukuran" value="Small" id="ukuran" onchange="updatevalcup(1)" checked>
                                             <label class="form-check-label" for="small">
                                                 <p class="fw-bold">Small</p>
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ukuran" id="ukuran" onchange="updatevalcup(2)">
+                                            <input class="form-check-input" type="radio" name="ukuran" value="Regular" id="ukuran" onchange="updatevalcup(2)">
                                             <label class="form-check-label" for="Regular">
                                                 <p class="fw-bold">Regular</p>
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ukuran" id="ukuran" onchange="updatevalcup(3)" >
+                                            <input class="form-check-input" type="radio" name="ukuran" value="Large" id="ukuran" onchange="updatevalcup(3)" >
                                             <label class="form-check-label" for="Large">
                                                 <p class="fw-bold">Large</p>
                                             </label>
@@ -184,7 +179,7 @@ function updatemax() {
                                     <div class="col-md-6 d-flex align-items-center justify-content-center">
                                         <div class="container text-center">
                                             <label for="topping" class="form-label fw-bold">Pilih Topping</label>
-                                            <select class="form-select w-75 mx-auto" id="topping" onchange="updatemax()" required>
+                                            <select name="topping" class="form-select w-75 mx-auto" id="topping" onchange="updatemax()" required>
                                                 <option value="1" selected><?php echo $_SESSION['data-topping'][1]['nama_barang'];?></option>
                                                 <?php
                                                 for($i=2;isset($_SESSION['data-topping'][$i]['id_barang']);$i++){
@@ -200,13 +195,13 @@ function updatemax() {
                                         <div class="container text-center">
                                             <label for="jmlhtopping" class="form-label fw-bold">Metode Pembayaran</label>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="medpem" id="medpem">
+                                                <input class="form-check-input" type="radio" value="tunai" name="medpem" id="medpem" checked>
                                                 <label class="form-check-label" for="tunai">
                                                     <p class="fw-bold">Tunai</p>
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="medpem" id="medpem">
+                                                <input class="form-check-input" type="radio" value="non-tunai"  name="medpem" id="medpem">
                                                 <label class="form-check-label" for="nontunai">
                                                     <p class="fw-bold">Non Tunai</p>
                                                 </label>
@@ -220,10 +215,10 @@ function updatemax() {
                                     <p class="garis container-expand-lg"></p>
                                 </div>
                                 <div class="col-md-6 d-flex align-items-center justify-content-start ps-5">
-                                    <p id="harga" class="fw-bold">Total Harga: Rp </p>
+                                    <p class="fw-bold">Total Harga: Rp.<input type="text" id="harga" name="total" value="" readonly style="border:none;"></p>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <input type="submit" class="btn btn-success fw-bold fs-5 w-25" value="Proses">
+                                    <button type="submit" class="btn btn-success fw-bold fs-5 w-25" name="proses">proses</button>
                                 </div>
                             </div>
                         </form>

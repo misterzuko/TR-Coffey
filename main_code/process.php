@@ -77,5 +77,22 @@
                 header('location: signup.php');
             }
             
+        } elseif (isset($_POST['proses'])){
+            try {
+                $nama = $_SESSION['credential']['username'];
+                $jenis_kopi = $_SESSION['saved-menu']['nama_barang'];
+                $jenis_penyajian = $_POST['saji'];
+                $jenis_topping = $_SESSION['data-topping'][$_POST['topping']]['nama_barang'];
+                $ukuran_cup = $_POST['ukuran'];
+                $total = $_POST['total'];
+                $metode_pembayaran = $_POST['medpem'];
+                $status_pesanan = "Diproses";
+                $query = "INSERT INTO `tb_recordhistory`(`nama_pemesan`, `jenis_kopi`, `jenis_penyajian`, `jenis_topping`, `ukuran_cup`, `total`, `metode_pembayaran`, `status_pesanan`) VALUES ('$nama','$jenis_kopi','$jenis_penyajian','$jenis_topping','$ukuran_cup','$total','$metode_pembayaran','$status_pesanan');";
+                $sql = mysqli_query($conn,$query);
+                $_SESSION['berhasil']="yes";
+                header('location: user.php');
+            } catch(mysqli_sql_exception $e){
+                echo $e;
+            }
         }
 ?>
