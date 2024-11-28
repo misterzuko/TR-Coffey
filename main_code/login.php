@@ -51,12 +51,12 @@
             <form class="form-container" action="process.php" method="POST">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com" required>
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword6" class="form-label">Password</label>
                     <div class="input-group">
-                        <input type="password" id="inputPassword6" class="form-control" name="pw" aria-describedby="passwordHelpInline">
+                        <input type="password" id="inputPassword6" class="form-control" name="pw" aria-describedby="passwordHelpInline" required>
                         <button type="button" class="b-eye" id="togglePassword">
                             <i class="fa fa-eye-slash" aria-hidden="true"></i>
                         </button>
