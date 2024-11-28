@@ -26,7 +26,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="d-flex flex-column justify-content-center align-items-center mb-3 brandlog">
+        <div class="d-flex flex-column justify-content-center align-items-center brandlog">
             <div class="brand text-center">
                 <a class="navbar-brand Brand" href="#">
                     <i class="fa fa-coffee fa-5x mb-2" aria-hidden="true"></i>

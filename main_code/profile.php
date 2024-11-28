@@ -51,19 +51,19 @@
                 </a>
             </div>
             <div class="col-md-6 d-flex justify-content-center align-items-center row g-3">
-                <div class="col-md-12 un w-100">
-                    <label for="un">Username</label>
-                    <p id="un" class="w-50 text-center"><?php echo $username; ?></p>
+                <div class="col-md-12 un w-100 mt-5">
+                    <label for="un" class="mb-1">Username</label>
+                    <p id="un" class="w-75 p-3"><?php echo $username; ?></p>
                 </div>
-                <div class="col-md-12 email w-100">
-                    <label for="email">Email</label>
-                    <p id="email" class="w-75 text-center"><?php echo $email; ?></p>
+                <div class="col-md-12 email w-100 mb-5">
+                    <label for="email" class="mb-1">Email</label>
+                    <p id="email" class="w-75 p-3"><?php echo $email; ?></p>
                 </div>
-            </div>
-            <div class="col-12 mb-3 d-flex justify-content-center align-items-center">
-                <a href="logout.php">
-                    <button type="submit" class="btn btn-danger fw-bold p-2">Keluar</button>
-                </a>
+                <div class="col-12 mb-3 d-flex justify-content-center align-items-center">
+                    <a href="logout.php" class="w-75 ms-5 ps-5">
+                        <button type="submit" class="btn btn-danger fw-bold py-2 px-4">Keluar</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

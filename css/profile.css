@@ -54,17 +54,44 @@ body{
     width: 6rem;
     height: 6rem;
     border-radius: 50px;
+    transform: scale(1.6, 1.6);
 }
 .user{
+    margin-top: 5rem;
+    margin-bottom: 0;
     font-size: 1.5rem;
 }
 .container{
     background-color: var(--bg);
-    border: 2px solid #513c28;
 }
 .prof-side{
+    padding-top: 3rem;
     height: 50vh;
+}
+.prof-side a {
+    padding: 4rem 6rem;
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 #email, #un{
     border: 1px solid var(--primary);
+    border-radius: 5px;
+}
+/* Media Queries */
+@media (max-width: 1366px){
+    html {
+        font-size: 75%;
+    }
+}
+
+@media (max-width: 768px){
+    html {
+        font-size: 62.5%;
+    }
+}
+
+@media (max-width: 450px){
+    html {
+        font-size: 55%;
+    }
 }

@@ -34,7 +34,7 @@
 </head>
 <body>
     <div class="container row logsign">
-        <div class="col-6 d-flex flex-column justify-content-center align-items-center brandlog">
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center brandlog">
             <div class="brand text-center">
                 <a class="navbar-brand Brand" href="#">
                     <i class="fa fa-coffee fa-5x mb-0" aria-hidden="true"></i>
@@ -47,7 +47,7 @@
                 </p>
             </div>
         </div>
-        <div class="container col-6 d-flex justify-content-center align-items-center containt">
+        <div class="container col-md-6 d-flex justify-content-center align-items-center containt">
             <form class="form-container" action="process.php" method="POST">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Email</label>

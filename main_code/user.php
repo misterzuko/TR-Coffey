@@ -38,8 +38,8 @@
                 <i class="fa fa-coffee fa-2x col-3" aria-hidden="true"></i>
                 <p class="col-9 pt-2"><span>kopi</span>inaja</p>
             </a>
-            <div class="collapse navbar-collapse mx-5 px-3" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-5 me-auto">
+            <div class="collapse navbar-collapse ms-5 ps-3 ham-nav" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a aria-current="page" href="user.php">Home</a>
                     </li>
@@ -49,14 +49,19 @@
                         <a aria-current="page" href="#sosmed">Contact Us</a>
                     </li>
                 </ul>
-                <div class="ms-5">
-                    <a href="profile.php" class="text-decoration-none text-light d-flex flex-column align-items-center justify-content-center">
-                        <button class="profile">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                        </button>
-                        <?php echo $username; ?>
-                    </a>
-                </div>
+            </div>
+            <div class="ms-5 prof">
+                <a href="profile.php" class="text-decoration-none text-light d-flex flex-column align-items-center justify-content-center">
+                    <button class="profile">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </button>
+                    <?php echo $username; ?>
+                </a>
+            </div>
+            <div class="hamburger">
+                <a href="#" id="ham-bar">
+                    <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
     </nav>
@@ -70,15 +75,15 @@
         </main>
     </section>
     <!-- SECTION HERO END -->
-     <!-- MENU START -->
-    <div class="container bungkus mb-5" id="menu">
+    <!-- MENU START -->
+    <div class="container bungkus" id="menu">
         <p class="text-center fw-bold fs-4 c-is">PILIH MENU</p>
         <div class="container text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu">
             <?php
                 for ($i = 1; isset($_SESSION['data-kopi'][$i]['id_barang']); $i++) {
             ?>
             <form action="menu.php" method="post">
-                <div class="d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
+                <div class="d-flex flex-column align-items-center justify-content-evenly p-4 shadow-sm m-3 card-item">
                     <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
                     <h6 class="mt-3 text-center fw-bold"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
                     <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
@@ -91,9 +96,9 @@
         </div>
     </div>
     <!-- MENU END -->
-     <!-- SOSMED START -->
+    <!-- SOSMED START -->
     <div class="container kemas d-flex justify-content-center align-items-center" id="sosmed">
-        <div class="container row g-3 mb-5 text-dark d-flex justify-content-evenly align-items-center">
+        <div class="container row g-3 mb-5 text-dark d-flex justify-content-evenly align-items-center sosmed-containt">
             <p class="col-md-12 text-center fw-bold fs-4 pb-5 c-us">CONTACT US</p>
             <div class="col-md-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
                 <img src="../src/pic-ig.png" alt="ig" class="img-fluid">
@@ -114,15 +119,15 @@
         </div>
     </div>
     <!-- SOSMED END -->
-     <!-- FOOTER START -->
-     <div class="container-expand-lg d-flex justify-content-center align-items-center b-footer">
+    <!-- FOOTER START -->
+    <div class="container-expand-lg d-flex justify-content-center align-items-center b-footer">
         <div class="text-center row g-3">
             <a href="#sosmed" class="col-md-6 text-center t-foot text-light">Contact Us</a>
             <a class="col-md-6 text-center t-foot text-light">About kopiinaja</a>
             <p class="col-md-12 t-foot">© 2024 kopiinaja</p>
         </div>
     </div>
-      <!-- FOOTER END -->
+    <!-- FOOTER END -->
     <script src="../js/user.js"></script>
 </body>
 </html>
