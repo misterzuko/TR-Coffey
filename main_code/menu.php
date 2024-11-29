@@ -29,12 +29,12 @@
     <link href="../css/menu.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script>
-        // function redirectOnReload() {
-        //     if (performance.navigation.type === 1) {
-        //         window.location.href = "user.php";
-        //     }
-        // }
-        // window.addEventListener('load', redirectOnReload);
+        function redirectOnReload() {
+            if (performance.navigation.type === 1) {
+                window.location.href = "user.php";
+            }
+        }
+        window.addEventListener('load', redirectOnReload);
         window.addEventListener('click', hargaUpdater);
         var selectedValue;
         var hargaCup = <?php echo $_SESSION['data-cup'][1]['harga_barang']?>;
