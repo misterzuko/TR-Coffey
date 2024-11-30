@@ -78,11 +78,11 @@ body{
     border-radius: 5px;
 }
 /* Media Queries */
-@media (max-width: 1366px){
+/* @media (max-width: 1366px){
     html {
         font-size: 75%;
     }
-}
+} */
 
 @media (max-width: 768px){
     html {

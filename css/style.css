@@ -107,6 +107,8 @@ body{
     width: 100%;
     padding-bottom: 1rem;
     box-sizing: border-box;
+    position: relative;
+    z-index: 3;
 }
 .frontmenu::-webkit-scrollbar {
     height: 12px;
@@ -120,10 +122,12 @@ body{
     scroll-behavior: smooth;
 }
 .card-item{
+    position: relative;
+    z-index: 3;
     padding-left: 1rem;
     padding-right: 1rem;
     flex: 0 0 auto;
-    max-width: 13rem;
+    max-width: 16rem;
     height: 21rem;
     background-color: #fff;
     border: 2px solid var(--primary);
@@ -145,10 +149,35 @@ body{
     color: #fff;
 }
 .bungkus{
-    margin-top: 12rem;
-    margin-bottom: 1rem;
+    margin: 0;
     width: 100%;
-    height: 75vh;
+    height: 100vh;
+    align-items: center;
+    background-image: url(../src/bg-logsign.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.bungkus::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+.bungkus::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(1, 1, 3, 1) 3%, rgba(255, 255, 255, 0) 5%);
+    z-index: 2;
 }
 .Brand{
     transition: all 400ms ease-in-out;
@@ -210,6 +239,8 @@ body{
     transition: 0.3s ease;
 }
 .card-sosmed{
+    position: relative;
+    z-index: 3;
     flex: 0 0 auto;
     max-width: 13rem;
     height: 17rem;
@@ -236,28 +267,57 @@ body{
     box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.1);
 }
 .c-us{
+    position: relative;
+    z-index: 3;
     padding-top: 2rem;
     color: var(--primary);
 }
 .b-footer{
     border-top: 1px solid #513c28;
-    margin: 3rem 0 0 0;
+    margin: 0;
     padding: 0;
     background-color: var(--bg);
     height: 10rem;
 }
 .kemas{
+    margin: 0;
     width: 100%;
-    height: auto;
-    margin-top: 3rem;
-    background-color: var(--bg);
+    height: 100vh;
+    align-items: center;
+    background-image: url(../src/bg-logsign.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     overflow: auto;
+    position: relative;
+}
+.kemas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+.kemas::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(1, 1, 3, 1) 3%, rgba(255, 255, 255, 0) 25%);
+    z-index: 2;
 }
 .c-is{
     padding-top: 2rem;
     color: var(--primary);
     margin-bottom: 0;
     padding-bottom: 0;
+    position: relative;
+    z-index: 3;
 }
 .t-foot{
     font-size: 1rem;
@@ -271,12 +331,6 @@ a.t-foot{
 }
 
 /* Media Queries */
-@media (max-width: 1366px){
-    html {
-        font-size: 75%;
-    }
-}
-
 @media (max-width: 985px){
     html {
         font-size: 62.5%;

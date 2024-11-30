@@ -76,7 +76,7 @@
     </section>
     <!-- SECTION HERO END -->
     <!-- MENU START -->
-    <div class="container bungkus" id="menu">
+    <div class="bungkus" id="menu">
         <p class="text-center fw-bold fs-4 c-is">PILIH MENU</p>
         <div class="container text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu">
             <?php
@@ -97,8 +97,8 @@
     </div>
     <!-- MENU END -->
     <!-- SOSMED START -->
-    <div class="container kemas d-flex justify-content-center align-items-center" id="sosmed">
-        <div class="container row g-3 mb-5 text-dark d-flex justify-content-evenly align-items-center sosmed-containt">
+    <div class="kemas d-flex justify-content-center align-items-center" id="sosmed">
+        <div class="container row g-3 text-dark d-flex justify-content-between align-items-center sosmed-containt">
             <p class="col-md-12 text-center fw-bold fs-4 pb-5 c-us">CONTACT US</p>
             <div class="col-md-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
                 <img src="../src/pic-ig.png" alt="ig" class="img-fluid">

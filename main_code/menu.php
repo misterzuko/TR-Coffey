@@ -107,9 +107,9 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-4 d-flex justify-content-center align-items-center w-75 menu-body">
+    <div class="container d-flex justify-content-center align-items-center w-75 menu-body">
         <form class="row g-3 needs-validation" method="POST" action="process.php" novalidate>
-            <p class="col-md-12 fw-bold fs-3 text-center menu-headers">Menu</p>
+            <p class="col-md-12 fw-bold fs-4 text-center menu-headers">Menu</p>
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-center card-menu">
                 <img src="../src/<?php echo $kopi;?>.png" alt="Kopi-4" class="img-fluid img-menu">
                 <h6 class="mt-3 text-center"><?php echo $result['nama_barang'];?></h6>

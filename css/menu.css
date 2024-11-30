@@ -121,12 +121,6 @@ select, .form-check-input {
 }
 
 /* Media Queries */
-@media (max-width: 1366px){
-    html {
-        font-size: 75%;
-    }
-}
-
 @media (max-width: 985px){
     html {
         font-size: 62.5%;

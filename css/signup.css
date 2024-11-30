@@ -40,7 +40,7 @@ body::before {
 }
 .containt{
     width: 40%;
-    height: 60vh;
+    height: 70vh;
     border-radius: 10px;
     color: white;
     border: 3px solid #C6A56D;
@@ -51,7 +51,7 @@ body::before {
     width: 100%;
 }
 .brandlog{
-    margin-top: 5rem;
+    margin-top: 1rem;
 }
 #inputPassword6{
     border-right: 0;
