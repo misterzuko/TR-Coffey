@@ -1,5 +1,37 @@
 <?php
+include 'connect.php';
+function updatedata($banyakCup,$banyakkopi,$banyaktopping){
     include 'connect.php';
+    $query = "SELECT MAX(id_barang) AS banyakdata FROM tb_barang;";
+    $sql = mysqli_query($conn,$query);
+    $banyakData = mysqli_fetch_assoc($sql)['banyakdata'];
+    for($i=1;$i<=$banyakData;$i++){
+        $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Kopi%'";
+        $sql = mysqli_query($conn,$query);
+        $result = mysqli_fetch_assoc($sql);
+        if($result!=NULL){
+            $banyakkopi++;
+            $_SESSION['data-kopi'][$banyakkopi]=$result;
+            continue;
+        }
+        $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Cup%'";
+        $sql = mysqli_query($conn,$query);
+        $result = mysqli_fetch_assoc($sql);
+        if($result!=NULL){
+            $banyakCup++;
+            $_SESSION['data-cup'][$banyakCup]=$result;
+            continue;
+        }
+        $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Topping%'";
+        $sql = mysqli_query($conn,$query);
+        $result = mysqli_fetch_assoc($sql);
+        if($result!=NULL){
+            $banyaktopping++;
+            $_SESSION['data-topping'][$banyaktopping]=$result;
+            continue;
+        }
+    }
+}
     session_start();
         if(isset($_POST['login'])){   
             try{
@@ -19,35 +51,7 @@
                 $banyakkopi=0;
                 $banyaktopping=0;
                 $banyakCup=0;
-                $query = "SELECT MAX(id_barang) AS banyakdata FROM tb_barang;";
-                $sql = mysqli_query($conn,$query);
-                $banyakData = mysqli_fetch_assoc($sql)['banyakdata'];
-                for($i=1;$i<=$banyakData;$i++){
-                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Kopi%'";
-                    $sql = mysqli_query($conn,$query);
-                    $result = mysqli_fetch_assoc($sql);
-                    if($result!=NULL){
-                        $banyakkopi++;
-                        $_SESSION['data-kopi'][$banyakkopi]=$result;
-                        continue;
-                    }
-                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Cup%'";
-                    $sql = mysqli_query($conn,$query);
-                    $result = mysqli_fetch_assoc($sql);
-                    if($result!=NULL){
-                        $banyakCup++;
-                        $_SESSION['data-cup'][$banyakCup]=$result;
-                        continue;
-                    }
-                    $query = "SELECT * FROM tb_barang WHERE id_barang='$i' AND nama_barang LIKE '%Topping%'";
-                    $sql = mysqli_query($conn,$query);
-                    $result = mysqli_fetch_assoc($sql);
-                    if($result!=NULL){
-                        $banyaktopping++;
-                        $_SESSION['data-topping'][$banyaktopping]=$result;
-                        continue;
-                    }
-                }
+                updatedata($banyakCup,$banyakkopi,$banyaktopping);
                 header('location: user.php');
                 } 
             } else {
@@ -83,13 +87,19 @@
                 $jenis_kopi = $_SESSION['saved-menu']['nama_barang'];
                 $jenis_penyajian = $_POST['saji'];
                 $jenis_topping = $_SESSION['data-topping'][$_POST['topping']]['nama_barang'];
-                $ukuran_cup = $_POST['ukuran'];
+                $idKopi = $_SESSION['saved-menu']['id_barang'];
+                $idCup = $_SESSION['data-cup'][$_POST['ukuran']]['id_barang'];
+                $idTopping = $_SESSION['data-topping'][$_POST['topping']]['id_barang'];
+                $ukuran_cup = $_SESSION['data-cup'][$_POST['ukuran']]['nama_barang'];
                 $total = $_POST['total'];
                 $metode_pembayaran = $_POST['medpem'];
                 $status_pesanan = "Diproses";
                 $query = "INSERT INTO `tb_recordhistory`(`nama_pemesan`, `jenis_kopi`, `jenis_penyajian`, `jenis_topping`, `ukuran_cup`, `total`, `metode_pembayaran`, `status_pesanan`) VALUES ('$nama','$jenis_kopi','$jenis_penyajian','$jenis_topping','$ukuran_cup','$total','$metode_pembayaran','$status_pesanan');";
                 $sql = mysqli_query($conn,$query);
+                $query = "UPDATE `tb_barang` SET `stok_barang`= stok_barang-1 WHERE `id_barang`='$idKopi' OR `id_barang`='$idCup' OR `id_barang`='$idTopping';";
+                $sql = mysqli_query($conn,$query);
                 $_SESSION['berhasil']="yes";
+                updatedata($banyakCup,$banyakkopi,$banyaktopping);
                 header('location: user.php');
             } catch(mysqli_sql_exception $e){
                 echo $e;

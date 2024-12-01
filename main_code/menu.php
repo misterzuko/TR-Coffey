@@ -143,19 +143,19 @@
                     </div>
                     <div class="col-md-8 d-flex align-items-center justify-content-evenly">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ukuran" value="Small" id="ukuran" onchange="updatevalcup(1)" checked>
+                            <input class="form-check-input" type="radio" name="ukuran" value="1" id="ukuran" onchange="updatevalcup(1)" checked>
                             <label class="form-check-label" for="small">
                                 <p class="fw-bold">Small</p>
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ukuran" value="Regular" id="ukuran" onchange="updatevalcup(2)">
+                            <input class="form-check-input" type="radio" name="ukuran" value="2" id="ukuran" onchange="updatevalcup(2)">
                             <label class="form-check-label" for="Regular">
                                 <p class="fw-bold">Regular</p>
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ukuran" value="Large" id="ukuran" onchange="updatevalcup(3)" >
+                            <input class="form-check-input" type="radio" name="ukuran" value="3" id="ukuran" onchange="updatevalcup(3)" >
                             <label class="form-check-label" for="Large">
                                 <p class="fw-bold">Large</p>
                             </label>
