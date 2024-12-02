@@ -1,23 +1,4 @@
-var jumlahKopi = 1;
-
-function tambahkopi() {
-    jumlahKopi++;
-    updateTampilanKopi();
-}
-
-function kurangkopi() {
-    if (jumlahKopi > 1) {
-        jumlahKopi--;
-    }
-    updateTampilanKopi();
-}
-function updateTampilanKopi() {
-    document.getElementById("banyak-kopi").innerText = jumlahKopi;
-}
-function printReceipt() {
-    const printWindow = window.open('', '_blank');
-    printWindow.document.write(`
-    <html lang="en">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,9 +55,7 @@ function printReceipt() {
     <td colspan="2">Change: Rp.4000</td>
   </tr>
 </table>
+<br>
+<input type="button" value="Simpan" style="background-color: #4CAF50; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
 </body>
 </html>
-    `);
-    printWindow.document.close();
-    printWindow.print();
-}
