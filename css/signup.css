@@ -85,3 +85,17 @@ body::before {
 #exampleFormControlInput1:not(:placeholder-shown), #username:not(:placeholder-shown), #inputPassword6:not(:placeholder-shown){
     color: #FFFFFF;
 }
+@media (max-width: 985px){
+    html {
+        font-size: 62.5%;
+    }
+}
+
+@media (max-width: 768px){
+}
+
+@media (max-width: 450px){
+    html {
+        font-size: 55%;
+    }
+}
