@@ -1,5 +1,6 @@
 <?php
 include 'connect.php';
+session_start();
 function updatedata($banyakCup,$banyakkopi,$banyaktopping){
     include 'connect.php';
     $query = "SELECT MAX(id_barang) AS banyakdata FROM tb_barang;";
@@ -32,7 +33,6 @@ function updatedata($banyakCup,$banyakkopi,$banyaktopping){
         }
     }
 }
-    session_start();
         if(isset($_POST['login'])){   
             try{
             $email = $_POST['email'];
@@ -94,12 +94,26 @@ function updatedata($banyakCup,$banyakkopi,$banyaktopping){
                 $total = $_POST['total'];
                 $metode_pembayaran = $_POST['medpem'];
                 $status_pesanan = "Diproses";
+                if($_SESSION['data-cup'][$_POST['ukuran']]['stok_barang']>0&&$_SESSION['saved-menu']['stok_barang']>0&&$_SESSION['data-topping'][$_POST['topping']]['stok_barang']>0){
                 $query = "INSERT INTO `tb_recordhistory`(`nama_pemesan`, `jenis_kopi`, `jenis_penyajian`, `jenis_topping`, `ukuran_cup`, `total`, `metode_pembayaran`, `status_pesanan`) VALUES ('$nama','$jenis_kopi','$jenis_penyajian','$jenis_topping','$ukuran_cup','$total','$metode_pembayaran','$status_pesanan');";
                 $sql = mysqli_query($conn,$query);
                 $query = "UPDATE `tb_barang` SET `stok_barang`= stok_barang-1 WHERE `id_barang`='$idKopi' OR `id_barang`='$idCup' OR `id_barang`='$idTopping';";
                 $sql = mysqli_query($conn,$query);
-                $_SESSION['berhasil']="yes";
+                $_SESSION['berhasil']="Pemesanan ".$jenis_kopi." ".$jenis_penyajian.", ukuran ".$ukuran_cup." dengan ".$jenis_topping." Berhasil di proses (Total Harga: ".$total.")";
                 updatedata($banyakCup,$banyakkopi,$banyaktopping);
+                } else {
+                    $_SESSION['stokhabis'] = "Stok ";
+                    if ($_SESSION['data-cup'][$_POST['ukuran']]['stok_barang'] <= 0) {
+                        $_SESSION['stokhabis'] .= "cup, ";
+                    } 
+                    if ($_SESSION['saved-menu']['stok_barang'] <= 0) {
+                        $_SESSION['stokhabis'] .="kopi, ";
+                    }
+                    if ($_SESSION['data-topping'][$_POST['topping']]['stok_barang'] <= 0) {
+                        $_SESSION['stokhabis'] .= "topping, ";
+                    }
+                    $_SESSION['stokhabis'].="Yang anda beli habis, mohon coba lagi";
+                }
                 header('location: user.php');
             } catch(mysqli_sql_exception $e){
                 echo $e;

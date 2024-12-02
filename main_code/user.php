@@ -23,10 +23,18 @@
         <?php
             if(isset($_SESSION['berhasil'])){
                 ?>
-                alert("Berhasil diproses");
+                alert('<?php echo $_SESSION['berhasil'];?>');
                 <?php
+                unset($_SESSION['berhasil']);
             }
-            unset($_SESSION['berhasil']);
+        ?>
+        <?php
+            if(isset($_SESSION['stokhabis'])){
+                ?>
+                alert('<?php echo $_SESSION['stokhabis'];?>');
+                <?php
+                unset($_SESSION['stokhabis']);
+            }
         ?>
     </script>
 </head>
