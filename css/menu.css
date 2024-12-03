@@ -114,6 +114,17 @@ select, .form-check-input {
     border-color: var(--primary);
 }
 
+.komponen {
+    font-size: 0.9rem;
+}
+
+.harga {
+    border-bottom: 1px dashed var(--bg);
+}
+
+.proses {
+    border-top: 1px dashed var(--bg);
+}
 /* Media Queries */
 @media (max-width: 985px){
     html {
