@@ -2,16 +2,15 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background-color: #121212; 
-    color: #ffffff; 
+    color:var(--bg);
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #1e1e1e; 
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+.osda {
+    margin-top: 40rem; 
 }
 
 h1 {
@@ -28,8 +27,10 @@ h2 {
 
 table {
     width: 100%;
+    table-layout: fixed; 
     border-collapse: collapse;
     margin-bottom: 20px;
+    border: 1px solid #333333;
 }
 
 th, td {
@@ -39,13 +40,14 @@ th, td {
 }
 
 th {
-    background-color: #333333;
-    color: #ffffff;
+    background-color: #333333; 
+    color: #ffffff; 
     font-weight: bold;
 }
 
 td {
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; 
+    color: #ffffff;
 }
 
 .tambah {
@@ -55,11 +57,11 @@ td {
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
 
 .tambah:hover {
-    background-color: #ffd54f;
+    background-color: #ffd54f; 
 }
 
 .total {
@@ -67,16 +69,72 @@ td {
 }
 
 #btn-pesan {
-    background-color: #ffc107;
+    background-color: #631;
     color: #000000;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.2em;
-    transition: 0.3s;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+ 
+#btn-pesan:hover {
+    background-color: #ffd54f; 
+    transform: scale(1.05); 
 }
 
-#btn-pesan:hover {
-    background-color: #ffd54f;
+.navbar{
+    border-bottom: 1px solid #513c28;
+}
+.nav-item a{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin: 0 1rem;
+}
+.nav-item a:hover{
+    color: var(--primary);
+}
+.nav-item a::after{
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--primary);
+    transform: scaleX(0);
+}
+.nav-item a:hover::after{
+    transform: scaleX(0.8);
+    transition: 0.2s linear;
+}
+/* .navbar-transparent {
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.3s ease;
+} */
+.navbar-solid {
+    background-color: #000;
+    transition: 0.3s ease;
+}
+:root{
+    --primary: #b6895b;
+    --bg: #010101;
+}
+.Brand{
+    transition: all 400ms ease-in-out;
+}
+.Brand i{
+    color: var(--primary);
+}
+.Brand p{
+    font-size: 1.3rem;
+    color: #ffd;
+}
+.Brand p span{
+    color: var(--primary);
+}
+.Brand:hover {
+    transition: ease-in-out;
+    filter: brightness(1.2);
+    transform: scale(1.1);
 }

@@ -17,7 +17,28 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="container">
+<nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
+        <div class="container-fluid w-75 mt-3">
+            <a class="navbar-brand fw-bold Brand row" href="user.php">
+                <i class="fa fa-coffee fa-2x col-3" aria-hidden="true"></i>
+                <p class="col-9 pt-2"><span>kopi</span>inaja</p>
+            </a>
+            <div class="collapse navbar-collapse ms-5 ps-3 ham-nav" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a aria-current="page" href="#">Lihat Menu</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a aria-current="page" href="recordhistory.php">Recordhistory</a>
+                    </li>
+                </ul>
+            </div>
+           
+    </nav>
+    <div class="osda">
+        
         <h1>Menu Kasir</h1>
         <?php
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -54,7 +75,7 @@
                                 <th>Nama Produk</th>
                                 <th>Harga</th>
                                 <th>Stok</th>
-                                <th>Tambah</th>
+                                
                             </tr>
                         </thead>
                         <tbody>";
@@ -63,7 +84,7 @@
                             <td>{$row['nama_barang']}</td>
                             <td>Rp" . number_format($row['harga_barang'], 0, ',', '.') . "</td>
                             <td>{$row['stok_barang']}</td>
-                            <td><button class='tambah' data-price='{$row['harga_barang']}'>Tambah</button></td>
+                           
                           </tr>";
                 }
                 echo "</tbody></table>";
@@ -76,11 +97,6 @@
         tampilkanTabel($topping, 'Topping');
         $conn->close();
         ?>
-
-        <div class="total">
-            <h3>Total: <span id="total-harga">Rp0,00</span></h3>
-            <a href="recordhistory.php" id="btn-pesan">Pesan</a>
-        </div>
     </div>
 
     <script>
@@ -103,6 +119,12 @@
                 alert('Pesanan sedang diproses');
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.add('navbar-solid');
+        });
     </script>
+   
 </body>
 </html>
