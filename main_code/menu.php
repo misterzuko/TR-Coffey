@@ -17,6 +17,10 @@
     if($_SESSION['data-kopi'][1]['id_barang']==NULL){
         header('location: login.php');
     }
+    if(isset($_SESSION['kesalahan'])){
+        echo $_SESSION['kesalahan'];
+        unset($_SESSION['kesalahan']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -148,11 +152,10 @@
                     <div class="col-md-8 d-flex align-items-center justify-content-evenly">
                     <?php
                     for($i=1;isset($_SESSION['data-cup'][$i]['id_barang']);$i++){
-                        $a=1;
                         if($_SESSION['data-cup'][$i]['stok_barang']>0){
                     ?>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ukuran" value="<?php echo $i;?>" id="ukuran" onchange="updatevalcup(<?php echo $i;?>)" <?php if($a==1){echo 'checked'; $a++;}?>>
+                        <input class="form-check-input" type="radio" name="ukuran" value="<?php echo $i;?>" id="ukuran" onchange="updatevalcup(<?php echo $i;?>)" <?php if($i==1)echo 'checked';?>>
                         <label class="form-check-label" for="<?php echo $i;?>">
                             <p class="fw-bold"><?php echo $_SESSION['data-cup'][$i]['nama_barang'];?></p>
                         </label>
@@ -179,12 +182,10 @@
                             <select name="topping" class="form-select w-75 mx-auto" id="topping" onchange="updatemax()" required>
                                 <?php
                                 for($i=1;isset($_SESSION['data-topping'][$i]['id_barang']);$i++){
-                                    $a=1;
                                     if($_SESSION['data-topping'][$i]['stok_barang']>0){
                                 ?>
-                                <option value="<?php echo $i;?>"<?php if($a==1) echo 'selected'?> ><?php echo $_SESSION['data-topping'][$i]['nama_barang'];?></option>
+                                <option value="<?php echo $i;?>"<?php if($i==1) echo 'selected';?> ><?php echo $_SESSION['data-topping'][$i]['nama_barang'];?></option>
                                 <?php
-                                $a++;
                                     }
                                 }
                                 ?>
