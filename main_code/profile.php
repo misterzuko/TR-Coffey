@@ -20,6 +20,14 @@
     <link href="../css/profile.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        function redirectOnReload() {
+            if (performance.navigation.type === 1) {
+                window.location.href = "process.php?profile";
+            }
+        }
+        window.addEventListener('load', redirectOnReload);
+    </script>
 </head>
 <body>
     <!-- NAVBAR START -->
