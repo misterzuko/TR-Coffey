@@ -3,7 +3,7 @@
     $username = $_SESSION['credential']['username'];
     $email = $_SESSION['credential']['email'];
     if($_SESSION['data-kopi'][1]['id_barang']==NULL){
-        header('location: login.php');
+        header('location: index.php');
     }
 ?>
 <!DOCTYPE html>
@@ -51,22 +51,71 @@
                 </a>
             </div>
             <div class="col-md-6 d-flex justify-content-center align-items-center row g-3">
-                <div class="col-md-12 un w-100">
-                    <label for="un">Username</label>
-                    <p id="un" class="w-50 text-center"><?php echo $username; ?></p>
+                <div class="col-md-12 un w-100 mt-5">
+                    <label for="un" class="mb-1">Username</label>
+                    <p id="un" class="w-75 p-3"><?php echo $username; ?></p>
                 </div>
-                <div class="col-md-12 email w-100">
-                    <label for="email">Email</label>
-                    <p id="email" class="w-75 text-center"><?php echo $email; ?></p>
+                <div class="col-md-12 email w-100 mb-5">
+                    <label for="email" class="mb-1">Email</label>
+                    <p id="email" class="w-75 p-3"><?php echo $email; ?></p>
                 </div>
-            </div>
-            <div class="col-12 mb-3 d-flex justify-content-center align-items-center">
-                <a href="logout.php">
-                    <button type="submit" class="btn btn-danger fw-bold p-2">Keluar</button>
-                </a>
+                <div class="col-12 mb-5 d-flex justify-content-center align-items-center">
+                    <a href="logout.php" class="w-75 ms-5 ps-5">
+                        <button type="submit" class="btn-keluar fw-bold py-2 px-4">Keluar</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center align-items-center">
+        <table class="table struk">
+            <tr>
+            <th colspan="11" class="text-center fs-5 pb-2">Riwayat Pembelian</th>
+            </tr>
+            <tr>
+                <th>Tanggal</th>
+                <th>No. Kuitansi</th>
+                <th>Jenis Kopi</th>
+                <th>Ukuran</th>
+                <th>Jenis Penyajian</th>
+                <th>Jenis Topping</th>
+                <th>Metode Pembayaran</th>
+                <th>Total</th>
+            </tr>
+            <?php
+            if(isset($_SESSION['history'])){
+            for($i=0;isset($_SESSION['history'][$i]);$i++){
+                if($_SESSION['history'][$i]['status_pesanan']=="Selesai"){
+                ?>
+                <tr>
+                <th><?php echo $_SESSION['history'][$i]['tanggal_pemesanan'];?></th>
+                <th>TRCFE<?php echo $_SESSION['history'][$i]['id_pesanan'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['jenis_kopi'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['ukuran_cup'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['jenis_penyajian'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['jenis_topping'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['metode_pembayaran'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['total'];?></th>
+                </tr>
+                <?php
+                }
+            }
+        } else {
+            ?>
+            <tr>
+                <th>GAAD DATA BROK :VVVVVVVV NYGABALLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ</th>
+            </tr>
+            <?php
+        }
+            ?>
+        </table>
+        </div>
+        <!-- <div class="d-flex justify-content-center align-items-center mt-1">
+        <input type="button" value="Simpan" class="btn btn-success fw-bold">
+        </div> -->
+    </div>
     <!-- PROFILE END -->
+    <script src="../js/user.js"></script>
 </body>
 </html>

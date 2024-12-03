@@ -6,6 +6,21 @@ body {
     background-color: var(--bg);
     font-family: 'Poppins', sans-serif; 
 }
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../src/bg-logsign.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
 .Brand{
     transition: all 400ms ease-in-out;
 }
@@ -25,7 +40,7 @@ body {
 }
 .containt{
     width: 40%;
-    height: 60vh;
+    height: 70vh;
     border-radius: 10px;
     color: white;
     border: 3px solid #C6A56D;
@@ -36,7 +51,7 @@ body {
     width: 100%;
 }
 .brandlog{
-    margin-top: 10vh;
+    margin-top: 1rem;
 }
 #inputPassword6{
     border-right: 0;
@@ -69,4 +84,18 @@ body {
 }
 #exampleFormControlInput1:not(:placeholder-shown), #username:not(:placeholder-shown), #inputPassword6:not(:placeholder-shown){
     color: #FFFFFF;
+}
+@media (max-width: 985px){
+    html {
+        font-size: 62.5%;
+    }
+}
+
+@media (max-width: 768px){
+}
+
+@media (max-width: 450px){
+    html {
+        font-size: 55%;
+    }
 }

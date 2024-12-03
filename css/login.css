@@ -41,8 +41,8 @@ body::before {
 }
 .containt{
     width: 40%;
-    height: 50vh;
-    margin-top: 25vh;
+    height: 65vh;
+    margin-top: 20vh;
     border-radius: 12px;
     color: white;
     border: 1px solid #C6A56D;
@@ -95,4 +95,20 @@ body::before {
 }
 #exampleFormControlInput1:not(:placeholder-shown), #inputPassword6:not(:placeholder-shown){
     color: #FFFFFF;
+}
+
+/* Media Queries */
+@media (max-width: 985px){
+    html {
+        font-size: 62.5%;
+    }
+}
+
+@media (max-width: 768px){
+}
+
+@media (max-width: 450px){
+    html {
+        font-size: 55%;
+    }
 }

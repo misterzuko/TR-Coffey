@@ -32,7 +32,7 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Record Transaksi</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="kasir.css">
+    <link rel="stylesheet" href="../css/kasir.css">
 </head>
 <body>
     <div class="container">
@@ -48,8 +48,9 @@ $result = $conn->query($sql);
                     <th>Ukuran Cup</th>
                     <th>Total</th>
                     <th>Metode Pembayaran</th>
-                    <th>Status</th>
-                    <th>Tanggal</th>
+                    <th>Status Pesanan</th>
+                    <th>Tanggal Pemesanan</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,10 +68,28 @@ $result = $conn->query($sql);
                                 <td>{$row['metode_pembayaran']}</td>
                                 <td>{$row['status_pesanan']}</td>
                                 <td>{$row['tanggal_pemesanan']}</td>
-                              </tr>";
+                                <td>";
+
+                        // Logika tombol aksi berdasarkan status pesanan
+                        if ($row['status_pesanan'] === 'Diproses') {
+                            // Tombol "Selesaikan Pesanan"
+                            echo "<form action='' method='POST'>
+                                    <input type='hidden' name='id_pesanan' value='{$row['id_pesanan']}'>
+                                    <input type='hidden' name='metode_pembayaran' value='{$row['metode_pembayaran']}'>
+                                    <button type='submit' name='selesaikan' class='btn-selesaikan'>Selesaikan Pesanan</button>
+                                  </form>";
+                        } elseif ($row['status_pesanan'] === 'Selesai') {
+                            // Tombol "Cetak Transaksi"
+                            echo "<form action='' method='POST'>
+                                    <input type='hidden' name='id_pesanan' value='{$row['id_pesanan']}'>
+                                    <a href='cetak_struk.php?id_pesanan={$row['id_pesanan']}' class='btn-cetak'>Cetak Transaksi</a>
+                                  </form>";
+                        }
+
+                        echo "</td></tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='10'>Tidak ada data transaksi.</td></tr>";
+                    echo "<tr><td colspan='11'>Tidak ada data transaksi.</td></tr>";
                 }
                 ?>
             </tbody>
@@ -79,3 +98,4 @@ $result = $conn->query($sql);
     </div>
 </body>
 </html>
+

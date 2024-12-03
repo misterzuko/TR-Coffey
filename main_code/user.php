@@ -2,7 +2,7 @@
     session_start();
     $username = $_SESSION['credential']['username'];
     if($_SESSION['data-kopi'][1]['id_barang']==NULL){
-        header('location: login.php');
+        header('location: index.php');
     }
 ?>
 <!DOCTYPE html>
@@ -23,10 +23,10 @@
         <?php
             if(isset($_SESSION['berhasil'])){
                 ?>
-                alert("Berhasil diproses");
+                alert('<?php echo $_SESSION['berhasil'];?>');
                 <?php
+                unset($_SESSION['berhasil']);
             }
-            unset($_SESSION['berhasil']);
         ?>
     </script>
 </head>
@@ -38,8 +38,8 @@
                 <i class="fa fa-coffee fa-2x col-3" aria-hidden="true"></i>
                 <p class="col-9 pt-2"><span>kopi</span>inaja</p>
             </a>
-            <div class="collapse navbar-collapse mx-5 px-3" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-5 me-auto">
+            <div class="collapse navbar-collapse ms-5 ps-3 ham-nav" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a aria-current="page" href="user.php">Home</a>
                     </li>
@@ -49,14 +49,19 @@
                         <a aria-current="page" href="#sosmed">Contact Us</a>
                     </li>
                 </ul>
-                <div class="ms-5">
-                    <a href="profile.php" class="text-decoration-none text-light d-flex flex-column align-items-center justify-content-center">
-                        <button class="profile">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                        </button>
-                        <?php echo $username; ?>
-                    </a>
-                </div>
+            </div>
+            <div class="ms-5 prof">
+                <a href="process.php?profile" class="text-decoration-none text-light d-flex flex-column align-items-center justify-content-center">
+                    <button class="profile">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </button>
+                    <?php echo $username; ?>
+                </a>
+            </div>
+            <div class="hamburger">
+                <a href="#" id="ham-bar">
+                    <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
     </nav>
@@ -70,30 +75,32 @@
         </main>
     </section>
     <!-- SECTION HERO END -->
-     <!-- MENU START -->
-    <div class="container bungkus mb-5" id="menu">
+    <!-- MENU START -->
+    <div class="bungkus" id="menu">
         <p class="text-center fw-bold fs-4 c-is">PILIH MENU</p>
         <div class="container text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu">
             <?php
-                for ($i = 1; isset($_SESSION['data-kopi'][$i]['id_barang']); $i++) {
-            ?>
+                for ($i = 1; isset($_SESSION['data-kopi'][$i]['id_barang']); $i++) { ?>
             <form action="menu.php" method="post">
-                <div class="d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-item">
-                    <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
-                    <h6 class="mt-3 text-center fw-bold"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
-                    <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
+            <div class="d-flex flex-column align-items-center justify-content-evenly p-4 shadow-sm m-3 card-item">
+                <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
+                <h6 class="mt-3 text-center fw-bold"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
+                <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
+                <?php if($_SESSION['data-kopi'][$i]['stok_barang']>0){ ?>
                     <input type="submit" name="<?php echo $i;?>" value="Pesan" class="btn fw-bold rounded-pill mx-5"></input>
-                </div>
-            </form>
-            <?php
-                }
+                <?php } else { ?>
+                    <input type="button" name="<?php echo $i;?>" value="Habis" class="btn fw-bold rounded-pill mx-5" style="background-color: grey;" onclick="return false;"></input>
+                <?php } ?>
+            </div>
+        </form>
+                <?php }
             ?>
         </div>
     </div>
     <!-- MENU END -->
-     <!-- SOSMED START -->
-    <div class="container kemas d-flex justify-content-center align-items-center" id="sosmed">
-        <div class="container row g-3 mb-5 text-dark d-flex justify-content-evenly align-items-center">
+    <!-- SOSMED START -->
+    <div class="kemas d-flex justify-content-center align-items-center" id="sosmed">
+        <div class="container row g-3 text-dark d-flex justify-content-between align-items-center sosmed-containt">
             <p class="col-md-12 text-center fw-bold fs-4 pb-5 c-us">CONTACT US</p>
             <div class="col-md-3 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm m-3 card-sosmed">
                 <img src="../src/pic-ig.png" alt="ig" class="img-fluid">
@@ -114,15 +121,15 @@
         </div>
     </div>
     <!-- SOSMED END -->
-     <!-- FOOTER START -->
-     <div class="container-expand-lg d-flex justify-content-center align-items-center b-footer">
+    <!-- FOOTER START -->
+    <div class="container-expand-lg d-flex justify-content-center align-items-center b-footer">
         <div class="text-center row g-3">
             <a href="#sosmed" class="col-md-6 text-center t-foot text-light">Contact Us</a>
             <a class="col-md-6 text-center t-foot text-light">About kopiinaja</a>
             <p class="col-md-12 t-foot">© 2024 kopiinaja</p>
         </div>
     </div>
-      <!-- FOOTER END -->
+    <!-- FOOTER END -->
     <script src="../js/user.js"></script>
 </body>
 </html>

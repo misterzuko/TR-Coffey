@@ -26,7 +26,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="d-flex flex-column justify-content-center align-items-center mb-3 brandlog">
+        <div class="d-flex flex-column justify-content-center align-items-center brandlog">
             <div class="brand text-center">
                 <a class="navbar-brand Brand" href="#">
                     <i class="fa fa-coffee fa-5x mb-2" aria-hidden="true"></i>
@@ -38,16 +38,16 @@
             <form class="form-container" action="process.php" method="POST">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com" required>
                 </div>
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" name="username" id="username">
+                    <input type="text" class="form-control" name="username" id="username" required>
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword6" class="form-label">Password</label>
                     <div class="input-group">
-                        <input type="password" id="inputPassword6" class="form-control border-light" name="pw" aria-describedby="passwordHelpInline">
+                        <input type="password" id="inputPassword6" class="form-control border-light" name="pw" aria-describedby="passwordHelpInline" required>
                         <button type="button" class="b-eye" id="togglePassword">
                             <i class="fa fa-eye-slash" aria-hidden="true"></i>
                         </button>
@@ -58,7 +58,7 @@
                 </div>
                 <h5 class="text-center mt-3">atau</h5>
                 <div class="text-center">
-                    <a href="login.php" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover fs-5">Punya akun?</a>
+                    <a href="index.php" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover fs-5">Punya akun?</a>
                 </div>
             </form>
         </div>
