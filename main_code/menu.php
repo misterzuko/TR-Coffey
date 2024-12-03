@@ -148,10 +148,11 @@
                     <div class="col-md-8 d-flex align-items-center justify-content-evenly">
                     <?php
                     for($i=1;isset($_SESSION['data-cup'][$i]['id_barang']);$i++){
+                        $a=1;
                         if($_SESSION['data-cup'][$i]['stok_barang']>0){
                     ?>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ukuran" value="<?php echo $i;?>" id="ukuran" onchange="updatevalcup(<?php echo $i;?>)" <?php if($i==1){echo 'checked';}?>>
+                        <input class="form-check-input" type="radio" name="ukuran" value="<?php echo $i;?>" id="ukuran" onchange="updatevalcup(<?php echo $i;?>)" <?php if($a==1){echo 'checked'; $a++;}?>>
                         <label class="form-check-label" for="<?php echo $i;?>">
                             <p class="fw-bold"><?php echo $_SESSION['data-cup'][$i]['nama_barang'];?></p>
                         </label>
@@ -176,13 +177,14 @@
                         <div class="container text-center">
                             <label for="topping" class="form-label fw-bold">Pilih Topping</label>
                             <select name="topping" class="form-select w-75 mx-auto" id="topping" onchange="updatemax()" required>
-                                <option value="1" selected><?php echo $_SESSION['data-topping'][1]['nama_barang'];?></option>
                                 <?php
-                                for($i=2;isset($_SESSION['data-topping'][$i]['id_barang']);$i++){
+                                for($i=1;isset($_SESSION['data-topping'][$i]['id_barang']);$i++){
+                                    $a=1;
                                     if($_SESSION['data-topping'][$i]['stok_barang']>0){
                                 ?>
-                                <option value="<?php echo $i;?>"><?php echo $_SESSION['data-topping'][$i]['nama_barang'];?></option>
+                                <option value="<?php echo $i;?>"<?php if($a==1) echo 'selected'?> ><?php echo $_SESSION['data-topping'][$i]['nama_barang'];?></option>
                                 <?php
+                                $a++;
                                     }
                                 }
                                 ?>
