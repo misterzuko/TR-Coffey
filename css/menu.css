@@ -75,7 +75,7 @@ body {
 }
 
 .card-menu {
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
     color: var(--bg);
     font-weight: bold;
     border-radius: 10px;
@@ -86,17 +86,14 @@ body {
 
 .img-menu {
     border-radius: 10px;
-    width: 15rem;
+    width: 12rem;
     height: 13rem;
     border: 3px solid var(--primary);
 }
 
 .menu-headers {
-    background-color: var(--primary);
     color: var(--bg);
     text-align: center;
-    padding: 1rem;
-    border-radius: 10px;
 }
 
 select, .form-check-input {
