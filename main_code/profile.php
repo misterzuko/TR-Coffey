@@ -83,16 +83,26 @@
                 <th>Metode Pembayaran</th>
                 <th>Total</th>
             </tr>
-            <tr>
-                <td>x</td>
-                <td>x</td>
-                <td>x</td>
-                <td>x</td>
-                <td>x</td>
-                <td>x</td>
-                <td>x</td>
-                <td>x</td>
-            </tr>
+            <?php
+            if(isset($_SESSION['history'])){
+            for($i=0;isset($_SESSION['history'][$i]);$i++){
+                if($_SESSION['history'][$i]['status_pesanan']=="Selesai"){
+                ?>
+                <tr>
+                <th><?php echo $_SESSION['history'][$i]['tanggal_pemesanan'];?></th>
+                <th>TRCFE<?php echo $_SESSION['history'][$i]['id_pesanan'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['jenis_kopi'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['ukuran_cup'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['jenis_penyajian'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['jenis_topping'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['metode_pembayaran'];?></th>
+                <th><?php echo $_SESSION['history'][$i]['total'];?></th>
+                </tr>
+                <?php
+                }
+            }
+        }
+            ?>
         </table>
         </div>
         <!-- <div class="d-flex justify-content-center align-items-center mt-1">

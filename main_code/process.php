@@ -32,6 +32,20 @@ function updatedata($banyakCup,$banyakkopi,$banyaktopping){
             continue;
         }
     }
+    $query = "SELECT MAX(id_pesanan) AS banyakRecord FROM tb_recordhistory;";
+    $sql = mysqli_query($conn,$query);
+    $banyakRecord = mysqli_fetch_assoc($sql)['banyakRecord'];
+    $email = $_SESSION['credential']['email'];
+    $recordCounter=0;
+    for($i=0;$i<$banyakRecord;$i++){
+        $query = "SELECT * FROM tb_recordhistory WHERE id_pesanan='$i' AND email='$email';";
+        $sql = mysqli_query($conn,$query);
+        $res = mysqli_fetch_assoc($sql);
+        if($res!=NULL){
+            $_SESSION['history'][$recordCounter]=$res;
+            $recordCounter++;
+        }
+    }
 }
         if(isset($_POST['login'])){   
             try{
