@@ -81,7 +81,7 @@ function updatedata(){
             $email = $_POST['email'];
             $username = $_POST['username'];
             $password = $_POST['pw'];
-            $query = "INSERT INTO `tb_akun` (`email`, `username`, `password`) VALUES ('$email', '$username', '$password');";
+            $query = "INSERT INTO tb_akun (email, username, password) VALUES ('$email', '$username', '$password');";
             $sql = mysqli_query($conn,$query);
             if($sql){
                 $_SESSION['berhasil']="ADA";
@@ -106,9 +106,9 @@ function updatedata(){
                 $status_pesanan = "Diproses";
                 if($_SESSION['data-cup'][$_POST['ukuran']]['stok_barang']>0&&$_SESSION['saved-menu']['stok_barang']>0&&$_SESSION['data-topping'][$_POST['topping']]['stok_barang']>0){
                     try{
-                $query = "INSERT INTO `tb_recordhistory`( `email`, `nama_pemesan`, `jenis_kopi`, `jenis_penyajian`, `jenis_topping`, `ukuran_cup`, `total`,`metode_pembayaran`, `status_pesanan`) VALUES ('$email',(SELECT `username` FROM `tb_akun` WHERE `email`='$email'),(SELECT `nama_barang` FROM `tb_barang` WHERE `id_barang`='$idKopi'),'$jenis_penyajian',(SELECT `nama_barang` FROM `tb_barang` WHERE `id_barang`='$idTopping'),(SELECT `nama_barang` FROM `tb_barang` WHERE `id_barang`='$idCup'),'$total','$metode_pembayaran','$status_pesanan');";
+                $query = "INSERT INTO tb_recordhistory( email, nama_pemesan, jenis_kopi, jenis_penyajian, jenis_topping, ukuran_cup, total,metode_pembayaran, status_pesanan) VALUES ('$email',(SELECT username FROM tb_akun WHERE email='$email'),(SELECT nama_barang FROM tb_barang WHERE id_barang='$idKopi'),'$jenis_penyajian',(SELECT nama_barang FROM tb_barang WHERE id_barang='$idTopping'),(SELECT nama_barang FROM tb_barang WHERE id_barang='$idCup'),'$total','$metode_pembayaran','$status_pesanan');";
                 $sql = mysqli_query($conn,$query);
-                $query = "UPDATE `tb_barang` SET `stok_barang`= stok_barang-1 WHERE `id_barang`='$idKopi' OR `id_barang`='$idCup' OR `id_barang`='$idTopping';";
+                $query = "UPDATE tb_barang SET stok_barang= stok_barang-1 WHERE id_barang='$idKopi' OR id_barang='$idCup' OR id_barang='$idTopping';";
                 $sql = mysqli_query($conn,$query);
                 $_SESSION['berhasil']="Pemesanan ".$_SESSION['saved-menu']['nama_barang']." ".$jenis_penyajian.", ukuran ".$_SESSION['data-cup'][$_POST['ukuran']]['nama_barang']." dengan ".$_SESSION['data-topping'][$_POST['topping']]['nama_barang']." Berhasil di proses (Total Harga: ".$total.")";
                 updatedata($banyakCup,$banyakkopi,$banyaktopping);
