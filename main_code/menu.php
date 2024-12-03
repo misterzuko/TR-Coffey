@@ -5,6 +5,7 @@
     for($i=1;isset($_SESSION['data-kopi'][$i]['id_barang']);$i++){
         if (isset($_POST[$i])){
             $_SESSION['kopi-pilihan']=$i;
+            header('location: process.php?updateMenu');
         }
     } 
     if (!isset($_SESSION['kopi-pilihan'])){

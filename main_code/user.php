@@ -51,7 +51,7 @@
                 </ul>
             </div>
             <div class="ms-5 prof">
-                <a href="profile.php" class="text-decoration-none text-light d-flex flex-column align-items-center justify-content-center">
+                <a href="process.php?profile" class="text-decoration-none text-light d-flex flex-column align-items-center justify-content-center">
                     <button class="profile">
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </button>
