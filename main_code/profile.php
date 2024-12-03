@@ -111,9 +111,6 @@
             ?>
         </table>
         </div>
-        <!-- <div class="d-flex justify-content-center align-items-center mt-1">
-        <input type="button" value="Simpan" class="btn btn-success fw-bold">
-        </div> -->
     </div>
     <!-- PROFILE END -->
     <script src="../js/user.js"></script>
