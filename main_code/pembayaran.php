@@ -45,7 +45,7 @@ if (isset($_GET['id_pesanan']) && isset($_GET['metode_pembayaran'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metode Pembayaran</title>
-    <link rel="stylesheet" href="pembayaran.css">
+    <link rel="stylesheet" href="../css/pembayaran.css">
 </head>
 <body>
     <div class="container">

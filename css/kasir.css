@@ -1,26 +1,18 @@
-Global Styles
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #121212; /* Warna hitam untuk background */
-    color: #ffffff; /* Warna teks */
-    height: 100vh; /* Background memenuhi layar penuh */
+    background-color: #121212; 
+    color:var(--bg);
+    height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Container Styles */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #1e1e1e; /* Background kontainer */
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7); /* Bayangan */
+.osda {
+    margin-top: 40rem; 
 }
 
-/* Heading Styles */
 h1 {
     text-align: center;
     font-size: 2em;
@@ -33,10 +25,9 @@ h2 {
     text-align: center;
 }
 
-/* Table Styles */
 table {
     width: 100%;
-    table-layout: fixed; /* Membuat lebar kolom konsisten */
+    table-layout: fixed; 
     border-collapse: collapse;
     margin-bottom: 20px;
     border: 1px solid #333333;
@@ -49,17 +40,16 @@ th, td {
 }
 
 th {
-    background-color: #333333; /* Warna latar belakang header tabel */
-    color: #ffffff; /* Teks header */
+    background-color: #333333; 
+    color: #ffffff; 
     font-weight: bold;
 }
 
 td {
-    background-color: #1e1e1e; /* Background baris tabel */
+    background-color: #1e1e1e; 
     color: #ffffff;
 }
 
-/* Tombol "Tambah" */
 .tambah {
     background-color: #ffc107;
     color: #000000;
@@ -71,16 +61,15 @@ td {
 }
 
 .tambah:hover {
-    background-color: #ffd54f; /* Warna hover */
+    background-color: #ffd54f; 
 }
 
-/* Tombol "Selesaikan Pesanan" */
 .total {
     text-align: center;
 }
 
 #btn-pesan {
-    background-color: #ffc107;
+    background-color: #631;
     color: #000000;
     border: none;
     padding: 10px 20px;
@@ -89,8 +78,63 @@ td {
     font-size: 1.2em;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
-
+ 
 #btn-pesan:hover {
-    background-color: #ffd54f; /* Warna hover */
-    transform: scale(1.05); /* Sedikit membesar saat hover */
+    background-color: #ffd54f; 
+    transform: scale(1.05); 
+}
+
+.navbar{
+    border-bottom: 1px solid #513c28;
+}
+.nav-item a{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin: 0 1rem;
+}
+.nav-item a:hover{
+    color: var(--primary);
+}
+.nav-item a::after{
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--primary);
+    transform: scaleX(0);
+}
+.nav-item a:hover::after{
+    transform: scaleX(0.8);
+    transition: 0.2s linear;
+}
+/* .navbar-transparent {
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.3s ease;
+} */
+.navbar-solid {
+    background-color: #000;
+    transition: 0.3s ease;
+}
+:root{
+    --primary: #b6895b;
+    --bg: #010101;
+}
+.Brand{
+    transition: all 400ms ease-in-out;
+}
+.Brand i{
+    color: var(--primary);
+}
+.Brand p{
+    font-size: 1.3rem;
+    color: #ffd;
+}
+.Brand p span{
+    color: var(--primary);
+}
+.Brand:hover {
+    transition: ease-in-out;
+    filter: brightness(1.2);
+    transform: scale(1.1);
 }

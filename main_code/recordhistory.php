@@ -70,16 +70,16 @@ $result = $conn->query($sql);
                                 <td>{$row['tanggal_pemesanan']}</td>
                                 <td>";
 
-                        // Logika tombol aksi berdasarkan status pesanan
+                     
                         if ($row['status_pesanan'] === 'Diproses') {
-                            // Tombol "Selesaikan Pesanan"
+                       
                             echo "<form action='' method='POST'>
                                     <input type='hidden' name='id_pesanan' value='{$row['id_pesanan']}'>
                                     <input type='hidden' name='metode_pembayaran' value='{$row['metode_pembayaran']}'>
                                     <button type='submit' name='selesaikan' class='btn-selesaikan'>Selesaikan Pesanan</button>
                                   </form>";
                         } elseif ($row['status_pesanan'] === 'Selesai') {
-                            // Tombol "Cetak Transaksi"
+                        
                             echo "<form action='' method='POST'>
                                     <input type='hidden' name='id_pesanan' value='{$row['id_pesanan']}'>
                                     <a href='cetak_struk.php?id_pesanan={$row['id_pesanan']}' class='btn-cetak'>Cetak Transaksi</a>
