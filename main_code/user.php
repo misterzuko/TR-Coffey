@@ -2,7 +2,7 @@
     session_start();
     $username = $_SESSION['credential']['username'];
     if($_SESSION['data-kopi'][1]['id_barang']==NULL){
-        header('location: login.php');
+        header('location: index.php');
     }
 ?>
 <!DOCTYPE html>
@@ -26,14 +26,6 @@
                 alert('<?php echo $_SESSION['berhasil'];?>');
                 <?php
                 unset($_SESSION['berhasil']);
-            }
-        ?>
-        <?php
-            if(isset($_SESSION['stokhabis'])){
-                ?>
-                alert('<?php echo $_SESSION['stokhabis'];?>');
-                <?php
-                unset($_SESSION['stokhabis']);
             }
         ?>
     </script>
@@ -88,18 +80,20 @@
         <p class="text-center fw-bold fs-4 c-is">PILIH MENU</p>
         <div class="container text-dark d-flex justify-content-evenly align-items-center pt-5 frontmenu">
             <?php
-                for ($i = 1; isset($_SESSION['data-kopi'][$i]['id_barang']); $i++) {
-            ?>
+                for ($i = 1; isset($_SESSION['data-kopi'][$i]['id_barang']); $i++) { ?>
             <form action="menu.php" method="post">
-                <div class="d-flex flex-column align-items-center justify-content-evenly p-4 shadow-sm m-3 card-item">
-                    <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
-                    <h6 class="mt-3 text-center fw-bold"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
-                    <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
+            <div class="d-flex flex-column align-items-center justify-content-evenly p-4 shadow-sm m-3 card-item">
+                <img src="../src/<?php echo $i ?>.png" alt="Kopi" class="img-fluid">
+                <h6 class="mt-3 text-center fw-bold"><?php echo $_SESSION['data-kopi'][$i]['nama_barang']; ?></h6>
+                <p class="text-center">Mulai dari <br> Rp <?php echo $_SESSION['data-kopi'][$i]['harga_barang']; ?></p>
+                <?php if($_SESSION['data-kopi'][$i]['stok_barang']>0){ ?>
                     <input type="submit" name="<?php echo $i;?>" value="Pesan" class="btn fw-bold rounded-pill mx-5"></input>
-                </div>
-            </form>
-            <?php
-                }
+                <?php } else { ?>
+                    <input type="button" name="<?php echo $i;?>" value="Habis" class="btn fw-bold rounded-pill mx-5" style="background-color: grey;" onclick="return false;"></input>
+                <?php } ?>
+            </div>
+        </form>
+                <?php }
             ?>
         </div>
     </div>

@@ -58,7 +58,7 @@
                 </div>
                 <h5 class="text-center mt-3">atau</h5>
                 <div class="text-center">
-                    <a href="login.php" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover fs-5">Punya akun?</a>
+                    <a href="index.php" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover fs-5">Punya akun?</a>
                 </div>
             </form>
         </div>

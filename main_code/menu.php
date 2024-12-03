@@ -4,15 +4,18 @@
     $username = $_SESSION['credential']['username'];
     for($i=1;isset($_SESSION['data-kopi'][$i]['id_barang']);$i++){
         if (isset($_POST[$i])){
-            $kopi=$i;
+            $_SESSION['kopi-pilihan']=$i;
         }
+    } if (!isset($_SESSION['kopi-pilihan'])){
+        header('location: user.php');
     }
+    $kopi = $_SESSION['kopi-pilihan'];
     $query = "SELECT * FROM tb_barang WHERE id_barang='$kopi'";
     $sql = mysqli_query($conn,$query);
     $result = mysqli_fetch_assoc($sql);
     $_SESSION['saved-menu']=$result;
     if($_SESSION['data-kopi'][1]['id_barang']==NULL){
-        header('location: login.php');
+        header('location: index.php');
     }
 ?>
 
@@ -64,13 +67,6 @@
 
         function updatemax() {
             selectedValue = document.getElementById("topping").value;
-            var stok = <?php 
-                $stokArray2 = array();
-                for($i=1;isset($_SESSION['data-topping'][$i]['id_barang']);$i++){
-                    $stokArray2[] = $_SESSION['data-topping'][$i]['stok_barang'];
-                }
-                echo json_encode($stokArray2);
-            ?>;
             var hrgstok = <?php 
                 $stokArray2 = array();
                 for($i=1;isset($_SESSION['data-topping'][$i]['id_barang']);$i++){
@@ -81,6 +77,14 @@
             hargaTopping = hrgstok[selectedValue-1];
             hargaUpdater();
         }
+        <?php
+            if(isset($_SESSION['stokhabis'])){
+                ?>
+                alert('<?php echo $_SESSION['stokhabis'];?>');
+                <?php
+                unset($_SESSION['stokhabis']);
+            }
+        ?>
     </script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/menu.js"></script>
@@ -142,25 +146,30 @@
                         <p>Ukuran Cup:</p>
                     </div>
                     <div class="col-md-8 d-flex align-items-center justify-content-evenly">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ukuran" value="1" id="ukuran" onchange="updatevalcup(1)" checked>
-                            <label class="form-check-label" for="small">
-                                <p class="fw-bold">Small</p>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ukuran" value="2" id="ukuran" onchange="updatevalcup(2)">
-                            <label class="form-check-label" for="Regular">
-                                <p class="fw-bold">Regular</p>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ukuran" value="3" id="ukuran" onchange="updatevalcup(3)" >
-                            <label class="form-check-label" for="Large">
-                                <p class="fw-bold">Large</p>
-                            </label>
-                        </div>
+                    <?php
+                    for($i=1;isset($_SESSION['data-cup'][$i]['id_barang']);$i++){
+                        if($_SESSION['data-cup'][$i]['stok_barang']>0){
+                    ?>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ukuran" value="<?php echo $i;?>" id="ukuran" onchange="updatevalcup(<?php echo $i;?>)" <?php if($i==1){echo 'checked';}?>>
+                        <label class="form-check-label" for="<?php echo $i;?>">
+                            <p class="fw-bold"><?php echo $_SESSION['data-cup'][$i]['nama_barang'];?></p>
+                        </label>
                     </div>
+                    <?php
+                        } else {
+                    ?>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ukuran" value="<?php echo $i;?>" id="ukuran" onchange="updatevalcup(<?php echo $i;?>)" disabled>
+                        <label class="form-check-label" for="<?php echo $i;?>" style="color: grey;">
+                            <p class="fw-bold"><?php echo $_SESSION['data-cup'][$i]['nama_barang'];?></p>
+                        </label>
+                    </div>
+                    <?php
+                        }
+                    }
+                    ?>
+                </div>
                 </div>
                 <div class="col-md-12 row g-3 d-flex align-items-center justify-content-center komponen">
                     <div class="col-md-6 d-flex align-items-center justify-content-center">
@@ -170,9 +179,11 @@
                                 <option value="1" selected><?php echo $_SESSION['data-topping'][1]['nama_barang'];?></option>
                                 <?php
                                 for($i=2;isset($_SESSION['data-topping'][$i]['id_barang']);$i++){
+                                    if($_SESSION['data-topping'][$i]['stok_barang']>0){
                                 ?>
                                 <option value="<?php echo $i;?>"><?php echo $_SESSION['data-topping'][$i]['nama_barang'];?></option>
                                 <?php
+                                    }
                                 }
                                 ?>
                             </select>

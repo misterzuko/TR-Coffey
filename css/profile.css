@@ -50,6 +50,14 @@ body{
     filter: brightness(1.2);
     transform: scale(1.1);
 }
+.navbar-transparent {
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.3s ease;
+}
+.navbar-solid {
+    background-color: #000;
+    transition: 0.3s ease;
+}
 .profile{
     width: 6rem;
     height: 6rem;
@@ -71,19 +79,38 @@ body{
 .prof-side a {
     padding: 4rem 6rem;
     box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 3px solid var(--primary);
+    border-radius: 12px;
 }
 #email, #un{
     border: 1px solid var(--primary);
     border-radius: 5px;
 }
-/* Media Queries */
-/* @media (max-width: 1366px){
-    html {
-        font-size: 75%;
-    }
-} */
 
+.btn-keluar {
+    border-radius: 10px;
+    border: 2px solid var(--primary);
+    background-color: var(--bg);
+    color: var(--primary);
+}
+
+.btn-keluar:hover {
+    border: 2px solid red;
+    color: red;
+}
+
+.struk, .struk th, .struk tr, .struk td{
+    border: 1px solid black;
+    background-color: #fff;
+    color: var(--bg);
+}
+
+table {
+    width: 80%;
+    font-size: 0.8rem;
+}
+
+/* Media Queries */
 @media (max-width: 768px){
     html {
         font-size: 62.5%;

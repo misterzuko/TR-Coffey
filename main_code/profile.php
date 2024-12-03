@@ -3,7 +3,7 @@
     $username = $_SESSION['credential']['username'];
     $email = $_SESSION['credential']['email'];
     if($_SESSION['data-kopi'][1]['id_barang']==NULL){
-        header('location: login.php');
+        header('location: index.php');
     }
 ?>
 <!DOCTYPE html>
@@ -59,14 +59,47 @@
                     <label for="email" class="mb-1">Email</label>
                     <p id="email" class="w-75 p-3"><?php echo $email; ?></p>
                 </div>
-                <div class="col-12 mb-3 d-flex justify-content-center align-items-center">
+                <div class="col-12 mb-5 d-flex justify-content-center align-items-center">
                     <a href="logout.php" class="w-75 ms-5 ps-5">
-                        <button type="submit" class="btn btn-danger fw-bold py-2 px-4">Keluar</button>
+                        <button type="submit" class="btn-keluar fw-bold py-2 px-4">Keluar</button>
                     </a>
                 </div>
             </div>
         </div>
     </div>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center align-items-center">
+        <table class="table struk">
+            <tr>
+            <th colspan="11" class="text-center fs-5 pb-2">Riwayat Pembelian</th>
+            </tr>
+            <tr>
+                <th>Tanggal</th>
+                <th>No. Kuitansi</th>
+                <th>Jenis Kopi</th>
+                <th>Ukuran</th>
+                <th>Jenis Penyajian</th>
+                <th>Jenis Topping</th>
+                <th>Metode Pembayaran</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+            </tr>
+        </table>
+        </div>
+        <!-- <div class="d-flex justify-content-center align-items-center mt-1">
+        <input type="button" value="Simpan" class="btn btn-success fw-bold">
+        </div> -->
+    </div>
     <!-- PROFILE END -->
+    <script src="../js/user.js"></script>
 </body>
 </html>

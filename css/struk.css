@@ -21,13 +21,13 @@ body{
 }
 
 .struk, .struk th, .struk tr, .struk td{
-    border: none;
-}
-
-tr:nth-child(5), tr:nth-child(10){
-    border-bottom: 1px dashed black;
+    border: 1px solid black;
 }
 
 td:nth-child(2) {
     text-align: end;
+}
+.struk {
+    width: 80%;
+    font-size: 0.8rem;
 }

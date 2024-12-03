@@ -56,7 +56,7 @@ function updatedata($banyakCup,$banyakkopi,$banyaktopping){
                 } 
             } else {
                 $_SESSION['gagal']="ADA";
-                header('location: login.php');
+                header('location: index.php');
             }
             }
             catch(Exception $e){
@@ -71,7 +71,7 @@ function updatedata($banyakCup,$banyakkopi,$banyaktopping){
             $sql = mysqli_query($conn,$query);
             if($sql){
                 $_SESSION['berhasil']="ADA";
-                header('location: login.php');
+                header('location: index.php');
             } else {
                 $_SESSION['dahada']="ADA";
                 header('location: signup.php');
@@ -101,6 +101,7 @@ function updatedata($banyakCup,$banyakkopi,$banyaktopping){
                 $sql = mysqli_query($conn,$query);
                 $_SESSION['berhasil']="Pemesanan ".$jenis_kopi." ".$jenis_penyajian.", ukuran ".$ukuran_cup." dengan ".$jenis_topping." Berhasil di proses (Total Harga: ".$total.")";
                 updatedata($banyakCup,$banyakkopi,$banyaktopping);
+                unset($_SESSION['kopi-pilihan']);
                 } else {
                     $_SESSION['stokhabis'] = "Stok ";
                     if ($_SESSION['data-cup'][$_POST['ukuran']]['stok_barang'] <= 0) {
@@ -114,7 +115,7 @@ function updatedata($banyakCup,$banyakkopi,$banyaktopping){
                     }
                     $_SESSION['stokhabis'].="Yang anda beli habis, mohon coba lagi";
                 }
-                header('location: user.php');
+                header('location: menu.php');
             } catch(mysqli_sql_exception $e){
                 echo $e;
             }

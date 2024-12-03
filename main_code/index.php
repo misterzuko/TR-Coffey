@@ -36,7 +36,7 @@
     <div class="container row logsign">
         <div class="col-md-6 d-flex flex-column justify-content-center align-items-center brandlog">
             <div class="brand text-center">
-                <a class="navbar-brand Brand" href="#">
+                <a class="navbar-brand Brand" href="index.php">
                     <i class="fa fa-coffee fa-5x mb-0" aria-hidden="true"></i>
                     <p class="fs-1 fw-bold m-0"><span>kopi</span>inaja</p>
                 </a>
