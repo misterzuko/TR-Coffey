@@ -1,7 +1,10 @@
 <?php
 include 'connect.php';
 session_start();
-function updatedata($banyakCup,$banyakkopi,$banyaktopping){
+function updatedata(){
+    $banyakkopi=0;
+    $banyaktopping=0;
+    $banyakCup=0;
     include 'connect.php';
     $query = "SELECT MAX(id_barang) AS banyakdata FROM tb_barang;";
     $sql = mysqli_query($conn,$query);
@@ -62,10 +65,7 @@ function updatedata($banyakCup,$banyakkopi,$banyaktopping){
                 $sql = mysqli_query($conn,$query);
                 $result = mysqli_fetch_assoc($sql);
                 $_SESSION['credential']=$result;
-                $banyakkopi=0;
-                $banyaktopping=0;
-                $banyakCup=0;
-                updatedata($banyakCup,$banyakkopi,$banyaktopping);
+                updatedata();
                 header('location: user.php');
                 } 
             } else {
@@ -94,7 +94,6 @@ function updatedata($banyakCup,$banyakkopi,$banyaktopping){
                 $_SESSION['dahada']="ADA";
                 header('location: signup.php');
             }
-            
         } elseif (isset($_POST['proses'])){
             try {
                 $email = $_SESSION['credential']['email'];
@@ -136,5 +135,11 @@ function updatedata($banyakCup,$banyakkopi,$banyaktopping){
             } catch(mysqli_sql_exception $e){
                 echo $e;
             }
+        } elseif(isset($_GET['profile'])){
+            updatedata();
+            header('location: profile.php');
+        } elseif(isset($_GET['updateMenu'])){
+            updatedata();
+            header('location: menu.php');
         }
 ?>
