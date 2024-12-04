@@ -7,7 +7,8 @@
             $_SESSION['kopi-pilihan']=$i;
             header('location: process.php?updateMenu');
         }
-    } if (!isset($_SESSION['kopi-pilihan'])){
+    } 
+    if (!isset($_SESSION['kopi-pilihan'])){
         header('location: user.php');
     }
     $kopi = $_SESSION['kopi-pilihan'];
@@ -15,7 +16,7 @@
     $sql = mysqli_query($conn,$query);
     $result = mysqli_fetch_assoc($sql);
     $_SESSION['saved-menu']=$result;
-    if($_SESSION['data-kopi'][1]['id_barang']==NULL){
+    if(!isset($_SESSION['credential'])){
         header('location: index.php');
     }
     if(isset($_SESSION['kesalahan'])){
@@ -116,68 +117,67 @@
             </div>
         </div>
     </nav>
-    <div class="container d-flex justify-content-center align-items-center w-75 menu-body">
+    <div class="d-flex justify-content-center align-items-center menu-body mt-1">
         <form class="row g-3 needs-validation" method="POST" action="process.php" novalidate>
-            <p class="col-md-12 fw-bold fs-4 text-center menu-headers">Menu</p>
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-center card-menu">
                 <img src="../src/<?php echo $kopi;?>.png" alt="Kopi-4" class="img-fluid img-menu">
-                <h6 class="mt-3 text-center"><?php echo $result['nama_barang'];?></h6>
-                <p class="text-center">Rp <text id="harga-kopi"><?php echo $result['harga_barang'];?></text></p>
             </div>
             <div class="col-md-8 ms-1 row g-3">
+                <h5 class="col-md-12 mt-3 fs-5 fw-medium"><?php echo $result['nama_barang'];?></h5>
+                <p class="col-md-12 fw-bold fs-2 harga">Rp <text id="harga-kopi"><?php echo $result['harga_barang'];?></text></p>
                 <div class="col-md-12 row g-3 komponen">
-                    <div class="col-md-4 d-flex align-items-center justify-content-start">
-                        <div class="form-check fw-bold ps-3">
-                            <p>Jenis Penyajian:</p>
+                    <div class="col-md-5 row g-3 d-flex align-items-center justify-content-center">
+                        <div class="col-md-12 form-check fw-bold text-center">
+                            <p>Jenis Penyajian</p>
+                        </div>
+                        <div class="col-md-12 d-flex align-items-center justify-content-evenly text-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="saji" id="dinginpanas" value="Panas" onchange="hargaUpdater()" checked>
+                                <label class="form-check-label" for="panas">
+                                    <p class="fw-bold">Hot</p>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="saji" id="dinginpanas" value="Dingin" onchange="hargaUpdater()">
+                                <label class="form-check-label" for="dingin">
+                                    <p class="fw-bold">Cold</p>
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-8 d-flex align-items-center justify-content-evenly">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="saji" id="dinginpanas" value="Panas" onchange="hargaUpdater()" checked>
-                            <label class="form-check-label" for="panas">
-                                <p class="fw-bold">Hot</p>
-                            </label>
+                    <div class="col-md-7 row g-3 d-flex align-items-center justify-content-evenly">
+                        <div class="col-md-12 fw-bold text-center komponen">
+                            <p>Ukuran Cup</p>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="saji" id="dinginpanas" value="Dingin" onchange="hargaUpdater()">
-                            <label class="form-check-label" for="dingin">
-                                <p class="fw-bold">Cold</p>
-                            </label>
+                        <div class="col-md-12 d-flex align-items-center justify-content-evenly komponen">
+                            <?php
+                            for($i=1;isset($_SESSION['data-cup'][$i]['id_barang']);$i++){
+                                if($_SESSION['data-cup'][$i]['stok_barang']>0){
+                            ?>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ukuran" value="<?php echo $i;?>" id="ukuran" onchange="updatevalcup(<?php echo $i;?>)" <?php if($i==1)echo 'checked';?>>
+                                <label class="form-check-label" for="<?php echo $i;?>">
+                                    <p class="fw-bold"><?php echo $_SESSION['data-cup'][$i]['nama_barang'];?></p>
+                                </label>
+                            </div>
+                            <?php
+                                } else {
+                            ?>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ukuran" value="<?php echo $i;?>" id="ukuran" onchange="updatevalcup(<?php echo $i;?>)" disabled>
+                                <label class="form-check-label" for="<?php echo $i;?>" style="color: grey;">
+                                    <p class="fw-bold"><?php echo $_SESSION['data-cup'][$i]['nama_barang'];?></p>
+                                </label>
+                            </div>
+                            <?php
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12 row g-3 komponen">
-                    <div class="col-md-4 d-flex align-items-center justify-content-start ps-4 fw-bold">
-                        <p>Ukuran Cup:</p>
-                    </div>
-                    <div class="col-md-8 d-flex align-items-center justify-content-evenly">
-                    <?php
-                    for($i=1;isset($_SESSION['data-cup'][$i]['id_barang']);$i++){
-                        if($_SESSION['data-cup'][$i]['stok_barang']>0){
-                    ?>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ukuran" value="<?php echo $i;?>" id="ukuran" onchange="updatevalcup(<?php echo $i;?>)" <?php if($i==1)echo 'checked';?>>
-                        <label class="form-check-label" for="<?php echo $i;?>">
-                            <p class="fw-bold"><?php echo $_SESSION['data-cup'][$i]['nama_barang'];?></p>
-                        </label>
-                    </div>
-                    <?php
-                        } else {
-                    ?>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ukuran" value="<?php echo $i;?>" id="ukuran" onchange="updatevalcup(<?php echo $i;?>)" disabled>
-                        <label class="form-check-label" for="<?php echo $i;?>" style="color: grey;">
-                            <p class="fw-bold"><?php echo $_SESSION['data-cup'][$i]['nama_barang'];?></p>
-                        </label>
-                    </div>
-                    <?php
-                        }
-                    }
-                    ?>
-                </div>
                 </div>
                 <div class="col-md-12 row g-3 d-flex align-items-center justify-content-center komponen">
-                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="col-md-5 d-flex align-items-center justify-content-center">
                         <div class="container text-center">
                             <label for="topping" class="form-label fw-bold">Pilih Topping</label>
                             <select name="topping" class="form-select w-75 mx-auto" id="topping" onchange="updatemax()" required>
@@ -193,7 +193,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="col-md-7 d-flex align-items-center justify-content-center">
                         <div class="container text-center">
                             <label for="jmlhtopping" class="form-label fw-bold">Metode Pembayaran</label>
                             <div class="form-check">
@@ -211,16 +211,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-12 row g-3 d-flex align-items-center justify-content-center">
-                <div class="col-12">
-                    <p class="garis container-expand-lg"></p>
-                </div>
-                <div class="col-md-6">
-                    <p class="fw-bold fs-5">Total Harga: Rp <input type="text" id="harga" name="total" value="" readonly style="border:none;"></p>
-                </div>
-                <div class="col-md-6 d-flex align-items-center justify-content-end">
-                    <button type="submit" class="btn-mine text-dark fw-bold fs-5 w-25" name="proses">Proses</button>
+                <div class="col-md-12 row g-3 d-flex align-items-start justify-content-center proses">
+                    <div class="col-md-8">
+                        <p class="fw-bold fs-5">Total Harga: Rp <input type="text" id="harga" name="total" value="" readonly class="border-0 bg-tohar text-dark fw-bold" disabled></p>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-center justify-content-end">
+                        <button type="submit" class="btn-mine fw-bold" name="proses">Proses</button>
+                    </div>
                 </div>
             </div>
         </form>

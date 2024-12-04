@@ -2,7 +2,7 @@
     session_start();
     $username = $_SESSION['credential']['username'];
     $email = $_SESSION['credential']['email'];
-    if($_SESSION['data-kopi'][1]['id_barang']==NULL){
+    if(!isset($_SESSION['credential'])){
         header('location: index.php');
     }
 ?>
@@ -59,7 +59,7 @@
                 </a>
             </div>
             <div class="col-md-6 d-flex justify-content-center align-items-center row g-3">
-                <div class="col-md-12 un w-100 mt-5">
+                <div class="col-md-12 w-100 mt-3">
                     <label for="un" class="mb-1">Username</label>
                     <p id="un" class="w-75 p-3"><?php echo $username; ?></p>
                 </div>

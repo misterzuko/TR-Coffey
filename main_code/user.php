@@ -1,7 +1,7 @@
 <?php
     session_start();
     $username = $_SESSION['credential']['username'];
-    if($_SESSION['data-kopi'][1]['id_barang']==NULL){
+    if(!isset($_SESSION['credential'])){
         header('location: index.php');
     }
 ?>

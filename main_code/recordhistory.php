@@ -62,12 +62,12 @@ $result = $conn->query($sql);
         </div>   
     </nav>
     <div class="containt">
-        <table class = "table containt-record table-striped-columns">
+        <table class="table containt-record table-striped-columns">
             <thead>
                 <tr>
-                    <th colspan="11" class = "text-center fs-3 bg-secondary">Riwayat Transaksi</th>
+                    <th colspan="11" class="text-center fs-3 bg-secondary">Riwayat Transaksi</th>
                 </tr>
-                <tr class = "text-center">
+                <tr class="text-center">
                     <th>ID Pesanan</th>
                     <th>Nama Pemesan</th>
                     <th>Jenis Kopi</th>
@@ -85,7 +85,7 @@ $result = $conn->query($sql);
                 <?php
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<tr class = 'text-center'>
+                        echo "<tr class='text-center'>
                                 <td>{$row['id_pesanan']}</td>
                                 <td>{$row['nama_pemesan']}</td>
                                 <td>{$row['jenis_kopi']}</td>
@@ -96,25 +96,24 @@ $result = $conn->query($sql);
                                 <td>{$row['metode_pembayaran']}</td>
                                 <td>{$row['status_pesanan']}</td>
                                 <td>{$row['tanggal_pemesanan']}</td>
-                                <td>";
-
-                     
-                        if ($row['status_pesanan'] === 'Diproses') {
-                       
-                            echo "<form action='' method='POST'>
-                                    <input type='hidden' name='id_pesanan' value='{$row['id_pesanan']}'>
-                                    <input type='hidden' name='metode_pembayaran' value='{$row['metode_pembayaran']}'>
-                                    <button type='submit' name='selesaikan' class='btn-selesaikan'>Selesaikan Pesanan</button>
-                                  </form>";
-                        } elseif ($row['status_pesanan'] === 'Selesai') {
-                        
-                            echo "<form action='' method='POST'>
-                                    <input type='hidden' name='id_pesanan' value='{$row['id_pesanan']}'>
-                                    <a href='cetak_struk.php?id_pesanan={$row['id_pesanan']}' class='btn btn-warning fs-small'>Cetak</a>
-                                  </form>";
-                        }
-
-                        echo "</td></tr>";
+                               <td>";
+                                if ($row['status_pesanan'] === 'Diproses') {
+                                  
+                                        echo "<form action='pembayaran.php' method='POST'>
+                                            <input type='hidden' name='id_pesanan' value='{$row['id_pesanan']}'>
+                                            <input type='hidden' name='metode_pembayaran' value='{$row['metode_pembayaran']}'>
+                                            <input type='hidden' name='total_belanja' value='{$row['total']}'>
+                                            <button type='submit' name='selesaikan' class='btn btn-warning fs-small w-100'>Proses</button>
+                                        </form>";
+                                    
+                                    
+                                } elseif ($row['status_pesanan'] === 'Selesai') {
+                                    echo "<form action='' method='POST'>
+                                            <input type='hidden' name='id_pesanan' value='{$row['id_pesanan']}'>
+                                            <a href='cetak_struk.php?id_pesanan={$row['id_pesanan']}' class='btn btn-warning fs-small w-100'>Cetak</a>
+                                        </form>";
+                                }
+                            echo "</td></tr>";
                     }
                 } else {
                     echo "<tr><td colspan='11'>Tidak ada data transaksi.</td></tr>";
@@ -128,12 +127,6 @@ $result = $conn->query($sql);
             const navbar = document.querySelector('.navbar');
             navbar.classList.add('navbar-solid');
         });
-
-        document.addEventListener("DOMContentLoaded", function () {
-        const navbar = document.querySelector('.navbar');
-        navbar.classList.add('navbar-solid');
-        });
     </script>
 </body>
 </html>
-
