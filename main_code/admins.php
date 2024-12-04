@@ -67,7 +67,7 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div class="text-center">
             <a href="kelola.php">
                 <button class="btn btn-primary">Tambah Data</button>
             </a>
