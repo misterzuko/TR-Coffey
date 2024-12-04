@@ -84,7 +84,7 @@ function updatedata(){
             $email = $_POST['email'];
             $username = $_POST['username'];
             $password = $_POST['pw'];
-            $query = "INSERT INTO tb_akun (email, username, password) VALUES ('$email', '$username', '$password');";
+            $query = "INSERT INTO tb_akun (email, username, password, role) VALUES ('$email', '$username', '$password', 'USER');";
             $sql = mysqli_query($conn,$query);
             if($sql){
                 $_SESSION['berhasil']="ADA";
@@ -144,5 +144,8 @@ function updatedata(){
         } elseif(isset($_GET['updateMenu'])){
             updatedata();
             header('location: menu.php');
+        } elseif(isset($_GET['updateUser'])){
+            updatedata();
+            header('location: user.php');
         }
 ?>
