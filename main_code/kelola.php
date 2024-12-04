@@ -88,7 +88,7 @@ session_start();
             <div class="container d-flex justify-content-center align-items-center">
                 <div class="konfirmasi">
                     <div class="container">
-                        <h5>Apakah anda yakin ingin menghapus data akun yang telah diseleksi?</h5>
+                        <h5>Apakah anda yakin ingin mengedit data?</h5>
                         <div class="submit mt-4 d-flex justify-content-around">
                             <input id="ya" type="submit" value="Ya, Saya yakin">
                             <a class="btn tidak">Tidak</a>
@@ -96,7 +96,7 @@ session_start();
                     </div>
                 </div>
             </div>
-            <div class="mb-3 row">
+            <div class="mb-3 row aksi">
                 <div class="col mt-4 text-center">
                     <button class="btn btn-primary terapkan">
                         <i class="fa fa-floppy-o" aria-hidden="true"></i>
