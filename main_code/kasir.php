@@ -35,6 +35,9 @@
                     </li>
                 </ul>
             </div>
+            <a href="logout.php">
+                <button class="btn btn-danger">Keluar</button>
+            </a>
         </div>
     </nav>
     <div class="osda">
