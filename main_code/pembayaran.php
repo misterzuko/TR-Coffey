@@ -46,14 +46,19 @@ if (isset($_POST['id_pesanan'], $_POST['metode_pembayaran'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metode Pembayaran</title>
-    <link rel="stylesheet" href="../css/pembayaran.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pembayaran.css" rel="stylesheet">
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container w-50">
         <h1>Metode Pembayaran</h1>
         <div class="form-group">
             <label for="metode_pembayaran">Metode Pembayaran:</label>
-            <input type="text" id="metode_pembayaran" value="<?= htmlspecialchars($metodePembayaran) ?>" readonly>
+            <input type="text" id="metode_pembayaran" class="w-100" value="<?= htmlspecialchars($metodePembayaran) ?>" readonly>
         </div>
         <form action="" method="POST">
             <input type="hidden" name="id_pesanan" value="<?= $idPesanan ?>">
@@ -73,7 +78,9 @@ if (isset($_POST['id_pesanan'], $_POST['metode_pembayaran'])) {
                 <input type="hidden" name="jumlah_bayar" value="<?= $totalBelanja ?>">
             <?php endif; ?>
 
-            <button type="submit" name="proses_pembayaran">Proses Pembayaran</button>
+            <div class="d-flex justify-content-center align-items-center">
+                <button type="submit" name="proses_pembayaran" class="btn btn-success w-50">Proses Pembayaran</button>
+            </div>
         </form>
 
         <?php if (isset($error)): ?>
@@ -85,6 +92,7 @@ if (isset($_POST['id_pesanan'], $_POST['metode_pembayaran'])) {
                 <?= htmlspecialchars($success) ?>
             </div>
         <?php endif; ?>
+        <a href="recordhistory.php" class="d-flex justify-content-center align-items-center text-decoration-none"><button class="btn btn-danger w-50 mt-3">Kembali</button></a>
     </div>
 </body>
 </html>

@@ -213,7 +213,7 @@
                 </div>
                 <div class="col-md-12 row g-3 d-flex align-items-start justify-content-center proses">
                     <div class="col-md-8">
-                        <p class="fw-bold fs-5">Total Harga: Rp <input type="text" id="harga" name="total" value="" readonly class="border-0 bg-tohar text-dark fw-bold" disabled></p>
+                        <p class="fw-bold fs-5">Total Harga: Rp <input type="text" id="harga" name="total" value="" readonly class="border-0 bg-tohar text-dark fw-bold"></p>
                     </div>
                     <div class="col-md-4 d-flex align-items-center justify-content-end">
                         <button type="submit" class="btn-mine fw-bold" name="proses">Proses</button>

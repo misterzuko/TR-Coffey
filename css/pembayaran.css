@@ -1,8 +1,14 @@
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212;
-    color: #ffffff;
+:root{
+    --primary: #b6895b;
+    --bg: #010101;
+    --fc: #fff;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: var(--fc);
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,8 +16,6 @@ body {
 }
 
 .container {
-    width: 100%;
-    max-width: 400px;
     background-color: #1e1e1e;
     padding: 20px;
     border-radius: 10px;
@@ -42,21 +46,6 @@ input[type="number"] {
     box-sizing: border-box;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #ffc107;
-    color: #000000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #ffd54f;
-}
-
 .alert {
     margin-top: 20px;
     padding: 10px;
@@ -71,4 +60,8 @@ button:hover {
 .alert-success {
     background-color: #4caf50;
     color: #ffffff;
+}
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
 }
