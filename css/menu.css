@@ -1,11 +1,12 @@
 :root {
     --primary: #b6895b;
     --bg: #010101;
+    --fc: #fff;
 }
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #fff;
-    color: #fff;
+    background-color: var(--fc);
+    color: var(--fc);
     box-sizing: border-box;
 }
 .navbar {
@@ -13,7 +14,7 @@ body {
 }
 .nav-item a {
     text-decoration: none;
-    color: #fff;
+    color: var(--fc);
     display: inline-block;
     font-size: 1.1rem;
     margin: 0 1rem;
@@ -62,7 +63,7 @@ body {
     border-radius: 25px;
 }
 .menu-body {
-    background-color: #fff;
+    background-color: var(--fc);
     color: var(--bg);
     /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
     padding: 1rem;
@@ -70,7 +71,7 @@ body {
 }
 
 .bg-tohar {
-    background-color: #fff;
+    background-color: var(--fc);
 }
 
 .card-menu {
@@ -102,7 +103,7 @@ select, .form-check-input {
 }
 
 .btn-mine:hover {
-    color: #fff;
+    color: var(--fc);
 }
 
 .form-check-input:checked {

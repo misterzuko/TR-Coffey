@@ -1,6 +1,7 @@
 :root{
     --primary: #b6895b;
     --bg: #010101;
+    --fc: #fff;
 }
 body {
     background-color: var(--bg);
@@ -42,7 +43,7 @@ body::before {
     width: 40%;
     height: 70vh;
     border-radius: 10px;
-    color: white;
+    color: var(--fc);
     border: 3px solid #C6A56D;
     background-color: #181a1b;
 }
@@ -61,8 +62,8 @@ body::before {
     padding-right: 1rem;
     border-radius: 6px;
     background-color: transparent;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid var(--fc);
+    color: var(--fc);
 }
 .b-eye{
     border-left: 0;
@@ -80,10 +81,10 @@ body::before {
 }
 #exampleFormControlInput1:focus, #username:focus, #inputPassword6:focus{
     background-color: #333333;
-    color: #FFFFFF;
+    color: var(--fc);
 }
 #exampleFormControlInput1:not(:placeholder-shown), #username:not(:placeholder-shown), #inputPassword6:not(:placeholder-shown){
-    color: #FFFFFF;
+    color: var(--fc);
 }
 @media (max-width: 985px){
     html {

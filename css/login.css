@@ -1,6 +1,7 @@
 :root{
     --primary: #b6895b;
     --bg: #010101;
+    --fc: #fff;
 }
 body {
     background-color: var(--bg);
@@ -44,7 +45,7 @@ body::before {
     height: 65vh;
     margin-top: 20vh;
     border-radius: 12px;
-    color: white;
+    color: var(--fc);
     border: 1px solid #C6A56D;
     background-color: #181a1b;
 }
@@ -53,7 +54,7 @@ body::before {
     width: 100%;
 }
 .descript{
-    color: #fff;
+    color: var(--fc);
 }
 .brandlog{
     margin-left: 2rem;
@@ -72,8 +73,8 @@ body::before {
     padding-right: 1rem;
     border-radius: 6px;
     background-color: transparent;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid var(--fc);
+    color: var(--fc);
 }
 .b-eye{
     border-left: 0;
@@ -91,10 +92,10 @@ body::before {
 }
 #exampleFormControlInput1:focus, #inputPassword6:focus{
     background-color: #333333;
-    color: #FFFFFF;
+    color: var(--fc);
 }
 #exampleFormControlInput1:not(:placeholder-shown), #inputPassword6:not(:placeholder-shown){
-    color: #FFFFFF;
+    color: var(--fc);
 }
 
 /* Media Queries */

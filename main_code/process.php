@@ -58,9 +58,12 @@ function updatedata(){
             $sql = mysqli_query($conn,$query);
             $result = mysqli_fetch_assoc($sql);
             if($result!=null){
-                if($result['email']=="admin@local.com" and $result['password']=="ADMIN#1234"){
-                    header('location: admins.php?edit');
-                } else {
+                if($result['role'] == 'ADMIN'){
+                    header('location: admins.php');
+                } elseif ($result['role'] == 'KASIR') {
+                    header('location: kasir.php');
+                } 
+                else {
                 $query = "SELECT email,username FROM tb_akun WHERE email='$email' AND password='$password'";
                 $sql = mysqli_query($conn,$query);
                 $result = mysqli_fetch_assoc($sql);
