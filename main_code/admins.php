@@ -25,7 +25,7 @@
                 </ul>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a aria-current="page" href="recordhistory.php">Riwayat</a>
+                        <a aria-current="page" href="riwayatadmin.php">Riwayat</a>
                     </li>
                 </ul>
             </div>
