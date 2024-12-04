@@ -51,7 +51,7 @@
 
         function hargaUpdater() {
             let total = (document.getElementById("harga-kopi").innerText * 1) + (1 * hargaTopping) + (1 * hargaCup);
-            document.getElementById("pricing").innerHTML = "Total Harga: Rp."+total;
+            document.getElementById("harga").innerText = total;
             document.getElementById("harga").value = total;
         }
 
@@ -212,9 +212,9 @@
                     </div>
                 </div>
                 <div class="col-md-12 row g-3 d-flex align-items-start justify-content-center proses">
-                    <div class="col-md-8">
-                        <p class="fw-bold fs-5" id="pricing">Total Harga: Rp <input type="text" id="harga" name="total" value="" readonly class="border-0 bg-tohar text-dark fw-bold" hidden></p>
-                    </div>
+                   <div class="col-md-8">
+    <p class="fw-bold fs-5" id="pricing">Total Harga: Rp.<input type="text" id="harga" name="total" value="" class="border-0 bg-tohar text-dark fw-bold" readonly></p>
+</div>
                     <div class="col-md-4 d-flex align-items-center justify-content-end">
                         <button type="submit" class="btn-mine fw-bold" name="proses">Proses</button>
                     </div>
