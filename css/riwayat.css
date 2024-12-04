@@ -1,0 +1,62 @@
+:root{
+    --primary: #b6895b;
+    --bg: #010101;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: #fff;
+    box-sizing: border-box;
+}
+.navbar{
+    border-bottom: 1px solid #513c28;
+}
+.nav-item a{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin: 0 1rem;
+}
+.nav-item a:hover{
+    color: var(--primary);
+}
+.nav-item a::after{
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--primary);
+    transform: scaleX(0);
+}
+.nav-item a:hover::after{
+    transform: scaleX(0.8);
+    transition: 0.2s linear;
+}
+.navbar-solid {
+    background-color: #000;
+    transition: 0.3s ease;
+}
+.Brand{
+    transition: all 400ms ease-in-out;
+}
+.Brand i{
+    color: var(--primary);
+}
+.Brand p{
+    font-size: 1.3rem;
+    color: #ffd;
+}
+.Brand p span{
+    color: var(--primary);
+}
+.Brand:hover {
+    transition: ease-in-out;
+    filter: brightness(1.2);
+    transform: scale(1.1);
+}
+
+.containt-record {
+    height: 100%    ;
+    font-size: 0.9rem;
+}

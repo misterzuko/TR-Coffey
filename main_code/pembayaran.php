@@ -3,13 +3,13 @@ include 'connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['proses_pembayaran'])) {
-        $idPesanan = $_POST['id_pesanan'];
-        $metodePembayaran = $_POST['metode_pembayaran'];
-        $totalBelanja = $_POST['total_belanja'];
-        $jumlahBayar = isset($_POST['jumlah_bayar']) ? $_POST['jumlah_bayar'] : $totalBelanja;
+        $idPesanan = intval($_POST['id_pesanan']);
+        $metodePembayaran = $conn->real_escape_string($_POST['metode_pembayaran']);
+        $totalBelanja = floatval($_POST['total_belanja']);
+        $jumlahBayar = isset($_POST['jumlah_bayar']) ? floatval($_POST['jumlah_bayar']) : $totalBelanja;
         $kembalian = 0;
 
-        if ($metodePembayaran == 'tunai') {
+        if ($metodePembayaran === 'tunai') {
             $kembalian = $jumlahBayar - $totalBelanja;
             if ($kembalian < 0) {
                 $error = "Jumlah bayar kurang! Harap masukkan jumlah yang cukup.";
@@ -17,21 +17,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         if (!isset($error)) {
-            $updateSql = "UPDATE tb_recordhistory SET status_pesanan = 'Selesai' WHERE id_pesanan = $idPesanan";
-            if ($conn->query($updateSql) === TRUE) {
-                $success = "Pembayaran berhasil! Kembalian Anda: Rp" . number_format($kembalian, 0, ',', '.');
+            $stmt = $conn->prepare("UPDATE tb_recordhistory SET status_pesanan = 'Selesai' WHERE id_pesanan = ?");
+            $stmt->bind_param("i", $idPesanan);
+            if ($stmt->execute()) {
+                $success = "Pembayaran berhasil! " . ($metodePembayaran === 'tunai' ? "Kembalian Anda: Rp" . number_format($kembalian, 0, ',', '.') : "Transaksi berhasil tanpa kembalian.");
             } else {
                 $error = "Terjadi kesalahan saat memperbarui status pesanan.";
             }
+            $stmt->close();
         }
     }
 }
 
-if (isset($_GET['id_pesanan']) && isset($_GET['metode_pembayaran'])) {
-    $idPesanan = $_GET['id_pesanan'];
-    $metodePembayaran = $_GET['metode_pembayaran'];
-    $sql = "SELECT total FROM tb_recordhistory WHERE id_pesanan = $idPesanan";
-    $result = $conn->query($sql);
+if (isset($_POST['id_pesanan'], $_POST['metode_pembayaran'])) {
+    $idPesanan = intval($_POST['id_pesanan']);
+    $metodePembayaran = $conn->real_escape_string($_POST['metode_pembayaran']);
+    $result = $conn->query("SELECT total FROM tb_recordhistory WHERE id_pesanan = $idPesanan");
     $row = $result->fetch_assoc();
     $totalBelanja = $row['total'];
 } else {
@@ -50,14 +51,10 @@ if (isset($_GET['id_pesanan']) && isset($_GET['metode_pembayaran'])) {
 <body>
     <div class="container">
         <h1>Metode Pembayaran</h1>
-        
-        <!-- Menampilkan metode pembayaran -->
         <div class="form-group">
             <label for="metode_pembayaran">Metode Pembayaran:</label>
             <input type="text" id="metode_pembayaran" value="<?= htmlspecialchars($metodePembayaran) ?>" readonly>
         </div>
-
-        <!-- Form untuk proses pembayaran -->
         <form action="" method="POST">
             <input type="hidden" name="id_pesanan" value="<?= $idPesanan ?>">
             <input type="hidden" name="metode_pembayaran" value="<?= htmlspecialchars($metodePembayaran) ?>">
@@ -79,7 +76,6 @@ if (isset($_GET['id_pesanan']) && isset($_GET['metode_pembayaran'])) {
             <button type="submit" name="proses_pembayaran">Proses Pembayaran</button>
         </form>
 
-        <!-- Pesan Error atau Sukses -->
         <?php if (isset($error)): ?>
             <div class="alert alert-danger">
                 <?= htmlspecialchars($error) ?>

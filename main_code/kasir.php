@@ -17,29 +17,28 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
         <div class="container-fluid w-75 mt-3">
-            <a class="navbar-brand fw-bold Brand row" href="user.php">
+            <a class="navbar-brand fw-bold Brand row" href="kasir.php">
                 <i class="fa fa-coffee fa-2x col-3" aria-hidden="true"></i>
                 <p class="col-9 pt-2"><span>kopi</span>inaja</p>
             </a>
             <div class="collapse navbar-collapse ms-5 ps-3 ham-nav" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a aria-current="page" href="#">Lihat Menu</a>
+                        <a aria-current="page" href="kasir.php">Home</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a aria-current="page" href="recordhistory.php">Recordhistory</a>
+                        <a aria-current="page" href="recordhistory.php">Riwayat</a>
                     </li>
                 </ul>
             </div>
-           
+        </div>
     </nav>
     <div class="osda">
-        
-        <h1>Menu Kasir</h1>
+        <h1 class = "fw-bold fs-2">Menu Kasir</h1>
         <?php
         $conn = new mysqli($servername, $username, $password, $dbname);
         if ($conn->connect_error) {
@@ -67,15 +66,16 @@
 
         function tampilkanTabel($data, $judul)
         {
-            echo "<h2>$judul</h2>";
             if (count($data) > 0) {
-                echo "<table>
+                echo "<table border = '1' class = 'table table-dark table-hover m-0'>
                         <thead>
-                            <tr>
+                            <tr class = 'text-center fs-4'>
+                                <th colspan = '3' class = ' bg-secondary text-dark'>$judul</th>
+                            </tr>
+                            <tr class = 'text-center'>
                                 <th>Nama Produk</th>
                                 <th>Harga</th>
                                 <th>Stok</th>
-                                
                             </tr>
                         </thead>
                         <tbody>";
@@ -110,7 +110,6 @@
                 minimumFractionDigits: 0
             }).replace("IDR", ).trim();
         }
-
         document.querySelectorAll('.tambah').forEach(button => {
             button.addEventListener('click', function() {
                 const harga = parseInt(this.getAttribute('data-price'));
@@ -125,6 +124,5 @@
         navbar.classList.add('navbar-solid');
         });
     </script>
-   
 </body>
 </html>

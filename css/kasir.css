@@ -1,16 +1,21 @@
+:root{
+    --primary: #b6895b;
+    --bg: #010101;
+}
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212; 
-    color:var(--bg);
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg); 
+    color: #fff;
     height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .osda {
-    margin-top: 40rem; 
+    margin-top: 32rem; 
 }
 
 h1 {
@@ -20,7 +25,8 @@ h1 {
 }
 
 h2 {
-    margin-top: 40px;
+    margin-top: 60rem;
+    margin-right: 10px;
     font-size: 1.5em;
     text-align: center;
 }
@@ -28,26 +34,17 @@ h2 {
 table {
     width: 100%;
     table-layout: fixed; 
-    border-collapse: collapse;
     margin-bottom: 20px;
-    border: 1px solid #333333;
+    background-color: var(--bg);
 }
 
 th, td {
     padding: 10px;
     text-align: center;
-    border: 1px solid #333333;
 }
 
-th {
-    background-color: #333333; 
-    color: #ffffff; 
-    font-weight: bold;
-}
-
-td {
-    background-color: #1e1e1e; 
-    color: #ffffff;
+table, tr, th, td {
+    border: 1px solid #fff;
 }
 
 .tambah {
@@ -108,14 +105,12 @@ td {
     transform: scaleX(0.8);
     transition: 0.2s linear;
 }
+
 .navbar-solid {
     background-color: #000;
     transition: 0.3s ease;
 }
-:root{
-    --primary: #b6895b;
-    --bg: #010101;
-}
+
 .Brand{
     transition: all 400ms ease-in-out;
 }
