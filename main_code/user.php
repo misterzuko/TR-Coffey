@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
+        function redirectOnReload() {
+            if (performance.navigation.type === 1) {
+                window.location.href = "process.php?updateUser";
+            }
+        }
+        window.addEventListener('load', redirectOnReload);
         <?php
             if(isset($_SESSION['berhasil'])){
                 ?>

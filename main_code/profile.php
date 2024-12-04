@@ -109,14 +109,7 @@
                 <?php
                 }
             }
-        } else {
-            ?>
-            <tr>
-                <th>GAAD DATA BROK :VVVVVVVV NYGABALLZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ</th>
-            </tr>
-            <?php
-        }
-            ?>
+        } ?> 
         </table>
         </div>
     </div>
