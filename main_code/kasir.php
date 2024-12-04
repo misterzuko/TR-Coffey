@@ -35,7 +35,7 @@
                     </li>
                 </ul>
             </div>
-            <a href="logout.php">
+            <a href="logout.php" onClick = <?php session_destroy(); ?>>
                 <button class="btn btn-danger">Keluar</button>
             </a>
         </div>
