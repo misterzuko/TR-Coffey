@@ -88,7 +88,7 @@ session_start();
             <div class="container d-flex justify-content-center align-items-center">
                 <div class="konfirmasi">
                     <div class="container">
-                        <h5>Apakah anda yakin ingin mengedit data?</h5>
+                        <h5>Apakah anda yakin ingin mengedit data tersebut?</h5>
                         <div class="submit mt-4 d-flex justify-content-around">
                             <input id="ya" type="submit" value="Ya, Saya yakin">
                             <a class="btn tidak">Tidak</a>
