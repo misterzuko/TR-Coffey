@@ -28,6 +28,7 @@ $result = $conn->query($sql);
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,10 +37,11 @@ $result = $conn->query($sql);
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
-    
+
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
         <div class="container-fluid w-75 mt-3">
             <a class="navbar-brand fw-bold Brand row" href="admins.php">
                 <i class="fa fa-coffee fa-2x col-3" aria-hidden="true"></i>
@@ -62,29 +64,30 @@ $result = $conn->query($sql);
             </a>
         </div>
     </nav>
-<div class="mt-1">
-    <h2 class="text-center mb-4">Riwayat User</h2>
-    <table class="table table-bordered table-hover text-center align-middle">
-        <thead class="table-dark">
-            <tr>
-                <th>ID Pesanan</th>
-                <th>Nama Pemesan</th>
-                <th>Jenis Kopi</th>
-                <th>Penyajian</th>
-                <th>Topping</th>
-                <th>Ukuran Cup</th>
-                <th>Total</th>
-                <th>Metode Pembayaran</th>
-                <th>Status</th>
-                <th>Tanggal Pemesanan</th>
-                <th>Struk</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>
+    <div class="container mt-3">
+        <div class="mt-1">
+            <h2 class="text-center mb-4">Riwayat User</h2>
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID Pesanan</th>
+                        <th>Nama Pemesan</th>
+                        <th>Jenis Kopi</th>
+                        <th>Penyajian</th>
+                        <th>Topping</th>
+                        <th>Ukuran Cup</th>
+                        <th>Total</th>
+                        <th>Metode Pembayaran</th>
+                        <th>Status</th>
+                        <th>Tanggal Pemesanan</th>
+                        <th>Struk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>
                             <td>{$row['id_pesanan']}</td>
                             <td>{$row['nama_pemesan']}</td>
                             <td>{$row['jenis_kopi']}</td>
@@ -99,19 +102,21 @@ $result = $conn->query($sql);
                                 <a href='strukuser.php?id_pesanan={$row['id_pesanan']}' class='btn btn-sm btn-warning'>Lihat Struk</a>
                             </td>
                           </tr>";
-                }
-            } else {
-                echo "<tr><td colspan='11' class='text-center'>Tidak ada data transaksi.</td></tr>";
-            }
-            ?>
-        </tbody>
-    </table>
-</div>
-<script>
+                        }
+                    } else {
+                        echo "<tr><td colspan='11' class='text-center'>Tidak ada data transaksi.</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
-        const navbar = document.querySelector('.navbar');
-        navbar.classList.add('navbar-solid');
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.add('navbar-solid');
         });
     </script>
 </body>
+
 </html>

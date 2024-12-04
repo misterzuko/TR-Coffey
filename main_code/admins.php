@@ -1,13 +1,15 @@
-<?php 
-include 'connect.php'; 
+<?php
+include 'connect.php';
 session_start();
-if(!isset($_SESSION['data-admin'])){
+if (!isset($_SESSION['data-admin'])) {
     header('location: index.php');
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,20 +26,21 @@ if(!isset($_SESSION['data-admin'])){
         }
         window.addEventListener('load', redirectOnReload);
         <?php
-        if(isset($_GET['addberhasil'])){
+        if (isset($_GET['addberhasil'])) {
             ?>
             alert("berhasil menambahkan data!");
             <?php
         }
-        if(isset($_SESSION['terhapus'])){
+        if (isset($_SESSION['terhapus'])) {
             ?>
-            alert("<?php echo $_SESSION['terhapus'];?>")
+            alert("<?php echo $_SESSION['terhapus']; ?>")
             <?php
             unset($_SESSION['terhapus']);
         }
         ?>
     </script>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
         <div class="container-fluid w-75 mt-3">
@@ -62,44 +65,49 @@ if(!isset($_SESSION['data-admin'])){
             </a>
         </div>
     </nav>
+
     <div class="hero">
-        <div class="crud">
-            <table class="table table-striped-columns">
-                <thead>
-                    <tr class="text-center fs-4 fw-bold">
-                        <th colspan="6">Dashboard Admin</th>
-                    </tr>
-                    <tr class="text-center">
-                        <th scope="col">ID Barang</th>
-                        <th scope="col">Nama Barang</th>
-                        <th scope="col">Harga Barang</th>
-                        <th scope="col">Stok Barang</th>
-                        <th scope="col">Link Gambar</th>
-                        <th scope="col">kelola</th>
-                    </tr>
-                </thead>
-                <?php
-                for($i=0;$i<count($_SESSION['data-admin']);$i++){
-                ?>
-                <tbody>
-                    <td><?php echo $_SESSION['data-admin'][$i]['id_barang']?></td>
-                    <td><?php echo $_SESSION['data-admin'][$i]['nama_barang']?></td>
-                    <td><?php echo $_SESSION['data-admin'][$i]['harga_barang']?></td>
-                    <td><?php echo $_SESSION['data-admin'][$i]['stok_barang']?></td>
-                    <td><?php echo $_SESSION['data-admin'][$i]['link_gambar']?></td>
-                    <td class="text-center">
-                        <a href="kelola.php" type="button" class="btn btn-success">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
-                        <a href="process.php?hapus=<?php echo $_SESSION['data-admin'][$i]['id_barang'];?>" type="button" class="btn btn-danger" onClick="return confirm('Apakah Anda yakin untuk menghapus?')">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                </tbody>
-                <?php
-                }
-                ?>
-            </table>
+        <div class="container">
+            <div class="crud">
+                <table>
+                    <thead>
+                        <tr class="text-center fs-4 fw-bold">
+                            <th colspan="6">Dashboard Admin</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th scope="col">ID Barang</th>
+                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Harga Barang</th>
+                            <th scope="col">Stok Barang</th>
+                            <th scope="col">Link Gambar</th>
+                            <th scope="col">Kelola</th>
+                        </tr>
+                    </thead>
+                    <?php
+                    for ($i = 0; $i < count($_SESSION['data-admin']); $i++) {
+                        ?>
+                        <tbody>
+                            <td><?php echo $_SESSION['data-admin'][$i]['id_barang'] ?></td>
+                            <td><?php echo $_SESSION['data-admin'][$i]['nama_barang'] ?></td>
+                            <td><?php echo $_SESSION['data-admin'][$i]['harga_barang'] ?></td>
+                            <td><?php echo $_SESSION['data-admin'][$i]['stok_barang'] ?></td>
+                            <td><?php echo $_SESSION['data-admin'][$i]['link_gambar'] ?></td>
+                            <td class="text-center">
+                                <a href="kelola.php" type="button" class="btn btn-success">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </a>
+                                <a href="process.php?hapus=<?php echo $_SESSION['data-admin'][$i]['id_barang']; ?>"
+                                    type="button" class="btn btn-danger"
+                                    onClick="return confirm('Apakah Anda yakin untuk menghapus?')">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tbody>
+                        <?php
+                    }
+                    ?>
+                </table>
+            </div>
         </div>
         <div>
             <a href="kelola.php?tambah">
@@ -109,9 +117,10 @@ if(!isset($_SESSION['data-admin'])){
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-        const navbar = document.querySelector('.navbar');
-        navbar.classList.add('navbar-solid');
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.add('navbar-solid');
         });
     </script>
 </body>
+
 </html>

@@ -1,8 +1,9 @@
 <?php include 'connect.php';
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     <script>
     </script>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
         <div class="container-fluid w-75 mt-3">
@@ -33,7 +35,7 @@
                     </li>
                 </ul>
             </div>
-            <a href="logout.php">
+            <a href="logout.php" id="keluar">
                 <button class="btn btn-danger">Keluar</button>
             </a>
         </div>
@@ -43,19 +45,22 @@
             <div class="mb-3 row">
                 <label for="nama" class="col-sm-2 col-form-label">Nama Barang</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="nama_barang" id="nama" placeholder="Contoh: Rexcy" required>
+                    <input type="text" class="form-control" name="nama_barang" id="nama" placeholder="Contoh: Rexcy"
+                        required>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="kelas" class="col-sm-2 col-form-label">Harga Barang</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" name="harga_barang" id="harga" placeholder="Contoh: 12000" required>
+                    <input type="number" class="form-control" name="harga_barang" id="harga" placeholder="Contoh: 12000"
+                        required>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="stok" class="col-sm-2 col-form-label">Stok Barang</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" name="stok_barang" id="stok" placeholder="Contoh: 18" min="0" required>
+                    <input type="number" class="form-control" name="stok_barang" id="stok" placeholder="Contoh: 18"
+                        min="0" required>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -63,11 +68,11 @@
                 <div class="col-sm-10">
                     <select class="form-control" name="jenis_barang" id="jenis" required>
                         <option value="Kopi">Kopi</option>
-                        <?php if(isset($_GET['tambah'])==NULL){
+                        <?php if (isset($_GET['tambah']) == NULL) {
                             ?>
-                        <option value="Cup">Cup</option>
-                    <?php
-                    }
+                            <option value="Cup">Cup</option>
+                            <?php
+                        }
                         ?>
                         <option value="Topping">Topping</option>
                     </select>
@@ -79,9 +84,21 @@
                     <input type="file" class="form-control" name="link_gambar" id="gambar">
                 </div>
             </div>
+            <!-- Konfirmasi -->
+            <div class="container d-flex justify-content-center align-items-center">
+                <div class="konfirmasi">
+                    <div class="container">
+                        <h5>Apakah anda yakin ingin menghapus data akun yang telah diseleksi?</h5>
+                        <div class="submit mt-4 d-flex justify-content-around">
+                            <input id="ya" type="submit" value="Ya, Saya yakin">
+                            <a class="btn tidak">Tidak</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="mb-3 row">
                 <div class="col mt-4 text-center">
-                    <button type="submit" name="aksi" value="add" class="btn btn-primary">
+                    <button class="btn btn-primary terapkan">
                         <i class="fa fa-floppy-o" aria-hidden="true"></i>
                         Tambahkan
                     </button>
@@ -108,6 +125,32 @@
             updateGambarInput();
             jenisSelect.addEventListener('change', updateGambarInput);
         });
+        //Fungsi Konfirmasi cuy//
+        const toggleKonfirmasi = document.querySelector('.terapkan');
+        const toggleTidak = document.querySelector('.tidak');
+        const konfirmasiClass = document.querySelector('.konfirmasi');
+        const toggleButtons = document.querySelectorAll('.aksi .btn');
+        const toggleLogOut = document.getElementById('keluar');
+
+        toggleKonfirmasi.addEventListener("click", function () {
+            konfirmasiClass.classList.toggle('active');
+            toggleButtons.forEach(button => {
+                button.classList.add('disabled');
+            });
+            toggleLogOut.classList.add('disabled');
+        });
+
+        toggleTidak.addEventListener("click", function () {
+            konfirmasiClass.classList.remove('active');
+            toggleButtons.forEach(button => {
+                button.classList.remove('disabled');
+            });
+            toggleLogOut.classList.remove('disabled');
+        });
+
+
+
     </script>
 </body>
+
 </html>

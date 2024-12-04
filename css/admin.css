@@ -1,4 +1,4 @@
-:root{
+:root {
     --primary: #b6895b;
     --bg: #010101;
     --fc: #fff;
@@ -11,27 +11,31 @@ body {
     box-sizing: border-box;
 }
 
-.navbar{
+.navbar {
     border-bottom: 1px solid #513c28;
 }
-.nav-item a{
+
+.nav-item a {
     text-decoration: none;
     color: #fff;
     display: inline-block;
     font-size: 1.1rem;
     margin: 0 1rem;
 }
-.nav-item a:hover{
+
+.nav-item a:hover {
     color: var(--primary);
 }
-.nav-item a::after{
+
+.nav-item a::after {
     content: '';
     display: block;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--primary);
     transform: scaleX(0);
 }
-.nav-item a:hover::after{
+
+.nav-item a:hover::after {
     transform: scaleX(0.8);
     transition: 0.2s linear;
 }
@@ -41,21 +45,112 @@ body {
     transition: 0.3s ease;
 }
 
-.Brand{
+.Brand {
     transition: all 400ms ease-in-out;
 }
-.Brand i{
+
+.Brand i {
     color: var(--primary);
 }
-.Brand p{
+
+.Brand p {
     font-size: 1.3rem;
     color: #ffd;
 }
-.Brand p span{
+
+.Brand p span {
     color: var(--primary);
 }
+
 .Brand:hover {
     transition: ease-in-out;
     filter: brightness(1.2);
     transform: scale(1.1);
+}
+
+.hero .crud table {
+    background-color: #36220f39 !important;
+    border: #b6895b 1px solid;
+    color: #b6895b;
+    width: 100%;
+}
+
+table thead {
+    height: 100px;
+}
+
+table tr,
+td,
+th {
+    border: #b6895b 1.2px solid;
+}
+
+table tbody td {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.btn-edit {
+    width: 60px;
+    height: 60px;
+}
+
+.btn-edit img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.konfirmasi {
+    display: none;
+    z-index: 100;
+    position: fixed;
+    width: 400px;
+    height: 172px;
+    background-color: #b6895bfb;
+    border: #181a1b 2px solid;
+    color: #181a1b;
+    border-radius: 10px;
+    transform: translateY(-50%);
+}
+.aksi .btn.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.konfirmasi h5 {
+    font-size: 18px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.konfirmasi .submit input {
+    color: #b6895b;
+    background-color: #181a1b;
+    border-color: #b6895b;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+.konfirmasi .submit a.tidak {
+    font-weight: 500;
+    color: #b6895b;
+    background-color: #181a1b;
+    border-color: #b6895b;
+    border-radius: 4px;
+
+}
+
+#keluar.disabled {
+    pointer-events: none;
+    color: gray;
+    cursor: not-allowed;
+}
+#keluar.disabled button{
+    pointer-events: none;
+    color: rgb(199, 199, 199);
+}
+
+.konfirmasi.active {
+    display: block;
 }
