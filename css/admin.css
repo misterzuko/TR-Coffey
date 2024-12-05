@@ -140,6 +140,11 @@ table tbody td {
     border-radius: 4px;
 
 }
+.sub-form.disabled {
+    pointer-events: none;
+    color: gray;
+    cursor: not-allowed;
+}
 
 #keluar.disabled {
     pointer-events: none;

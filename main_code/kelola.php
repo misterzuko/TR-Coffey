@@ -42,28 +42,28 @@ session_start();
     </nav>
     <div class="container mt-4">
         <form method="POST" action="process.php" enctype="multipart/form-data">
-            <div class="mb-3 row">
+            <div class="mb-3 row sub-form">
                 <label for="nama" class="col-sm-2 col-form-label">Nama Barang</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="nama_barang" id="nama" placeholder="Contoh: Rexcy"
                         required>
                 </div>
             </div>
-            <div class="mb-3 row">
+            <div class="mb-3 row sub-form">
                 <label for="kelas" class="col-sm-2 col-form-label">Harga Barang</label>
                 <div class="col-sm-10">
                     <input type="number" class="form-control" name="harga_barang" id="harga" placeholder="Contoh: 12000"
                         required>
                 </div>
             </div>
-            <div class="mb-3 row">
+            <div class="mb-3 row sub-form">
                 <label for="stok" class="col-sm-2 col-form-label">Stok Barang</label>
                 <div class="col-sm-10">
                     <input type="number" class="form-control" name="stok_barang" id="stok" placeholder="Contoh: 18"
                         min="0" required>
                 </div>
             </div>
-            <div class="mb-3 row">
+            <div class="mb-3 row sub-form">
                 <label for="jenis" class="col-sm-2 col-form-label">Jenis Barang</label>
                 <div class="col-sm-10">
                     <select class="form-control" name="jenis_barang" id="jenis" required>
@@ -78,7 +78,7 @@ session_start();
                     </select>
                 </div>
             </div>
-            <div class="mb-3 row" id="gambar-container">
+            <div class="mb-3 row sub-form" id="gambar-container">
                 <label for="gambar" class="col-sm-2 col-form-label">Upload Gambar</label>
                 <div class="col-sm-10">
                     <input type="file" class="form-control" name="link_gambar" id="gambar">
@@ -131,6 +131,7 @@ session_start();
         const konfirmasiClass = document.querySelector('.konfirmasi');
         const toggleButtons = document.querySelectorAll('.aksi .btn');
         const toggleLogOut = document.getElementById('keluar');
+        const subForm = document.querySelectorAll('.sub-form');
 
         toggleKonfirmasi.addEventListener("click", function () {
             konfirmasiClass.classList.toggle('active');
@@ -138,6 +139,9 @@ session_start();
                 button.classList.add('disabled');
             });
             toggleLogOut.classList.add('disabled');
+            subForm.forEach(sub => {
+                sub.classList.add('disabled');
+            });
         });
 
         toggleTidak.addEventListener("click", function () {
@@ -146,6 +150,9 @@ session_start();
                 button.classList.remove('disabled');
             });
             toggleLogOut.classList.remove('disabled');
+            subForm.forEach(sub => {
+                sub.classList.remove('disabled');
+            });
         });
 
 
