@@ -68,7 +68,7 @@
                     <p id="email" class="w-75 p-3"><?php echo $email; ?></p>
                 </div>
                 <div class="col-12 mb-5 d-flex justify-content-center align-items-center">
-                    <a href="logout.php" class="w-75 ms-5 ps-5" onClick = <?php session_destroy(); ?>>
+                    <a href="logout.php" class="w-75 ms-5 ps-5" >
                         <button type="submit" class="btn-keluar fw-bold py-2 px-4">Keluar</button>
                     </a>
                 </div>

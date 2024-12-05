@@ -1,4 +1,11 @@
-<?php include 'connect.php' ?>
+<?php 
+include 'connect.php'; 
+session_start();
+if(!isset($_SESSION['data-admin'])){
+    header('location: index.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +16,27 @@
     <link href="../css/admin.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        function redirectOnReload() {
+            if (performance.navigation.type === 1) {
+                window.location.href = "process.php?updateAdmins";
+            }
+        }
+        window.addEventListener('load', redirectOnReload);
+        <?php
+        if(isset($_GET['addberhasil'])){
+            ?>
+            alert("berhasil menambahkan data!");
+            <?php
+        }
+        if(isset($_SESSION['terhapus'])){
+            ?>
+            alert("<?php echo $_SESSION['terhapus'];?>")
+            <?php
+            unset($_SESSION['terhapus']);
+        }
+        ?>
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-transparent sticky-top">
@@ -50,25 +78,33 @@
                         <th scope="col">kelola</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <td>x</td>
-                    <td>x</td>
-                    <td>x</td>
-                    <td>x</td>
-                    <td>x</td>
+                <?php
+                for($i=0;$i<count($_SESSION['data-admin']);$i++){
+                ?>
+                <tbody class="text-center">
+                    <td><?php echo $_SESSION['data-admin'][$i]['id_barang']?></td>
+                    <td><?php echo $_SESSION['data-admin'][$i]['nama_barang']?></td>
+                    <td><?php echo $_SESSION['data-admin'][$i]['harga_barang']?></td>
+                    <td><?php echo $_SESSION['data-admin'][$i]['stok_barang']?></td>
+                    <td><?php echo $_SESSION['data-admin'][$i]['link_gambar']?></td>
                     <td class="text-center">
-                        <a href="kelola.php" type="button" class="btn btn-success">
+                        <a href="kelola.php?id=<?php echo $_SESSION['data-admin'][$i]['id_barang']; ?>" type="button" class="btn btn-success">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
-                        <a href="proses.php?hapus=<?php echo $result['nis'];?>" type="button" class="btn btn-danger" onClick="return confirm('Yakin mau hapus data ini cuy?')">
+                        <?php if (substr($_SESSION['data-admin'][$i]['nama_barang'], 0, 3) != 'Cup') { ?>
+                        <a href="process.php?hapus=<?php echo $_SESSION['data-admin'][$i]['id_barang'];?>" type="button" class="btn btn-danger" onClick="return confirm('Apakah Anda yakin untuk menghapus?')">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
+                        <?php } ?>
                     </td>
                 </tbody>
+                <?php
+                }
+                ?>
             </table>
         </div>
         <div class="text-center">
-            <a href="kelola.php">
+            <a href="kelola.php?tambah">
                 <button class="btn btn-primary">Tambah Data</button>
             </a>
         </div>

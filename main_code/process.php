@@ -1,6 +1,23 @@
 <?php
 include 'connect.php';
 session_start();
+function updatedataAdmin(){
+    include 'connect.php';
+    unset($_SESSION['data-admin']);
+    $query = "SELECT MAX(id_barang) AS banyakdata FROM tb_barang;";
+    $sql = mysqli_query($conn,$query);
+    $banyakData = mysqli_fetch_assoc($sql)['banyakdata'];
+    $data=0;
+    for($i=0;$i<=$banyakData;$i++){
+        $query = "SELECT * FROM tb_barang WHERE id_barang='$i'";
+        $sql = mysqli_query($conn,$query);
+        $result = mysqli_fetch_assoc($sql);
+        if($result!=NULL){
+        $_SESSION['data-admin'][$data]=$result;
+        $data++;
+        }
+    }
+}
 function updatedata(){
     $banyakkopi=0;
     $banyaktopping=0;
@@ -59,6 +76,7 @@ function updatedata(){
             $result = mysqli_fetch_assoc($sql);
             if($result!=null){
                 if($result['role'] == 'ADMIN'){
+                    updatedataAdmin();
                     header('location: admins.php');
                 } elseif ($result['role'] == 'KASIR') {
                     header('location: kasir.php');
@@ -147,5 +165,39 @@ function updatedata(){
         } elseif(isset($_GET['updateUser'])){
             updatedata();
             header('location: user.php');
+        } elseif(isset($_GET['updateAdmins'])){
+            updatedata();
+            header('location: admins.php');
+        } elseif(isset($_POST['aksi'])){
+            if($_POST['aksi']=='add'){
+    $nama = $_POST['nama_barang'];
+$harga = $_POST['harga_barang'];
+$stok = $_POST['stok_barang'];
+$jenis = $_POST['jenis_barang'];
+$source = $_FILES['link_gambar'];
+if(isset($_FILES['link_gambar'])){
+    $query = "SELECT MAX(id_barang)+1 AS banyakdata FROM tb_barang;";
+    $sql = mysqli_query($conn,$query);
+    $banyakData = mysqli_fetch_assoc($sql)['banyakdata'];
+    $source=$_FILES['link_gambar']['tmp_name'];
+    $file_extension = pathinfo($_FILES['link_gambar']['name'], PATHINFO_EXTENSION);
+    $destination="../src/".$banyakData.".".$file_extension;
+    if(!move_uploaded_file($source,$destination)){
+        $link="";
+    } else $link=$destination;
+} else $link="";
+    $_nama = $jenis." ".$nama;
+    $query = "INSERT INTO `tb_barang`(`nama_barang`, `harga_barang`, `stok_barang`, `link_gambar`) VALUES ('$_nama','$harga','$stok','$link')";
+    $sql = mysqli_query($conn,$query);
+    updatedataAdmin();
+    header('location: admins.php?addberhasil');
+}
+        } elseif(isset($_GET['hapus'])){
+            $id = $_GET['hapus'];
+            $_SESSION['terhapus'] = "DATA ITEM DENGAN ID = ".$_GET['hapus']." BERHASIL DI HAPUS";
+            $query = "DELETE FROM tb_barang WHERE id_barang='$id'";
+            $sql = mysqli_query($conn,$query);
+            updatedataAdmin();
+            header('location: admins.php');
         }
 ?>

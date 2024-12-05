@@ -59,7 +59,7 @@ $result = $conn->query($sql);
                     </li>
                 </ul>
             </div>
-            <a href="logout.php" onClick = <?php session_destroy(); ?>>
+            <a href="logout.php">
                 <button class="btn btn-danger">Keluar</button>
             </a>
         </div>   
