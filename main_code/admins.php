@@ -93,7 +93,7 @@ if (!isset($_SESSION['data-admin'])) {
                             <td><?php echo $_SESSION['data-admin'][$i]['stok_barang'] ?></td>
                             <td><?php echo $_SESSION['data-admin'][$i]['link_gambar'] ?></td>
                             <td class="text-center">
-                                <a href="kelola.php" type="button" class="btn btn-success">
+                                <a href="kelola.php?edit=<?php echo $_SESSION['data-admin'][$i]['id_barang']; ?>" type="button" class="btn btn-success">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </a>
                                 <a href="process.php?hapus=<?php echo $_SESSION['data-admin'][$i]['id_barang']; ?>"
@@ -108,18 +108,21 @@ if (!isset($_SESSION['data-admin'])) {
                     ?>
                 </table>
             </div>
+            <div class="mt-4 mb-5">
+                <a href="kelola.php?tambah">
+                    <button class="btn btn-primary">Tambah Data</button>
+                </a>
+            </div>
         </div>
-        <div>
-            <a href="kelola.php?tambah">
-                <button class="btn btn-primary">Tambah Data</button>
-            </a>
-        </div>
+
     </div>
     <script>
+
         document.addEventListener("DOMContentLoaded", function () {
             const navbar = document.querySelector('.navbar');
             navbar.classList.add('navbar-solid');
         });
+
     </script>
 </body>
 

@@ -1,5 +1,26 @@
 <?php include 'connect.php';
 session_start();
+$nama_barang = $harga_barang = $stok_barang = $link_gambar = $id_barang = '';
+
+if (isset($_GET['edit'])) {
+    $id_barang = $_GET['edit'];
+
+    $query = $conn->prepare("SELECT * FROM tb_barang WHERE id_barang = ?");
+    $query->bind_param("i", $id_barang);
+    $query->execute();
+    $result = $query->get_result();
+
+    if ($result->num_rows > 0) {
+        $barang = $result->fetch_assoc();
+        $nama_barang = $barang['nama_barang'];
+        $harga_barang = $barang['harga_barang'];
+        $stok_barang = $barang['stok_barang'];
+        $link_gambar = $barang['link_gambar'];
+    } else {
+        echo "Data tidak ditemukan.";
+        exit;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,74 +62,106 @@ session_start();
         </div>
     </nav>
     <div class="container mt-4">
-        <form method="POST" action="process.php" enctype="multipart/form-data">
-            <div class="mb-3 row sub-form">
-                <label for="nama" class="col-sm-2 col-form-label">Nama Barang</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="nama_barang" id="nama" placeholder="Contoh: Rexcy"
-                        required>
+        <?php if (isset($_GET['edit'])) { ?>
+            <form method="POST" action="process.php?edit" enctype="multipart/form-data">
+        <?php } ?>
+        <?php if (isset($_GET['tambah'])) { ?>
+            <form method="POST" action="process.php?tambah" enctype="multipart/form-data">
+        <?php } ?>
+                <div class="mb-3 row sub-form">
+                    <label for="nama" class="col-sm-2 col-form-label">Nama Barang</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nama_barang" id="nama" placeholder="Contoh: Rexcy"
+                            value="<?php if (isset($_GET['edit'])) {
+                                echo $nama_barang;
+                            } ?>" required>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3 row sub-form">
-                <label for="kelas" class="col-sm-2 col-form-label">Harga Barang</label>
-                <div class="col-sm-10">
-                    <input type="number" class="form-control" name="harga_barang" id="harga" placeholder="Contoh: 12000"
-                        required>
+                <div class="mb-3 row sub-form">
+                    <label for="harga" class="col-sm-2 col-form-label">Harga Barang</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="harga_barang" id="harga"
+                            placeholder="Contoh: 12000" value="<?php if (isset($_GET['edit'])) {
+                                echo $harga_barang;
+                            } ?>"
+                            required>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3 row sub-form">
-                <label for="stok" class="col-sm-2 col-form-label">Stok Barang</label>
-                <div class="col-sm-10">
-                    <input type="number" class="form-control" name="stok_barang" id="stok" placeholder="Contoh: 18"
-                        min="0" required>
+                <div class="mb-3 row sub-form">
+                    <label for="stok" class="col-sm-2 col-form-label">Stok Barang</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="stok_barang" id="stok" placeholder="Contoh: 18"
+                            value="<?php if (isset($_GET['edit'])) {
+                                echo $stok_barang;
+                            } ?>" min="0" required>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3 row sub-form">
-                <label for="jenis" class="col-sm-2 col-form-label">Jenis Barang</label>
-                <div class="col-sm-10">
-                    <select class="form-control" name="jenis_barang" id="jenis" required>
-                        <option value="Kopi">Kopi</option>
-                        <?php if (isset($_GET['tambah']) == NULL) {
-                            ?>
+                <div class="mb-3 row sub-form">
+                    <label for="jenis" class="col-sm-2 col-form-label">Jenis Barang</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="jenis_barang" id="jenis" required>
+                            <option value="Kopi">Kopi</option>
                             <option value="Cup">Cup</option>
-                            <?php
-                        }
-                        ?>
-                        <option value="Topping">Topping</option>
-                    </select>
+                            <option value="Topping">Topping
+                            </option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3 row sub-form" id="gambar-container">
-                <label for="gambar" class="col-sm-2 col-form-label">Upload Gambar</label>
-                <div class="col-sm-10">
-                    <input type="file" class="form-control" name="link_gambar" id="gambar">
+                <div class="mb-3 row sub-form" id="gambar-container">
+                    <label for="gambar" class="col-sm-2 col-form-label">Upload Gambar</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" name="link_gambar" id="gambar">
+                        <?php if (!empty($link_gambar)): ?>
+                            <p>Gambar saat ini: <a href="<?php if (isset($_GET['edit'])) {
+                                echo $link_gambar;
+                            } ?>"
+                                    target="_blank">Lihat</a></p>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
-            <!-- Konfirmasi -->
-            <div class="container d-flex justify-content-center align-items-center">
-                <div class="konfirmasi">
-                    <div class="container">
-                        <h5>Apakah anda yakin ingin mengedit data tersebut?</h5>
-                        <div class="submit mt-4 d-flex justify-content-around">
-                            <input id="ya" type="submit" value="Ya, Saya yakin">
-                            <a class="btn tidak">Tidak</a>
+                <input type="hidden" name="id_barang" value="<?php if (isset($_GET['edit'])) {
+                    echo $id_barang;
+                } ?>">
+                <!-- Konfirmasi -->
+                <div class="container d-flex justify-content-center align-items-center">
+                    <div class="konfirmasi">
+                        <div class="container">
+                            <?php if (isset($_GET['edit'])) {
+                                ?>
+                                <h5>Apakah anda yakin ingin mengedit data tersebut?</h5>
+                            <?php } ?>
+                            <?php if (isset($_GET['tambah'])) {
+                                ?>
+                                <h5>Apakah anda yakin ingin menambahkan data tersebut?</h5>
+                            <?php } ?>
+                            <div class="submit mt-4 d-flex justify-content-around">
+                                <input id="ya" type="submit" value="Ya, Saya yakin">
+                                <a class="btn tidak">Tidak</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="mb-3 row aksi">
-                <div class="col mt-4 text-center">
-                    <button class="btn btn-primary terapkan">
-                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                        Tambahkan
-                    </button>
-                    <a href="admins.php" type="button" class="btn btn-danger">
-                        <i class="fa fa-reply" aria-hidden="true"></i>
-                        Batal
-                    </a>
+                <div class="mb-3 row aksi">
+                    <div class="col mt-4 text-center">
+                        <a class="btn btn-primary terapkan">
+                            <?php if (isset($_GET['edit'])) {
+                                ?>
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                Terapkan Perubahan
+                            <?php } ?>
+                            <?php if (isset($_GET['tambah'])) {
+                                ?>
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                Tambahkan
+                            <?php } ?>
+                        </a>
+                        <a href="admins.php" type="button" class="btn btn-danger">
+                            <i class="fa fa-reply" aria-hidden="true"></i>
+                            Batal
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
