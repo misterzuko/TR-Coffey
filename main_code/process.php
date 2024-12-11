@@ -200,4 +200,33 @@ if(isset($_FILES['link_gambar'])){
             updatedataAdmin();
             header('location: admins.php');
         }
+        elseif (isset($_POST['edit'])){
+            $id = $_SESSION['data-admin'][$_POST['edit']]['id_barang'];
+            $nama = $_POST['nama_barang'];
+            $harga = $_POST['harga_barang'];
+            $stok = $_POST['stok_barang'];
+            $jenis = $_POST['jenis_barang'];
+            $source = $_FILES['link_gambar'];
+            if(isset($_FILES['link_gambar'])){
+                $query = "SELECT MAX(id_barang)+1 AS banyakdata FROM tb_barang;";
+                $sql = mysqli_query($conn,$query);
+                $banyakData = mysqli_fetch_assoc($sql)['banyakdata'];
+                $source=$_FILES['link_gambar']['tmp_name'];
+                $file_extension = pathinfo($_FILES['link_gambar']['name'], PATHINFO_EXTENSION);
+                $destination="../src/".$banyakData.".".$file_extension;
+                if(!move_uploaded_file($source,$destination)){
+                    $link="";
+                } else $link=$destination;
+            } else $link="";
+            try{
+                $_nama = $jenis." ".$nama;
+                $query = "UPDATE tb_barang SET nama_barang='$_nama', harga_barang='$harga', stok_barang='$stok', link_gambar='$link' WHERE id=$id";
+                $sql = mysqli_query($conn,$query);
+                updatedataAdmin();
+                echo $id.$nama.$stok.$harga.$jenis.$link;
+                header('location: admins.php?addberhasil');
+            } catch(Exception $e){
+                echo $e;
+            }
+        }
 ?>

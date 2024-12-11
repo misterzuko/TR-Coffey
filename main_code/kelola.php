@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
+        <?php
+        if(isset($_GET['id'])){
+            ?>
+            document.getElementById("nama").value = <?php echo $_SESSION['data-admin'][$_GET['id']]['nama_barang'];?>
+            document.getElementById("harga").value = <?php echo $_SESSION['data-admin'][$_GET['id']]['harga_barang'];?>
+            document.getElementById("stok").value = <?php echo $_SESSION['data-admin'][$_GET['id']]['stok_barang'];?>
+            <?php
+        }
+        ?>
     </script>
 </head>
 <body>
@@ -43,52 +52,57 @@
             <div class="mb-3 row">
                 <label for="nama" class="col-sm-2 col-form-label">Nama Barang</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="nama_barang" id="nama" placeholder="Contoh: ABC" required>
+                    <input type="text" class="form-control" name="nama_barang" id="nama" value="<?php if(isset($_GET['id']))echo substr($_SESSION['data-admin'][$_GET['id']]['nama_barang'],5,);?>" placeholder="Contoh: ABC" required>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="kelas" class="col-sm-2 col-form-label">Harga Barang</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" name="harga_barang" id="harga" placeholder="Contoh: 12000" required>
+                    <input type="number" class="form-control" name="harga_barang" id="harga" value="<?php if(isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['harga_barang'];?>" placeholder="Contoh: 12000" required>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="stok" class="col-sm-2 col-form-label">Stok Barang</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" name="stok_barang" id="stok" placeholder="Contoh: 18" min="0" required>
+                    <input type="number" class="form-control" name="stok_barang" id="stok" value="<?php if(isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['stok_barang'];?>" placeholder="Contoh: 18" min="0" required>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="jenis" class="col-sm-2 col-form-label">Jenis Barang</label>
                 <div class="col-sm-10">
                     <select class="form-control" name="jenis_barang" id="jenis" required>
-                        <option value="Kopi">Kopi</option>
-                        <?php if(isset($_GET['tambah'])==NULL){
+                    <?php if(substr($_SESSION['data-admin'][$_GET['id']]['nama_barang'],0,3)=="Cup"){
                             ?>
-                        <option value="Cup">Cup</option>
+                        <option value="Cup" selected readonly>Cup</option>     
                     <?php
-                    }
+                    } else {
                         ?>
+                        <option value="Kopi">Kopi</option>
                         <option value="Topping">Topping</option>
+                        <?php }
+                        ?>
                     </select>
                 </div>
             </div>
             <div class="mb-3 row" id="gambar-container">
                 <label for="gambar" class="col-sm-2 col-form-label">Upload Gambar</label>
                 <div class="col-sm-10">
-                    <input type="file" class="form-control" name="link_gambar" id="gambar">
+                    <input type="file" class="form-control" name="link_gambar" id="gambar" value="<?php if(isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['stok_barang'];?>">
                 </div>
             </div>
             <div class="mb-3 row">
                 <div class="col mt-4 text-center">
+                    <?php if(!isset($_GET['id'])){?>
                     <button type="submit" name="aksi" value="add" class="btn btn-primary">
                         <i class="fa fa-floppy-o" aria-hidden="true"></i>
                         Tambahkan
                     </button>
-                    <button type="submit" name="aksi" value="edit" class="btn btn-primary">
+                    <?php } else {?>
+                    <button type="submit" name="edit" value="<?php echo $_GET['id'];?>" class="btn btn-primary">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                         Edit
                     </button>
+                    <?php }?>
                     <a href="admins.php" type="button" class="btn btn-danger">
                         <i class="fa fa-reply" aria-hidden="true"></i>
                         Batal

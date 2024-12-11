@@ -92,7 +92,7 @@ if(!isset($_SESSION['data-admin'])){
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
                         <?php if (substr($_SESSION['data-admin'][$i]['nama_barang'], 0, 3) != 'Cup') { ?>
-                        <a href="process.php?hapus=<?php echo $_SESSION['data-admin'][$i]['id_barang'];?>" type="button" class="btn btn-danger" onClick="return confirm('Apakah Anda yakin untuk menghapus?')">
+                        <a href="process.php?hapus=<?php echo $i;?>" type="button" class="btn btn-danger" onClick="return confirm('Apakah Anda yakin untuk menghapus?')">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
                         <?php } ?>
