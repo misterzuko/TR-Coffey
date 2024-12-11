@@ -68,7 +68,7 @@ body {
 
 .gambar-link {
     padding-left: 8rem;
-    pointer-events: none;
+    pointer-events: none; 
     flex-grow: 1;      
 }
 
@@ -77,8 +77,9 @@ body {
     top: 0;
     right: 0;
     height: 100%;
-    opacity: 0;
+    visibility: hidden; 
     cursor: pointer;
+    z-index: 1;
 }
 
 .custom-file-input::after {
@@ -95,4 +96,8 @@ body {
     line-height: 38px;
     text-align: center;
     pointer-events: none;
+}
+
+.custom-file-input:hover .gambar {
+    z-index: 2;
 }
