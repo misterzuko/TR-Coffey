@@ -88,7 +88,7 @@ if(!isset($_SESSION['data-admin'])){
                     <td><?php echo $_SESSION['data-admin'][$i]['stok_barang'];?></td>
                     <td><?php echo $_SESSION['data-admin'][$i]['link_gambar'];?></td>
                     <td class="text-center">
-                        <a href="kelola.php?id=<?php echo $_SESSION['data-admin'][$i]['id_barang']; ?>" type="button" class="btn btn-success">
+                        <a href="kelola.php?id=<?php echo $i; ?>" type="button" class="btn btn-success">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
                         <?php if (substr($_SESSION['data-admin'][$i]['nama_barang'], 0, 3) != 'Cup') { ?>
