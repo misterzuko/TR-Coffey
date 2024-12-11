@@ -18,6 +18,7 @@
             document.getElementById("nama").value = <?php echo $_SESSION['data-admin'][$_GET['id']]['nama_barang'];?>
             document.getElementById("harga").value = <?php echo $_SESSION['data-admin'][$_GET['id']]['harga_barang'];?>
             document.getElementById("stok").value = <?php echo $_SESSION['data-admin'][$_GET['id']]['stok_barang'];?>
+            document.getElementById("gambar").value = <?php echo $_SESSION['data-admin'][$_GET['id']]['link_gambar'];?>
             <?php
         }
         ?>
@@ -52,7 +53,7 @@
             <div class="mb-3 row">
                 <label for="nama" class="col-sm-2 col-form-label">Nama Barang</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="nama_barang" id="nama" value="<?php if(isset($_GET['id']))echo substr($_SESSION['data-admin'][$_GET['id']]['nama_barang'],5);?>" placeholder="Contoh: ABC" required>
+                    <input type="text" class="form-control" name="nama_barang" id="nama" value="<?php if(isset($_GET['id'])){$spacePos = strpos($_SESSION['data-admin'][$_GET['id']]['nama_barang']," "); echo substr($_SESSION['data-admin'][$_GET['id']]['nama_barang'],$spacePos+1);}?>" placeholder="Contoh: ABC" required>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -71,28 +72,45 @@
                 <label for="jenis" class="col-sm-2 col-form-label">Jenis Barang</label>
                 <div class="col-sm-10">
                     <select class="form-control" name="jenis_barang" id="jenis" required>
-                    <?php if(substr($_SESSION['data-admin'][$_GET['id']]['nama_barang'],0,3)=="Cup"){
+                    <?php if(isset($_GET['id'])){if(substr($_SESSION['data-admin'][$_GET['id']]['nama_barang'],0,$spacePos)=="Cup"){
                             ?>
                         <option value="Cup" selected readonly>Cup</option>     
                     <?php
-                    } else {
+                    } elseif(substr($_SESSION['data-admin'][$_GET['id']]['nama_barang'],0,$spacePos)=="Topping") {
                         ?>
-                        <option value="Kopi">Kopi</option>
                         <option value="Topping">Topping</option>
                         <?php }
+                        elseif(substr($_SESSION['data-admin'][$_GET['id']]['nama_barang'],0,$spacePos)=="Kopi"){
                         ?>
+                        <option value="Kopi">Kopi</option>
+                        <?php }} else {?>
+                            <option value="Topping">Topping</option>
+                            <option value="Kopi">Kopi</option>
+                        <?php
+                        }
+                                ?>
                     </select>
                 </div>
             </div>
+            <?php if(isset($_GET['id'])){ if(substr($_SESSION['data-admin'][$_GET['id']]['nama_barang'],0,$spacePos)=="Kopi"){
+            ?>
             <div class="mb-3 row" id="gambar-container">
                 <label for="gambar" class="col-sm-2 col-form-label">Upload Gambar</label>
                 <div class="col-sm-10">
                     <div class="custom-file-input">
-                        <input type="file" class="form-control" name="link_gambar" id="gambar" required>
-                        <input type="text" class="form-control" name="link_gambar_text" id="gambar-link" value="<?php if (isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['link_gambar']; ?>" readonly>
+                        <input type="file" class="form-control gambar" name="link_gambar" id="gambar" required>
+                        <input type="text" class="form-control gambar-link" name="link_gambar_text" id="gambar-link" value="<?php if (isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['link_gambar']; ?>" readonly>
                     </div>
                 </div>
             </div>
+            <?php }} else {?>
+            <div class="mb-3 row" id="gambar-container">
+                <label for="gambar" class="col-sm-2 col-form-label">Upload Gambar</label>
+            <div class="col-sm-10">
+                <input type="file" class="form-control" name="link_gambar" id="gambar" required>
+            </div>
+            </div>
+            <?php }?>
             <div class="mb-3 row">
                 <div class="col mt-4 text-center">
                     <?php if(!isset($_GET['id'])){?>

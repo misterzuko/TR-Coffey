@@ -66,13 +66,13 @@ body {
     align-items: center;
 }
 
-#gambar-link {
+.gambar-link {
     padding-left: 8rem;
     pointer-events: none;
     flex-grow: 1;      
 }
 
-#gambar {
+.gambar {
     position: absolute;
     top: 0;
     right: 0;
