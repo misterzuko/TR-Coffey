@@ -58,7 +58,7 @@
             <div class="mb-3 row">
                 <label for="kelas" class="col-sm-2 col-form-label">Harga Barang</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" name="harga_barang" id="harga" value="<?php if(isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['harga_barang'];?>" placeholder="Contoh: 12000" required>
+                    <input type="number" class="form-control" name="harga_barang" id="harga" value="<?php if(isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['harga_barang'];?>" placeholder="Contoh: 12000" min="0" required>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -87,7 +87,7 @@
             <div class="mb-3 row" id="gambar-container">
                 <label for="gambar" class="col-sm-2 col-form-label">Upload Gambar</label>
                 <div class="col-sm-10">
-                    <input type="file" class="form-control" name="link_gambar" id="gambar" value="<?php if(isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['stok_barang'];?>">
+                    <input type="file" class="form-control" name="link_gambar" id="gambar" value="<?php if(isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['stok_barang'];?>" required>
                 </div>
             </div>
             <div class="mb-3 row">

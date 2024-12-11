@@ -4,6 +4,8 @@
     if(!isset($_SESSION['credential'])){
         header('location: index.php');
     }
+    unset($_SESSION['saved-menu']);
+    unset($_SESSION['kopi-pilihan']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
