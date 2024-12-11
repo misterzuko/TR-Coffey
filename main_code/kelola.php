@@ -87,7 +87,10 @@
             <div class="mb-3 row" id="gambar-container">
                 <label for="gambar" class="col-sm-2 col-form-label">Upload Gambar</label>
                 <div class="col-sm-10">
-                    <input type="file" class="form-control" name="link_gambar" id="gambar" value="<?php if(isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['stok_barang'];?>">
+                    <div class="custom-file-input">
+                        <input type="file" class="form-control" name="link_gambar" id="gambar" required>
+                        <input type="text" class="form-control" name="link_gambar_text" id="gambar-link" value="<?php if (isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['link_gambar']; ?>" readonly>
+                    </div>
                 </div>
             </div>
             <div class="mb-3 row">

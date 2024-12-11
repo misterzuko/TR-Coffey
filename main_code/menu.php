@@ -4,18 +4,16 @@
     $username = $_SESSION['credential']['username'];
     for($i=1;isset($_SESSION['data-kopi'][$i]['id_barang']);$i++){
         if (isset($_POST[$i])){
-            $_SESSION['kopi-pilihan'];
+            if($_POST[$i]=="Pesan"){
+            $_SESSION['kopi-pilihan']=$i;
+            }
             header('location: process.php?updateMenu');
         }
     } 
     if (!isset($_SESSION['kopi-pilihan'])){
         header('location: user.php');
     }
-    $kopi = $_SESSION['kopi-pilihan'];
-    $query = "SELECT * FROM tb_barang WHERE id_barang='$kopi'";
-    $sql = mysqli_query($conn,$query);
-    $result = mysqli_fetch_assoc($sql);
-    $_SESSION['saved-menu']=$result;
+    $kopi = $_SESSION['data-kopi'][$_SESSION['kopi-pilihan']];
     if(!isset($_SESSION['credential'])){
         header('location: index.php');
     }
@@ -120,11 +118,11 @@
     <div class="d-flex justify-content-center align-items-center menu-body mt-1">
         <form class="row g-3 needs-validation" method="POST" action="process.php" novalidate>
             <div class="col-md-4 d-flex flex-column align-items-center justify-content-center card-menu">
-                <img src="../src/<?php echo $kopi;?>.png" alt="Kopi-4" class="img-fluid img-menu">
+                <img src="<?php echo $kopi['link_gambar'];?>" alt="Kopi-4" class="img-fluid img-menu">
             </div>
             <div class="col-md-8 ms-1 row g-3">
-                <h5 class="col-md-12 mt-3 fs-5 fw-medium"><?php echo $result['kopi-pilihan'];?></h5>
-                <p class="col-md-12 fw-bold fs-2 harga">Rp <text id="harga-kopi"><?php echo $result['harga_barang'];?></text></p>
+                <h5 class="col-md-12 mt-3 fs-5 fw-medium"><?php echo $kopi['nama_barang'];?></h5>
+                <p class="col-md-12 fw-bold fs-2 harga">Rp <text id="harga-kopi"><?php echo  $kopi['harga_barang'];?></text></p>
                 <div class="col-md-12 row g-3 komponen">
                     <div class="col-md-5 row g-3 d-flex align-items-center justify-content-center">
                         <div class="col-md-12 form-check fw-bold text-center">

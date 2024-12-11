@@ -59,3 +59,40 @@ body {
     filter: brightness(1.2);
     transform: scale(1.1);
 }
+
+.custom-file-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#gambar-link {
+    padding-left: 8rem;
+    pointer-events: none;
+    flex-grow: 1;      
+}
+
+#gambar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-file-input::after {
+    content: "Choose File";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ced4da;
+    padding: 0 15px;
+    line-height: 38px;
+    text-align: center;
+    pointer-events: none;
+}
