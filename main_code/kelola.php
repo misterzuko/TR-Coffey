@@ -52,13 +52,13 @@
             <div class="mb-3 row">
                 <label for="nama" class="col-sm-2 col-form-label">Nama Barang</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="nama_barang" id="nama" value="<?php if(isset($_GET['id']))echo substr($_SESSION['data-admin'][$_GET['id']]['nama_barang'],5,);?>" placeholder="Contoh: ABC" required>
+                    <input type="text" class="form-control" name="nama_barang" id="nama" value="<?php if(isset($_GET['id']))echo substr($_SESSION['data-admin'][$_GET['id']]['nama_barang'],5);?>" placeholder="Contoh: ABC" required>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="kelas" class="col-sm-2 col-form-label">Harga Barang</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" name="harga_barang" id="harga" value="<?php if(isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['harga_barang'];?>" placeholder="Contoh: 12000" required>
+                    <input type="number" class="form-control" name="harga_barang" id="harga" value="<?php if(isset($_GET['id'])) echo $_SESSION['data-admin'][$_GET['id']]['harga_barang'];?>" placeholder="Contoh: 12000" min="0" required>
                 </div>
             </div>
             <div class="mb-3 row">

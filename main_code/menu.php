@@ -4,7 +4,7 @@
     $username = $_SESSION['credential']['username'];
     for($i=1;isset($_SESSION['data-kopi'][$i]['id_barang']);$i++){
         if (isset($_POST[$i])){
-            $_SESSION['kopi-pilihan']=$i;
+            $_SESSION['kopi-pilihan'];
             header('location: process.php?updateMenu');
         }
     } 
@@ -123,7 +123,7 @@
                 <img src="../src/<?php echo $kopi;?>.png" alt="Kopi-4" class="img-fluid img-menu">
             </div>
             <div class="col-md-8 ms-1 row g-3">
-                <h5 class="col-md-12 mt-3 fs-5 fw-medium"><?php echo $result['nama_barang'];?></h5>
+                <h5 class="col-md-12 mt-3 fs-5 fw-medium"><?php echo $result['kopi-pilihan'];?></h5>
                 <p class="col-md-12 fw-bold fs-2 harga">Rp <text id="harga-kopi"><?php echo $result['harga_barang'];?></text></p>
                 <div class="col-md-12 row g-3 komponen">
                     <div class="col-md-5 row g-3 d-flex align-items-center justify-content-center">
