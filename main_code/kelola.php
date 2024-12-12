@@ -147,6 +147,16 @@
             updateGambarInput();
             jenisSelect.addEventListener('change', updateGambarInput);
         });
+        //ini yang biar berubah link di input textnya, tapi masih belum nyimpen ke db
+        document.addEventListener("DOMContentLoaded", function () {
+            const gambarInput = document.getElementById('gambar');
+            const gambarLinkInput = document.getElementById('gambar-link');
+
+            gambarInput.addEventListener('change', function () {
+                const fileName = gambarInput.files.length > 0 ? gambarInput.files[0].name : "";
+                gambarLinkInput.value = fileName;
+            });
+        });
     </script>
 </body>
 </html>

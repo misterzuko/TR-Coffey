@@ -77,7 +77,7 @@ body {
     top: 0;
     right: 0;
     height: 100%;
-    visibility: hidden; 
+    opacity: 0; 
     cursor: pointer;
     z-index: 1;
 }
@@ -96,6 +96,7 @@ body {
     line-height: 38px;
     text-align: center;
     pointer-events: none;
+    -webkit-pointer-events: none;
 }
 
 .custom-file-input:hover .gambar {

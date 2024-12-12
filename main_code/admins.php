@@ -45,7 +45,7 @@ if(!isset($_SESSION['data-admin'])){
                 <i class="fa fa-coffee fa-2x col-3" aria-hidden="true"></i>
                 <p class="col-9 pt-2"><span>kopi</span>inaja</p>
             </a>
-            <div class="collapse navbar-collapse ms-5 ps-3 ham-nav" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse ms-5 ps-3 ham-nav fw-bold" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a aria-current="page" href="admins.php">Home</a>
